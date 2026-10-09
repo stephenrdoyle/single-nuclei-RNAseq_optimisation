@@ -1,0 +1,11 @@
+"file","control","n_events","n_above_gate","pct_above_gate"
+"hcontortus-female-stained_Stained -HCONF Run 1 20231027131706.fcs",FALSE,50000,6525,13.05
+"hcontortus-female-unstained_Unstained-HCONF Run 1 20231027131240.fcs",TRUE,10000,1,0.01
+"hcontortus-L3-stained_Stained-L3 Run 1 20231027154916.fcs",FALSE,50000,19074,38.148
+"hcontortus-L3-unstained_Unstained-L3 Run 1 20231027154556.fcs",TRUE,10000,233,2.33
+"hcontortus-male-stained_Stained-HCONM Run 1 20231027152923.fcs",FALSE,50000,14032,28.064
+"hcontortus-male-unstained_Unstained-HCONM Run 1 20231027152611.fcs",TRUE,10000,2,0.02
+"tmuris-female-stained_TMURF v2 Run 1 20231101162939.fcs",FALSE,50000,4529,9.058
+"tmuris-female-unstained_Unstained TMURF Run 1 20231101160826.fcs",TRUE,10000,66,0.66
+"tmuris-male-stained_Stained-TMURM Run 1 20231101151804.fcs",FALSE,50000,21517,43.034
+"tmuris-male-unstained_Unstained-TMURM Run 1 20231101151438.fcs",TRUE,10000,2,0.02
