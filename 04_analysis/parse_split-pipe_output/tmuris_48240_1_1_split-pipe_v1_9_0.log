@@ -1,0 +1,1429 @@
+################################################################################
+# Program                   split-pipe v1.9.0
+# Run date                  2026-10-10 17:57:54.600546+0
+# Run on                    b11-hm-02 (x86_64 Linux) by sd21
+# System                    4.32Tb (4,316,031,746,048) RAM and 256 CPUs
+# PID                       3014292
+################################################################################
+#
+#                ------ >>> Command line <<< -----------------
+#
+/software/conda/users/sd21/spipe_1.9.0/bin/split-pipe \
+--mode all \
+--chemistry v2 \
+--kit WT_mini \
+--nthreads 30 \
+--parfile parfile.txt \
+--fq1 /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/02_raw-data/results/raw_fastqs/48240_1#1_raw_1.fastq.gz \
+--fq2 /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/02_raw-data/results/raw_fastqs/48240_1#1_raw_2.fastq.gz \
+--output_dir /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1 \
+--genome_dir /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/01_references/tmuris \
+--sample tmuris_adult_female A5,A6 \
+--sample tmuris_adult_male A7,A8,A9
+#
+#                ------ >>> Initialization messages <<< ------
+#
+# Parsing parameters from parfile.txt
+#2 Set parameter post_min_map_frac = 0.01
+# Current python version '3.12.8' >= min version v3.12.8
+# Set threads to 30 (ncpu=256, initial nthreads=30.0) (init threads)
+# Set bc_amp_seq for chemistry 2 (set chem defaults)
+# Set kit to WT_mini, given (init kit)
+# Set 2 samples, 
+# Set run_name 'tmuris-48240-1-1' (init run_name)
+# Use_case set to 'normal' Normal WT analysis (init use_case)
+# Setting up run-time env; Use_case normal, Mode all, Kit WT_mini Chem 2
+# Checking run env (conda); timeout 30
+# Checking called executables; timeout 30
+# Version info: 2.7.11b /software/conda/users/sd21/spipe_1.9.0/bin/STAR
+# Version info: samtools 1.24 /software/conda/users/sd21/spipe_1.9.0/bin/samtools
+# Version info: gzip 1.10 /usr/bin/gzip
+# Version info: bgzip (htslib) 1.24 /software/conda/users/sd21/spipe_1.9.0/bin/bgzip
+# Version info: pigz 2.8 /software/conda/users/sd21/spipe_1.9.0/bin/pigz
+# Version info: FastQC v0.11.8 /data/pam/installs/etc/fastqc/0.11.8-c2/wrappers/fastqc
+# Version info: UnZip 6.00 of 20 April 2009, by Debian. Original by Info-ZIP. /usr/bin/unzip
+# Set pre_head_name_num_split to |/| (init fastqs)
+# Estimating read count from 1 fq pairs (init fastqs)
+# Total estimated reads 140,262,288 (fq1 141,741,968 and fq2 138,782,608)
+# Fastq read estimate difference is good: 0.021
+# Fastq slice From 5,000,000 to 15,000,000 should fit with fastq (guess 140,262,288)
+# Scoring R2 sample for chemistry v2
+# Sampling 10,000,000 R2 reads (from 5,000,000 to 15,000,000)
+#2 Score sample 1,000,000; Kept 1000000 last reads
+# Chemistry v2 score is good: [0.7461, 0.7622, 0.8748, 0.8916]
+# Scoring fastq data against 3 kits, chemistry v2
+#2 Score sample 1,000,000; Kept 1000000 last reads
+#   WT_mini        = 0.749    (n24_v4)
+#   WT             = 0.248    (n99_v5)
+#   WT_mega        = 0.131    (n198_v5)
+# Best scoring kit = WT_mini, 0.749
+# Given and guessed kit match: WT_mini
+# Set barcodes for kit WT_mini chemistry 2 (set kit defaults)
+# Set sample_bc_rounds to 1 (set kit defaults)
+# Set dge_cell_max for kit WT_mini chemistry 2 (set kit defaults)
+# Set comb_max_sublibs for kit WT_mini (set kit defaults)
+# Filtering barcodes for Default case ['R', 'T']
+# Raw barcode count 24 filtered to 24
+# Genome /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/01_references/tmuris version '1.9.0' >= min 'v1.5.0'
+# Setting up genome files
+# Copy /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/01_references/tmuris/all_genes.csv to /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/process/all_genes.csv
+# Setting up samples
+# Added 'all-sample' sample; ['all-sample', 'tmuris_adult_female,tmuris_adult_male']
+# WARNING: 'all-sample' sample covers < all wells; (1, 12): 5 of 12 wells
+# Mode 'all'; Not checking any sample status files
+# Set up 3 samples
+# Run process definitions set from current settings
+# Opening log /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/split-pipe_v1_9_0.log 
+#
+#                ------ >>> Parameter settings <<< -----------
+#
+# use_case                  normal
+# mode                      all
+# chemistry                 v2
+# kit                       WT_mini	Kit WT_mini; Chemistry v2; Samples  12; Plate (1, 12); Barcodes n24_v4, v1, v1
+# kit_source                given
+# parfile                   parfile.txt
+# logfile                   /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/split-pipe_v1_9_0.log
+# run_name                  tmuris-48240-1-1
+# max_run_name_chars        0
+# input_dir                 <Not set>
+# output_dir                /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/
+# parent_dir                <Not set>
+# fq1                       Item_1_of_1	/nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/02_raw-data/results/raw_fastqs/48240_1#1_raw_1.fastq.gz
+# fq2                       Item_1_of_1	/nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/02_raw-data/results/raw_fastqs/48240_1#1_raw_2.fastq.gz
+# sublib_list               <Not set>
+# sublib_pref               <Not set>
+# sublib_suff               <Not set>
+# sublibraries              <Not set>
+# samp_list                 <Not set>
+# samp_sltab                <Not set>
+# sample                    Item_1_of_3	['tmuris_adult_female', 'A5-A6 (2)']
+# sample                    Item_2_of_3	['tmuris_adult_male', 'A7-A9 (3)']
+# sample                    Item_3_of_3	['all-sample', 'A5-A9 (5)', ['tmuris_adult_female', 'tmuris_adult_male']]
+# genome_dir                /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/01_references/tmuris/
+# genome_name               <Not set>
+# genes                     <Not set>
+# fasta                     <Not set>
+# gfasta                    <Not set>
+# targeted_list             <Not set>
+# genome_min_version        v1.5.0
+# parent_min_version        current
+# python_min_version        v3.12.8
+# nthreads                  30
+# max_threads               32
+# rseed                     42
+# reuse                     False
+# make_allwell              False
+# make_allsample            True
+# merge_samp_list_names     False
+# merge_sltab_list_names    True
+# sample_well_overlap       False
+# keep_going                True
+# keep_temps                False
+# no_compress               False
+# gzip_compresslevel        4
+# log_memory_use            True
+# one_step                  False
+# until_step                <Not set>
+# start_timeout             30
+# agg_sum_transpose         False
+# bc_save_data_clean        True
+# bc_use_case_filter        True
+# bc_use_case_immune_one    True
+# bc_amp_seq                NNNNNNNNNN33333333GTGGCCGATGTTTCGCATCGGCGTACGACT22222222ATCCACGTGCTTGAGACTGTGG11111111
+# bc_round_set              Item_1_of_3	['bc1', 'n24_v4', ' 24 barcodes,  12 wells; rows A-A, cols 1-12 (Original count 24)']
+# bc_round_set              Item_2_of_3	['bc2', 'v1', ' 96 barcodes,  96 wells; rows A-H, cols 1-12']
+# bc_round_set              Item_3_of_3	['bc3', 'v1', ' 96 barcodes,  96 wells; rows A-H, cols 1-12']
+# bc_edit_dist              2
+# sample_bc_rounds          1
+# kit_score_warn            0.7
+# kit_score_min             0.1
+# kit_score_remain_frac     0.2
+# kit_score_agree           False
+# kit_score_skip            False
+# chem_score_warn           0.5
+# chem_score_min            0.2
+# chem_score_max_len        10
+# chem_score_skip           False
+# fq_size_dif_warn          0.12
+# fq_size_dif_max           0.2
+# fq_size_dif_check         True
+# fq_size_guess_min         100000
+# fastq_samp_slice          [5000000, 15000000]
+# fastq_min_samp_slice      [100000, 500000]
+# fastq_slice_guess_fac     0.75
+# fastq_samp_score_max      1000000
+# mkref_id_for_no_name      True
+# mkref_na_for_no_biotype   True
+# mkref_clean_gene_name     True
+# mkref_gff3_gene_features  gene,pseudogene,ncRNA_gene
+# mkref_gff3_exon_parents   mRNA,transcript
+# mkref_chr_geno_prefix     True
+# mkref_max_gtf_not_fas     0
+# mkref_geno_no_exon        True
+# mkref_gtf_dict_stepsize   10000
+# mkref_star_args           --genomeSAindexNbases,14,--genomeSAsparseD,2,--limitGenomeGenerateRAM,24000000000
+# mkref_star_splicing       True
+# mkref_validate            False
+# bcr_analysis              False
+# tcr_analysis              False
+# irep_analysis             False
+# immune_genome             <Not set>
+# immune_use_imgt_db        False
+# immune_kmer               21
+# immune_read_thresh        2
+# immune_max_reads_per_cell 100000
+# immune_bcr_trim           0
+# immune_tcr_trim           30
+# immune_no_filter_run      0
+# immune_filter_only_run    0
+# crsp_analysis             False
+# crsp_guides               <Not set>
+# crsp_use_star             False
+# crsp_guide_offset         0
+# crsp_pref_samp_len        10
+# crsp_match_hamming_dist   1
+# crsp_num_multiproc        8
+# ffpe_analysis             False
+# ffpe_allow_chemistry      v4,v3
+# inqc_fastqc_run           False
+# inqc_fastqc_show_warn     False
+# inqc_min_reads            100000
+# inqc_min_good_r1len_frac  0.5
+# inqc_min_good_r2len_frac  0.9
+# inqc_min_perf_frac        0.3
+# inqc_warn_perf_frac       0.5
+# pre_min_r1_len            45
+# pre_check_name_match      True
+# pre_head_name_num_regex   <Not set>
+# pre_head_name_num_split   /
+# pre_name_mismatch_stop    1
+# pre_head_seq_index_regex  .+:(\w+)$
+# pre_head_keep_original    True
+# pre_perfect_bc_cell_frac  0.92
+# pre_perfect_bc_cell_min   5
+# pre_tso_seq               AACGCAGAGTGAATGGG
+# pre_tso_read_limit        15
+# pre_num_multiproc         8
+# pre_multiproc_timeout     108000
+# pre_keep_no_bc_fq         False
+# pre_keep_bc_fq            False
+# pre_filtered_bc           False
+# align_min_start_reads     50000
+# align_star_keep_no_map    False
+# align_star_args           --outFilterMultimapNmax,3
+# align_star_linker_clip3p  True
+# post_warn_map_frac        0.33
+# post_min_map_frac         0.01
+# post_samtools_extra_args  <Not set>
+# mol_min_mapq_score        255
+# mol_samtools_extra_args   <Not set>
+# mol_awuf_read_thresh      1
+# mol_awuf_tscp_thresh      3
+# given_cell_list           <Not set>
+# dge_min_start_tscp        10000
+# dge_copy_dge_genes_file   True
+# dge_save_express_gene_file True
+# dge_compress_dge_files    False
+# dge_keep_orphan_unfilt    False
+# dge_species_purity_thresh 0.9
+# dge_species2_purity_thresh 0.9
+# dge_tscp_cut_given        <Not set>
+# dge_tscp_cut_min          30
+# dge_tscp_cut_max          <Not set>
+# dge_tscp_cut_scale_fac    1.0
+# dge_cell_est              <Not set>
+# dge_cell_given            <Not set>
+# dge_cell_gxfold           3
+# dge_cell_min              10
+# dge_cell_auc_min          0.5
+# dge_cell_max              24000
+# dge_cell_scale_by_frac    True
+# dge_cell_hard_min         5
+# dge_gene_cell_min         3
+# dge_tscp_cut_umin         10
+# dge_gene_cell_umin        1
+# dge_tscp_cut_targeted_min 15
+# dge_tscp_cut_targeted_umin 5
+# dge_gene_cell_targeted_min 2
+# dge_tscp_cut_ffpe_min     200
+# dge_tscp_cut_ffpe_scale_fac 1
+# dge_tscp_read_min         1
+# dge_gene_tscp_min         1
+# dge_tscp_read_crsp_min    1
+# dge_gene_tscp_crsp_min    1
+# dge_gene_tscp_crsp_umin   1
+# dge_tscp_read_crsp_umin   1
+# subsamp_num_samp          10
+# subsamp_step_jump         1.2
+# comb_new_tscp             False
+# comb_unfilt_dge           True
+# comb_max_sublibs          0
+# analysis_run              True
+# ana_do_simple_samps       True
+# ana_scanpy_verbosity      <Not set>
+# ana_save_anndata          False
+# ana_scale_max_value       10
+# ana_scale_zero_center     True
+# ana_pca_min_hvar          100
+# ana_pca_dim_max           50
+# ana_pca_dim_min           10
+# ana_pca_dim_targeted_max  10
+# ana_pca_irlbpy            True
+# ana_cluster_cell_min      30
+# ana_cluster_cell_max      100000
+# ana_cluster_cell_subsamp  True
+# ana_cluster_1base         True
+# ana_umap_n_neighbors      50
+# ana_umap_min_dist         0.5
+# ana_cluster_alg           leiden
+# ana_cluster_2nd_alg       louvain
+# ana_ctab_top_n            20
+# ana_ctab_sco_min_den      0.01
+# ana_gene_cell_min         3
+# rep_do_simple_samps       True
+# rep_save_figs             True
+# rep_fig_format            png
+# rep_plate_min_zero        True
+# rep_umap_subsamp          15000
+# rep_umap_ss_clus_min      10
+# rep_umap_norm_fac         10000.0
+# rep_umap_crsp_zero_nc     True
+# rep_gene_def_url          https://www.ncbi.nlm.nih.gov/gene/?term={gene_id}
+# rep_gene_url              <Not set>
+# rep_alt_sty_fmt           False
+# clean_per_step            False
+# clean_make_summaries_zip  True
+# map_targ_genome_dir_path  map_targs
+# map_targ                  <Not set>
+# map_targ_kmer_len         30
+# map_targ_kmer_step        1
+# map_targ_kmer_search_max  41
+# map_targ_kmer_search_step 10
+#
+#                ------ >>> Run details <<< ------------------
+#
+# Run_plan step_1_of_10     InQC
+# Run_plan step_2_of_10     PreProcess
+# Run_plan step_3_of_10     Align
+# Run_plan step_4_of_10     PostProcess
+# Run_plan step_5_of_10     Molinfo
+# Run_plan step_6_of_10     DGE
+# Run_plan step_7_of_10     SubSample
+# Run_plan step_8_of_10     Analysis
+# Run_plan step_9_of_10     Report
+# Run_plan step_10_of_10    Clean
+#
+# Genome_specs mkref version split-pipe v1.9.0
+# Genome_specs mkref date   2026-10-09
+# Genome_specs genome_dir   /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/01_references/tmuris
+# Genome_specs number_genes tmuris  15755
+# Genome_specs in_fasta     tmuris  /lustre/scratch127/pam/teams/team333/sd21/single-nuclei-rnaseq/protocol_optimisation/01_references/trichuris_muris.PRJEB126.WBPS19.genomic.fa.gz
+# Genome_specs in_gtf       tmuris  /lustre/scratch127/pam/teams/team333/sd21/single-nuclei-rnaseq/protocol_optimisation/01_references/trichuris_muris.PRJEB126.WBPS19.annotations.gtf
+#
+# Kit_score Processing:     Score kit barcodes
+# Kit_score Given kit:      WT_mini
+# Kit_score Total screened: 3
+# Kit_score Score WT_mini (n24_v4)         = 0.749    <---- using
+# Kit_score Score WT (n99_v5)              = 0.248
+# Kit_score Score WT_mega (n198_v5)        = 0.131
+#
+############################  Plate sample layout  ############################
+# Plate_samples           1  2  3  4  5  6  7  8  9  10  11  12
+# Plate_samples    Wells                                       
+# Plate_samples    A      0  0  0  0  1  1  2  2  2   0   0   0
+#
+################################################################################
+
+
+# Starting memory profile tracing
+# Memory log /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/process/mem_profile.txt
+#2 Call: /software/conda/users/sd21/spipe_1.9.0/lib/python3.12/site-packages/splitpipe/scripts/mem_loop.py --outfile /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/process/mem_profile.txt --append --number 302400 --seconds 2 --quiet --hide_self_sh --show_pio --show_cpu_detail --pid 3014292 --prefix 'Tstep' 
+# Time	Starting split-pipe v1.9.0	2026-10-10 17:57:54.661808+0
+# Saved barcode data /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/process/barcode_data.csv
+#P >> Running InQC
+#R MemStatus: InQC  23.5Gb proc, 10.3Gb rss, 13.3Gb vms, 4.0% usd, 4.14Tb avail
+#R DskStatus: InQC  '/nfs/' 5.29Pb total, 2.71Pb (51.23%) used, 2.31Pb (43.72%) free
+# Input fastq R1: /, 4.1Kb, (4096), 06/09/2025
+# Input fastq R2: 
+# Checking fastq read lengths
+# Sampling 10,000,000 R1 reads (from 5,000,000 to 15,000,000)
+#2 Score sample 1,000,000; Kept 1000000 last reads
+#2 R1 fastq read length good fraction: 1.0
+#2 Score sample 1,000,000; Kept 1000000 last reads
+#2 R2 fastq read length good fraction: 1.0
+# Checking perfect barcode fractions
+# Perfect barcode fractions: [0.5859, 0.6713, 0.7874]
+# Skipping fastQC input checks; Parameter not set
+#R MemStatus: InQC  31.6Gb proc, 14.3Gb rss, 17.3Gb vms, 4.3% usd, 4.13Tb avail
+#R DskStatus: InQC  '/nfs/' 5.29Pb total, 2.71Pb (51.23%) used, 2.31Pb (43.72%) free
+#P << Running InQC; Status True; Duration 0:00:41.78
+#P 
+#P >> Running Preprocess
+#R MemStatus: Preprocess  31.6Gb proc, 14.3Gb rss, 17.3Gb vms, 4.3% usd, 4.13Tb avail
+#R DskStatus: Preprocess  '/nfs/' 5.29Pb total, 2.71Pb (51.23%) used, 2.31Pb (43.72%) free
+# Preprocess 1 fastq input pairs
+# Getting read stats and counts for BC correction
+# Getting fastq samples; 10000000 reads (From 5,000,000 to 15,000,000)
+#2 Collecting R1 Q30 stats
+#2 Collecting R2 Q30 stats
+#2 Collecting perfect bc counts for correction
+#2 Freeing fastq sample slice
+# Initializing 1 fastq pairs for BC correction
+#2 Fastq pair 1, estimated read count 140,262,288
+# Run plan: Run plan: Round-1 (fastq-1, 8 pt)
+# Multiprocessing 8 parts, last-fraction 0.7
+# Block percentages [14.8, 14.1, 13.5, 12.9, 12.1, 11.5, 10.9, 10.2]
+# ======== Round-1 (fastq-1, 8 pt) ========
+# Indexing 1 fastq file pairs
+#2 Indexed fastq pair 1 done; Collected 1538 per file
+#2 Set fastq pair 1 record indexes for 8 chunks
+# Fastq pair 0 will run in 8 parts
+# Round 1, collecting results for 8 processes
+# Done Round-1 (fastq-1, 8 pt)
+# Wrote 19 x 2 table to /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/process/pre_align_stats.csv
+#2 PF_PRE_ALIGN_STAT Row_1_of_21                           value
+#2 PF_PRE_ALIGN_STAT Row_2_of_21  statistic                     
+#2 PF_PRE_ALIGN_STAT Row_3_of_21  bc1_Q30                  0.796
+#2 PF_PRE_ALIGN_STAT Row_4_of_21  bc2_Q30                  0.821
+#2 PF_PRE_ALIGN_STAT Row_5_of_21  bc3_Q30                  0.829
+#2 PF_PRE_ALIGN_STAT Row_6_of_21  bc1_perfrac              0.586
+#2 PF_PRE_ALIGN_STAT Row_7_of_21  bc2_perfrac              0.671
+#2 PF_PRE_ALIGN_STAT Row_8_of_21  bc3_perfrac              0.787
+#2 PF_PRE_ALIGN_STAT Row_9_of_21  bc123_perfrac            0.533
+#2 PF_PRE_ALIGN_STAT Row_10_of_21  bc_edit_dist_0        87250360
+#2 PF_PRE_ALIGN_STAT Row_11_of_21  bc_edit_dist_1         9728932
+#2 PF_PRE_ALIGN_STAT Row_12_of_21  bc_edit_dist_2        17676035
+#2 PF_PRE_ALIGN_STAT Row_13_of_21  bc_edit_dist_NA       39035117
+#2 PF_PRE_ALIGN_STAT Row_14_of_21  cDNA_Q30                 0.795
+#2 PF_PRE_ALIGN_STAT Row_15_of_21  number_of_reads      153758493
+#2 PF_PRE_ALIGN_STAT Row_16_of_21  polyN_Q30                0.824
+#2 PF_PRE_ALIGN_STAT Row_17_of_21  reads_ambig_bc           68049
+#2 PF_PRE_ALIGN_STAT Row_18_of_21  reads_length_trim            0
+#2 PF_PRE_ALIGN_STAT Row_19_of_21  reads_too_short              0
+#2 PF_PRE_ALIGN_STAT Row_20_of_21  reads_tso_trim        58625085
+#2 PF_PRE_ALIGN_STAT Row_21_of_21  reads_valid_barcode  103572964
+# Wrote 17 x 2 table to /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/process/bcc_read_length_counts.csv
+#2 PF_BCC_READ_LENS Row_1_of_19             count
+#2 PF_BCC_READ_LENS Row_2_of_19  length          
+#2 PF_BCC_READ_LENS Row_3_of_19  119          186
+#2 PF_BCC_READ_LENS Row_4_of_19  120        41321
+#2 PF_BCC_READ_LENS Row_5_of_19  121     46569249
+#2 PF_BCC_READ_LENS Row_6_of_19  122      2203715
+# Wrote 12 x 2 table to /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/process/well_vbc_counts.csv
+#2 PF_VAL_BC_DATA Row_1_of_14           count
+#2 PF_VAL_BC_DATA Row_2_of_14  well          
+#2 PF_VAL_BC_DATA Row_3_of_14  A1    30418753
+#2 PF_VAL_BC_DATA Row_4_of_14  A2    34216212
+#2 PF_VAL_BC_DATA Row_5_of_14  A3     5241943
+#2 PF_VAL_BC_DATA Row_6_of_14  A4     5223062
+# Combining 8 partial barcode_head*fastq files
+# Preprocess_stat total reads: 153758493 
+# Preprocess_stat valid bc:    103572964   67.36%
+# Preprocess_stat too short:   0            0.00%
+# Preprocess_stat with ambig:  68049        0.04%
+# Preprocess_stat TSO trimmed: 58625085    38.13%
+#2 Not compressing barcode corrected fastq(s)
+#R MemStatus: Preprocess  3.81Gb proc, 512Mb rss, 3.3Gb vms, 3.8% usd, 4.15Tb avail
+#R DskStatus: Preprocess  '/nfs/' 5.29Pb total, 2.71Pb (51.23%) used, 2.31Pb (43.72%) free
+#P << Running Preprocess; Status True; Duration 0:19:18.59
+#P 
+#P >> Running Alignment
+#R MemStatus: Alignment  3.81Gb proc, 512Mb rss, 3.3Gb vms, 3.8% usd, 4.15Tb avail
+#R DskStatus: Alignment  '/nfs/' 5.29Pb total, 2.71Pb (51.23%) used, 2.31Pb (43.72%) free
+#2 Read Dataframe: Dims 19 x 1, Mem 304Bb (304) from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/process/pre_align_stats.csv
+# # Subproc: Call:   /software/conda/users/sd21/spipe_1.9.0/bin/STAR --genomeDir /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/01_references/tmuris --runThreadN 30 --readFilesIn /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/process/barcode_head.fastq --outFileNamePrefix /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/process/barcode_head --outSAMtype BAM Unsorted --outFilterMultimapNmax 3 --clip3pAdapterSeq CCACAGTCTCAAGCACGTGGAT
+# # Subproc: Status: Success
+# # Subproc: Output: (first 100 char)
+# 	/software/conda/users/sd21/spipe_1.9.0/bin/STAR-avx2 --genomeDir /nfs/users/nfs_s/sd21/lustre_link/
+# # Subproc: Duration 4:17:57.51
+# STAR output saved to /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/process/STAR_align_sdtout.txt
+# Alignment result: 1717746 reads of 103572964 map uniquely;   1.66%
+# Wrote 26 x 2 table to /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/process/pre_align_stats.csv
+#2 PF_PRE_ALIGN_STAT Row_1_of_28                                 value
+#2 PF_PRE_ALIGN_STAT Row_2_of_28  statistic                           
+#2 PF_PRE_ALIGN_STAT Row_3_of_28  bc1_Q30                        0.796
+#2 PF_PRE_ALIGN_STAT Row_4_of_28  bc2_Q30                        0.821
+#2 PF_PRE_ALIGN_STAT Row_5_of_28  bc3_Q30                        0.829
+#2 PF_PRE_ALIGN_STAT Row_6_of_28  bc1_perfrac                    0.586
+#2 PF_PRE_ALIGN_STAT Row_7_of_28  bc2_perfrac                    0.671
+#2 PF_PRE_ALIGN_STAT Row_8_of_28  bc3_perfrac                    0.787
+#2 PF_PRE_ALIGN_STAT Row_9_of_28  bc123_perfrac                  0.533
+#2 PF_PRE_ALIGN_STAT Row_10_of_28  bc_edit_dist_0              87250360
+#2 PF_PRE_ALIGN_STAT Row_11_of_28  bc_edit_dist_1               9728932
+#2 PF_PRE_ALIGN_STAT Row_12_of_28  bc_edit_dist_2              17676035
+#2 PF_PRE_ALIGN_STAT Row_13_of_28  bc_edit_dist_NA             39035117
+#2 PF_PRE_ALIGN_STAT Row_14_of_28  cDNA_Q30                       0.795
+#2 PF_PRE_ALIGN_STAT Row_15_of_28  number_of_reads            153758493
+#2 PF_PRE_ALIGN_STAT Row_16_of_28  polyN_Q30                      0.824
+#2 PF_PRE_ALIGN_STAT Row_17_of_28  reads_align_input          103572964
+#2 PF_PRE_ALIGN_STAT Row_18_of_28  reads_align_mean_mlen         109.72
+#2 PF_PRE_ALIGN_STAT Row_19_of_28  reads_align_mean_rlen            126
+#2 PF_PRE_ALIGN_STAT Row_20_of_28  reads_align_multimap          547611
+#2 PF_PRE_ALIGN_STAT Row_21_of_28  reads_align_too_many_loci    7041873
+#2 PF_PRE_ALIGN_STAT Row_22_of_28  reads_align_too_short       94191038
+#2 PF_PRE_ALIGN_STAT Row_23_of_28  reads_align_unique           1717746
+#2 PF_PRE_ALIGN_STAT Row_24_of_28  reads_ambig_bc                 68049
+#2 PF_PRE_ALIGN_STAT Row_25_of_28  reads_length_trim                  0
+#2 PF_PRE_ALIGN_STAT Row_26_of_28  reads_too_short                    0
+#2 PF_PRE_ALIGN_STAT Row_27_of_28  reads_tso_trim              58625085
+#2 PF_PRE_ALIGN_STAT Row_28_of_28  reads_valid_barcode        103572964
+#2 Removing: ['/nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/process/barcode_head.fastq']
+#2 Compressing: ['/nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/process/barcode_headSJ.out.tab']
+#R MemStatus: Alignment  3.81Gb proc, 514Mb rss, 3.3Gb vms, 4.3% usd, 4.13Tb avail
+#R DskStatus: Alignment  '/nfs/' 5.29Pb total, 2.71Pb (51.18%) used, 2.31Pb (43.77%) free
+#P << Running Alignment; Status True; Duration 4:18:03.92
+#P 
+#P >> Running Postprocess
+#R MemStatus: Postprocess  3.81Gb proc, 514Mb rss, 3.3Gb vms, 4.3% usd, 4.13Tb avail
+#R DskStatus: Postprocess  '/nfs/' 5.29Pb total, 2.71Pb (51.18%) used, 2.31Pb (43.77%) free
+# WARNING: Low mapping fraction: 0.016584887924999424
+# # Subproc: Call:   /software/conda/users/sd21/spipe_1.9.0/bin/samtools sort -n --threads 30 -T /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/process/barcode_headAligned_sorted -o /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/process/barcode_headAligned_sorted.bam /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/process/barcode_headAligned.out.bam
+# # Subproc: Status: Success
+# # Subproc: Output: (first 100 char)
+# [bam_sort_core] merging from 0 files and 30 in-memory blocks...
+# 
+# # Subproc: Duration 0:00:05.74
+#R MemStatus: Postprocess  3.81Gb proc, 514Mb rss, 3.3Gb vms, 4.3% usd, 4.13Tb avail
+#R DskStatus: Postprocess  '/nfs/' 5.29Pb total, 2.71Pb (51.18%) used, 2.31Pb (43.77%) free
+#P << Running Postprocess; Status True; Duration 0:00:05.89
+#P 
+#P >> Running Molinfo
+#R MemStatus: Molinfo  3.81Gb proc, 514Mb rss, 3.3Gb vms, 4.3% usd, 4.13Tb avail
+#R DskStatus: Molinfo  '/nfs/' 5.29Pb total, 2.71Pb (51.18%) used, 2.31Pb (43.77%) free
+# Pre-scanning bam for cell-boundary offsets (30 threads)
+# Thresh for all well unfiltered DGE 3 tscp, 1 reads
+#2 Starting thread 1  voffset=673579008  end=376460280894
+#2 Starting thread 2  voffset=376460280894  end=750697351133
+#2 Starting thread 3  voffset=750697351133  end=1122929870642
+#2 Starting thread 4  voffset=1122929870642  end=1502389783728
+#2 Starting thread 5  voffset=1502389783728  end=1882726820690
+#2 Starting thread 6  voffset=1882726820690  end=2264092962132
+#2 Starting thread 7  voffset=2264092962132  end=2642393189478
+#2 Starting thread 8  voffset=2642393189478  end=3035001896796
+#2 Starting thread 9  voffset=3035001896796  end=3491767924432
+#2 Starting thread 10  voffset=3491767924432  end=3915912188901
+#2 Starting thread 11  voffset=3915912188901  end=4406144923861
+#2 Starting thread 12  voffset=4406144923861  end=4898666998608
+#2 Starting thread 13  voffset=4898666998608  end=5402339863801
+#2 Starting thread 14  voffset=5402339863801  end=5879480714024
+#2 Starting thread 15  voffset=5879480714024  end=6413205025884
+#2 Starting thread 16  voffset=6413205025884  end=6866179307324
+#2 Starting thread 17  voffset=6866179307324  end=7326875547823
+#2 Starting thread 18  voffset=7326875547823  end=7840468059645
+#2 Starting thread 19  voffset=7840468059645  end=8363678638538
+#2 Starting thread 20  voffset=8363678638538  end=8744508502084
+#2 Starting thread 21  voffset=8744508502084  end=9225634062885
+#2 Starting thread 22  voffset=9225634062885  end=9704826171905
+#2 Starting thread 23  voffset=9704826171905  end=10195219821285
+#2 Starting thread 24  voffset=10195219821285  end=10694607046765
+#2 Starting thread 25  voffset=10694607046765  end=11216201757874
+#2 Starting thread 26  voffset=11216201757874  end=11673243874674
+#2 Starting thread 27  voffset=11673243874674  end=12167843067549
+#2 Starting thread 28  voffset=12167843067549  end=12576386195070
+#2 Starting thread 29  voffset=12576386195070  end=12945199873428
+#2 Starting thread 30  voffset=12945199873428  end=None
+#3 Molinfo processed 100,000 aligned reads...  thread 11
+#3 Molinfo processed 100,000 aligned reads...  thread 15
+#3 Molinfo processed 100,000 aligned reads...  thread 19
+#3 Molinfo processed 100,000 aligned reads...  thread 24
+#3 Molinfo processed 100,000 aligned reads...  thread 13
+#3 Molinfo processed 100,000 aligned reads...  thread 18
+#3 Molinfo processed 100,000 aligned reads...  thread 23
+#3 Molinfo processed 100,000 aligned reads...  thread 25
+#2 Combining 30 annotated bam parts
+#3 bam part file /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/process/barcode_headAligned_anno_chunk1.bam
+#3 bam part file /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/process/barcode_headAligned_anno_chunk2.bam
+#3 bam part file /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/process/barcode_headAligned_anno_chunk3.bam
+#3 bam part file /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/process/barcode_headAligned_anno_chunk4.bam
+#3 bam part file /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/process/barcode_headAligned_anno_chunk5.bam
+#3 bam part file /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/process/barcode_headAligned_anno_chunk6.bam
+#3 bam part file /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/process/barcode_headAligned_anno_chunk7.bam
+#3 bam part file /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/process/barcode_headAligned_anno_chunk8.bam
+#3 bam part file /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/process/barcode_headAligned_anno_chunk9.bam
+#3 bam part file /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/process/barcode_headAligned_anno_chunk10.bam
+#3 bam part file /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/process/barcode_headAligned_anno_chunk11.bam
+#3 bam part file /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/process/barcode_headAligned_anno_chunk12.bam
+#3 bam part file /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/process/barcode_headAligned_anno_chunk13.bam
+#3 bam part file /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/process/barcode_headAligned_anno_chunk14.bam
+#3 bam part file /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/process/barcode_headAligned_anno_chunk15.bam
+#3 bam part file /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/process/barcode_headAligned_anno_chunk16.bam
+#3 bam part file /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/process/barcode_headAligned_anno_chunk17.bam
+#3 bam part file /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/process/barcode_headAligned_anno_chunk18.bam
+#3 bam part file /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/process/barcode_headAligned_anno_chunk19.bam
+#3 bam part file /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/process/barcode_headAligned_anno_chunk20.bam
+#3 bam part file /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/process/barcode_headAligned_anno_chunk21.bam
+#3 bam part file /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/process/barcode_headAligned_anno_chunk22.bam
+#3 bam part file /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/process/barcode_headAligned_anno_chunk23.bam
+#3 bam part file /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/process/barcode_headAligned_anno_chunk24.bam
+#3 bam part file /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/process/barcode_headAligned_anno_chunk25.bam
+#3 bam part file /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/process/barcode_headAligned_anno_chunk26.bam
+#3 bam part file /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/process/barcode_headAligned_anno_chunk27.bam
+#3 bam part file /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/process/barcode_headAligned_anno_chunk28.bam
+#3 bam part file /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/process/barcode_headAligned_anno_chunk29.bam
+#3 bam part file /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/process/barcode_headAligned_anno_chunk30.bam
+# # Subproc: Call:   /software/conda/users/sd21/spipe_1.9.0/bin/samtools cat -b /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/process/temp1.temp -o /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/process/barcode_headAligned_anno.bam
+# # Subproc: Status: Success
+# # Subproc: Output: (first 100 char)
+# 
+# # Subproc: Duration 0:00:00.61
+#2 Combining 30 transcript assignment parts
+#2 Wrote 968167 lines to /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/process/tscp_assignment.csv
+# Wrote 28 x 2 table to /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/process/pre_align_stats.csv
+#2 PF_PRE_ALIGN_STAT Row_1_of_30                                 value
+#2 PF_PRE_ALIGN_STAT Row_2_of_30  statistic                           
+#2 PF_PRE_ALIGN_STAT Row_3_of_30  bc1_Q30                        0.796
+#2 PF_PRE_ALIGN_STAT Row_4_of_30  bc2_Q30                        0.821
+#2 PF_PRE_ALIGN_STAT Row_5_of_30  bc3_Q30                        0.829
+#2 PF_PRE_ALIGN_STAT Row_6_of_30  bc1_perfrac                    0.586
+#2 PF_PRE_ALIGN_STAT Row_7_of_30  bc2_perfrac                    0.671
+#2 PF_PRE_ALIGN_STAT Row_8_of_30  bc3_perfrac                    0.787
+#2 PF_PRE_ALIGN_STAT Row_9_of_30  bc123_perfrac                  0.533
+#2 PF_PRE_ALIGN_STAT Row_10_of_30  bc_edit_dist_0              87250360
+#2 PF_PRE_ALIGN_STAT Row_11_of_30  bc_edit_dist_1               9728932
+#2 PF_PRE_ALIGN_STAT Row_12_of_30  bc_edit_dist_2              17676035
+#2 PF_PRE_ALIGN_STAT Row_13_of_30  bc_edit_dist_NA             39035117
+#2 PF_PRE_ALIGN_STAT Row_14_of_30  cDNA_Q30                       0.795
+#2 PF_PRE_ALIGN_STAT Row_15_of_30  number_of_reads            153758493
+#2 PF_PRE_ALIGN_STAT Row_16_of_30  number_of_tscp                968167
+#2 PF_PRE_ALIGN_STAT Row_17_of_30  polyN_Q30                      0.824
+#2 PF_PRE_ALIGN_STAT Row_18_of_30  reads_align_input          103572964
+#2 PF_PRE_ALIGN_STAT Row_19_of_30  reads_align_mean_mlen         109.72
+#2 PF_PRE_ALIGN_STAT Row_20_of_30  reads_align_mean_rlen            126
+#2 PF_PRE_ALIGN_STAT Row_21_of_30  reads_align_multimap          547611
+#2 PF_PRE_ALIGN_STAT Row_22_of_30  reads_align_too_many_loci    7041873
+#2 PF_PRE_ALIGN_STAT Row_23_of_30  reads_align_too_short       94191038
+#2 PF_PRE_ALIGN_STAT Row_24_of_30  reads_align_unique           1717746
+#2 PF_PRE_ALIGN_STAT Row_25_of_30  reads_ambig_bc                 68049
+#2 PF_PRE_ALIGN_STAT Row_26_of_30  reads_length_trim                  0
+#2 PF_PRE_ALIGN_STAT Row_27_of_30  reads_map_transcriptome      1227380
+#2 PF_PRE_ALIGN_STAT Row_28_of_30  reads_too_short                    0
+#2 PF_PRE_ALIGN_STAT Row_29_of_30  reads_tso_trim              58625085
+#2 PF_PRE_ALIGN_STAT Row_30_of_30  reads_valid_barcode        103572964
+#2 Combining 30 barcode tscp count parts
+#2 Wrote 66389 lines to /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/process/aw_uf_bc_counts.csv
+#2 Read Dataframe: Dims 66388 x 5, Mem 3.19Mb (3186624) from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/process/aw_uf_bc_counts.csv
+# Wrote 33554 x 9 table to /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/process/aw_uf_cell_metadata.csv
+#2 PF_AW_UF_CELL Row_1_of_33556                         sample species gene_count tscp_count mread_count bc1_well bc2_well bc3_well
+#2 PF_AW_UF_CELL Row_2_of_33556  bc_wells                                                                                          
+#2 PF_AW_UF_CELL Row_3_of_33556  01_01_01           all-sample  tmuris         10         16          16       A1       A1       A1
+#2 PF_AW_UF_CELL Row_4_of_33556  01_01_03           all-sample  tmuris          7         62          71       A1       A1       A3
+#2 PF_AW_UF_CELL Row_5_of_33556  01_01_05           all-sample  tmuris          1          4           4       A1       A1       A5
+#2 PF_AW_UF_CELL Row_6_of_33556  01_01_06           all-sample  tmuris          4         11          12       A1       A1       A6
+#2 Combining 30 DGE mtx files
+#2 Loaded 5608 elements from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/process/aw_uf_count_matrix_chunk1.mtx
+#2 Loaded 5700 elements from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/process/aw_uf_count_matrix_chunk2.mtx
+#2 Loaded 5512 elements from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/process/aw_uf_count_matrix_chunk3.mtx
+#2 Loaded 5844 elements from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/process/aw_uf_count_matrix_chunk4.mtx
+#2 Loaded 5726 elements from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/process/aw_uf_count_matrix_chunk5.mtx
+#2 Loaded 5832 elements from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/process/aw_uf_count_matrix_chunk6.mtx
+#2 Loaded 5919 elements from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/process/aw_uf_count_matrix_chunk7.mtx
+#2 Loaded 7319 elements from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/process/aw_uf_count_matrix_chunk8.mtx
+#2 Loaded 9944 elements from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/process/aw_uf_count_matrix_chunk9.mtx
+#2 Loaded 11150 elements from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/process/aw_uf_count_matrix_chunk10.mtx
+#2 Loaded 15934 elements from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/process/aw_uf_count_matrix_chunk11.mtx
+#2 Loaded 16488 elements from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/process/aw_uf_count_matrix_chunk12.mtx
+#2 Loaded 16726 elements from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/process/aw_uf_count_matrix_chunk13.mtx
+#2 Loaded 15251 elements from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/process/aw_uf_count_matrix_chunk14.mtx
+#2 Loaded 15509 elements from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/process/aw_uf_count_matrix_chunk15.mtx
+#2 Loaded 13958 elements from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/process/aw_uf_count_matrix_chunk16.mtx
+#2 Loaded 13783 elements from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/process/aw_uf_count_matrix_chunk17.mtx
+#2 Loaded 13126 elements from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/process/aw_uf_count_matrix_chunk18.mtx
+#2 Loaded 13911 elements from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/process/aw_uf_count_matrix_chunk19.mtx
+#2 Loaded 8009 elements from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/process/aw_uf_count_matrix_chunk20.mtx
+#2 Loaded 15070 elements from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/process/aw_uf_count_matrix_chunk21.mtx
+#2 Loaded 13756 elements from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/process/aw_uf_count_matrix_chunk22.mtx
+#2 Loaded 15605 elements from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/process/aw_uf_count_matrix_chunk23.mtx
+#2 Loaded 17619 elements from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/process/aw_uf_count_matrix_chunk24.mtx
+#2 Loaded 17009 elements from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/process/aw_uf_count_matrix_chunk25.mtx
+#2 Loaded 15687 elements from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/process/aw_uf_count_matrix_chunk26.mtx
+#2 Loaded 19037 elements from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/process/aw_uf_count_matrix_chunk27.mtx
+#2 Loaded 7386 elements from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/process/aw_uf_count_matrix_chunk28.mtx
+#2 Loaded 8121 elements from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/process/aw_uf_count_matrix_chunk29.mtx
+#2 Loaded 8365 elements from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/process/aw_uf_count_matrix_chunk30.mtx
+#2 Combined 30 files, 348904 data lines to /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/process/aw_uf_count_matrix.mtx
+# Cleaning molinfo temp files for 30 chunks
+# Compressing transcript assignment csv; /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/process/tscp_assignment.csv
+#R MemStatus: Molinfo  3.88Gb proc, 549Mb rss, 3.33Gb vms, 3.8% usd, 4.15Tb avail
+#R DskStatus: Molinfo  '/nfs/' 5.29Pb total, 2.71Pb (51.18%) used, 2.31Pb (43.77%) free
+#P << Running Molinfo; Status True; Duration 0:00:15.50
+#P 
+#P >> Running DGE
+#R MemStatus: DGE  3.88Gb proc, 549Mb rss, 3.33Gb vms, 3.8% usd, 4.15Tb avail
+#R DskStatus: DGE  '/nfs/' 5.29Pb total, 2.71Pb (51.18%) used, 2.31Pb (43.77%) free
+# Loading all-well unfiltered data from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/process/
+# Loading DGE parts from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/process/
+# Dataframe 'unfiltered_cells': Dims 33554 x 8, Mem 1.95Mb (1946380)
+# Dataframe 'all_genes': Dims 15755 x 3, Mem 378Kb (378252)
+# Matrix 'count_matrix':Dims 33554 x 15755, Mem 4.46Mb (4455288); Elements >=1.0 = 348904 (  0.07%)
+#2 Read Dataframe: Dims 66388 x 5, Mem 3.19Mb (3186624) from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/process/aw_uf_bc_counts.csv
+# Processing data for 3 samples
+# DGE processing sample (1) tmuris_adult_female
+#R MemStatus: DGE_samp_1  4.7Gb proc, 559Mb rss, 4.15Gb vms, 3.8% usd, 4.15Tb avail
+# Simple sample tmuris_adult_female; calculating DGE
+#2 Getting unfiltered DGE matrix
+# >> Getting DGE; tmuris_adult_female Unfiltered, Genes all, Barcodes TBD
+#2 Raw transcript counts (14453, 1)
+#2 Getting tscp cutoff to call cells
+#2 Cells filtered by tscp cutoff 10: cells 2248
+#2 << DGE matrix tmuris_adult_female Unfiltered, Genes all, Barcodes TBD (2248, 15755), cells 2248
+#2 Matrix 2248 x 15755 = 35417240 total>=1.0 = 157373 (  0.44%); >=3.0 = 12488 (  0.04%); >=10.0 = 2543 (  0.01%)
+# Wrote 2248 by 15755 table to /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/tmuris_adult_female/DGE_unfiltered/count_matrix.mtx
+#2 Copy /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/process/all_genes.csv to /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/tmuris_adult_female/DGE_unfiltered/all_genes.csv
+# Wrote 2248 x 9 table to /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/tmuris_adult_female/DGE_unfiltered/cell_metadata.csv
+#2 SF_NU_CELL Row_1_of_2250                         sample species gene_count tscp_count mread_count bc1_well bc2_well bc3_well
+#2 SF_NU_CELL Row_2_of_2250  bc_wells                                                                                          
+#2 SF_NU_CELL Row_3_of_2250  05_01_03  tmuris_adult_female  tmuris         10         10          13       A5       A1       A3
+#2 SF_NU_CELL Row_4_of_2250  05_01_04  tmuris_adult_female  tmuris         64         90         126       A5       A1       A4
+#2 SF_NU_CELL Row_5_of_2250  05_01_05  tmuris_adult_female  tmuris         16         23          27       A5       A1       A5
+#2 SF_NU_CELL Row_6_of_2250  05_01_18  tmuris_adult_female  tmuris         76        164         209       A5       A1       B6
+#2 Getting filtered DGE matrix
+# >> Getting DGE; tmuris_adult_female Filtered, Genes all, Barcodes TBD
+#2 Raw transcript counts (14453, 1)
+#2 Getting tscp cutoff to call cells
+#2 Calculating tscp cutoff; Cell min_c=10 (h_min_c=5), max_c=24000, min_t=30
+#2 Cell bounds scaled by 2 wells; min=5, max=4000
+#2 Transcript cutoff status True, thresh 45
+#2 Cells filtered by tscp cutoff 45: cells 979
+#2 << DGE matrix tmuris_adult_female Filtered, Genes all, Barcodes TBD (979, 15755), cells 979
+#2 Matrix 979 x 15755 = 15424145 total>=1.0 = 136383 (  0.88%); >=3.0 = 11448 (  0.07%); >=10.0 = 2479 (  0.02%)
+# Wrote 979 by 15755 table to /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/tmuris_adult_female/DGE_filtered/count_matrix.mtx
+#2 Copy /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/process/all_genes.csv to /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/tmuris_adult_female/DGE_filtered/all_genes.csv
+# Wrote 979 x 9 table to /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/tmuris_adult_female/DGE_filtered/cell_metadata.csv
+#2 SF_NF_CELL Row_1_of_981                         sample species gene_count tscp_count mread_count bc1_well bc2_well bc3_well
+#2 SF_NF_CELL Row_2_of_981  bc_wells                                                                                          
+#2 SF_NF_CELL Row_3_of_981  05_01_04  tmuris_adult_female  tmuris         64         90         126       A5       A1       A4
+#2 SF_NF_CELL Row_4_of_981  05_01_18  tmuris_adult_female  tmuris         76        164         209       A5       A1       B6
+#2 SF_NF_CELL Row_5_of_981  05_01_20  tmuris_adult_female  tmuris         82        128         164       A5       A1       B8
+#2 SF_NF_CELL Row_6_of_981  05_01_24  tmuris_adult_female  tmuris       1107       2636        3515       A5       A1      B12
+# Wrote 7212 x 5 table to /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/tmuris_adult_female/report/expressed_genes.csv
+#2 SFR_EXPRESS_GENE Row_1_of_7213                gene_id       gene_name  genome cell_count tscp_count
+#2 SFR_EXPRESS_GENE Row_2_of_7213  0      WBGene00284906  WBGene00284906  tmuris          3          3
+#2 SFR_EXPRESS_GENE Row_3_of_7213  1      WBGene00284908  WBGene00284908  tmuris         37         46
+#2 SFR_EXPRESS_GENE Row_4_of_7213  2      WBGene00284909  WBGene00284909  tmuris          2          2
+#2 SFR_EXPRESS_GENE Row_5_of_7213  3      WBGene00284910  WBGene00284910  tmuris          6          6
+#2 SFR_EXPRESS_GENE Row_6_of_7213  4      WBGene00284911  WBGene00284911  tmuris          2          2
+# Wrote 33 x 2 table to /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/tmuris_adult_female/report/tscp_cutoff_calc.csv
+#2 SFR_TSCP_CUTOFF Row_1_of_35                               value
+#2 SFR_TSCP_CUTOFF Row_2_of_35  statistic                         
+#2 SFR_TSCP_CUTOFF Row_3_of_35  cell_call          get_tscp_cutoff
+#2 SFR_TSCP_CUTOFF Row_4_of_35  cell_tscp_cutoff                45
+#2 SFR_TSCP_CUTOFF Row_5_of_35  cnt_scale_fac                    1
+#2 SFR_TSCP_CUTOFF Row_6_of_35  cv_slope_win                  0.02
+# Wrote 14453 x 2 table to /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/tmuris_adult_female/report/tscp_counts.csv
+#2 SFR_TSCP_CT Row_1_of_14455            count
+#2 SFR_TSCP_CT Row_2_of_14455  bc_wells       
+#2 SFR_TSCP_CT Row_3_of_14455  05_01_01      6
+#2 SFR_TSCP_CT Row_4_of_14455  05_01_03     10
+#2 SFR_TSCP_CT Row_5_of_14455  05_01_04     90
+#2 SFR_TSCP_CT Row_6_of_14455  05_01_05     23
+# Wrote 2 x 2 table to /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/tmuris_adult_female/report/tscp_median_by_rnd1_well.csv
+#2 SFR_TSCP_R1W Row_1_of_4       count
+#2 SFR_TSCP_R1W Row_2_of_4  well      
+#2 SFR_TSCP_R1W Row_3_of_4  A5     111
+#2 SFR_TSCP_R1W Row_4_of_4  A6     119
+# Wrote 94 x 2 table to /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/tmuris_adult_female/report/tscp_median_by_rnd2_well.csv
+#2 SFR_TSCP_R2W Row_1_of_96       count
+#2 SFR_TSCP_R2W Row_2_of_96  well      
+#2 SFR_TSCP_R2W Row_3_of_96  A1     128
+#2 SFR_TSCP_R2W Row_4_of_96  A2      97
+#2 SFR_TSCP_R2W Row_5_of_96  A3     141
+#2 SFR_TSCP_R2W Row_6_of_96  A4      91
+# Wrote 92 x 2 table to /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/tmuris_adult_female/report/tscp_median_by_rnd3_well.csv
+#2 SFR_TSCP_R3W Row_1_of_94       count
+#2 SFR_TSCP_R3W Row_2_of_94  well      
+#2 SFR_TSCP_R3W Row_3_of_94  A1     103
+#2 SFR_TSCP_R3W Row_4_of_94  A2      59
+#2 SFR_TSCP_R3W Row_5_of_94  A3      65
+#2 SFR_TSCP_R3W Row_6_of_94  A4      85
+# Wrote 2 x 2 table to /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/tmuris_adult_female/report/cell_counts_by_rnd1_well.csv
+#2 SFR_CELL_R1W Row_1_of_4       count
+#2 SFR_CELL_R1W Row_2_of_4  well      
+#2 SFR_CELL_R1W Row_3_of_4  A5     459
+#2 SFR_CELL_R1W Row_4_of_4  A6     520
+# Wrote 94 x 2 table to /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/tmuris_adult_female/report/cell_counts_by_rnd2_well.csv
+#2 SFR_CELL_R2W Row_1_of_96       count
+#2 SFR_CELL_R2W Row_2_of_96  well      
+#2 SFR_CELL_R2W Row_3_of_96  A1      13
+#2 SFR_CELL_R2W Row_4_of_96  A2      11
+#2 SFR_CELL_R2W Row_5_of_96  A3      11
+#2 SFR_CELL_R2W Row_6_of_96  A4       8
+# Wrote 92 x 2 table to /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/tmuris_adult_female/report/cell_counts_by_rnd3_well.csv
+#2 SFR_CELL_R3W Row_1_of_94       count
+#2 SFR_CELL_R3W Row_2_of_94  well      
+#2 SFR_CELL_R3W Row_3_of_94  A1       8
+#2 SFR_CELL_R3W Row_4_of_94  A2       9
+#2 SFR_CELL_R3W Row_5_of_94  A3      10
+#2 SFR_CELL_R3W Row_6_of_94  A4      10
+#2 Read Dataframe: Dims 28 x 1, Mem 448Bb (448) from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/process/pre_align_stats.csv
+#2 Read Dataframe: Dims 12 x 1, Mem 192Bb (192) from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/process/well_vbc_counts.csv
+# Wrote 6 x 2 table to /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/tmuris_adult_female/report/sample_mrtg_counts.csv
+#2 SFR_SAMP_MRTG_CT Row_1_of_8                      count
+#2 SFR_SAMP_MRTG_CT Row_2_of_8  statistic                
+#2 SFR_SAMP_MRTG_CT Row_3_of_8  cell_gene_count      7212
+#2 SFR_SAMP_MRTG_CT Row_4_of_8  cell_mread_count   395905
+#2 SFR_SAMP_MRTG_CT Row_5_of_8  cell_tscp_count    295387
+#2 SFR_SAMP_MRTG_CT Row_6_of_8  total_gene_count     7736
+#2 Read Dataframe: Dims 6 x 1, Mem 96Bb (96) from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/tmuris_adult_female/report/sample_mrtg_counts.csv
+# Wrote 56 x 2 table to /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/tmuris_adult_female/report/sample_all_stats.csv
+#2 SFR_ALLSTATS Row_1_of_58                                         value
+#2 SFR_ALLSTATS Row_2_of_58  statistic                                   
+#2 SFR_ALLSTATS Row_3_of_58  bc1_Q30                                0.796
+#2 SFR_ALLSTATS Row_4_of_58  bc2_Q30                                0.821
+#2 SFR_ALLSTATS Row_5_of_58  bc3_Q30                                0.829
+#2 SFR_ALLSTATS Row_6_of_58  bc1_perfrac                            0.586
+# Wrote 23 x 2 table to /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/tmuris_adult_female/report/analysis_summary.csv
+#2 SFR_ASUM_CSV Row_1_of_25                                         value
+#2 SFR_ASUM_CSV Row_2_of_25  statistic                                   
+#2 SFR_ASUM_CSV Row_3_of_25  sample_well_count                          2
+#2 SFR_ASUM_CSV Row_4_of_25  number_of_cells                          979
+#2 SFR_ASUM_CSV Row_5_of_25  tmuris_median_tscp_per_cell              114
+#2 SFR_ASUM_CSV Row_6_of_25  tmuris_median_tscp_at50              229.403
+#2 SFR_ASUM_CSV Row_7_of_25  tmuris_median_genes_per_cell              71
+#2 SFR_ASUM_CSV Row_8_of_25  mean_reads_per_cell                10718.311
+#2 SFR_ASUM_CSV Row_9_of_25  number_of_reads                 10493226.193
+#2 SFR_ASUM_CSV Row_10_of_25  number_of_tscp                        353719
+#2 SFR_ASUM_CSV Row_11_of_25  sequencing_saturation                  0.248
+#2 SFR_ASUM_CSV Row_12_of_25  valid_barcode_fraction                 0.674
+#2 SFR_ASUM_CSV Row_13_of_25  bc1_Q30                                0.796
+#2 SFR_ASUM_CSV Row_14_of_25  bc2_Q30                                0.821
+#2 SFR_ASUM_CSV Row_15_of_25  bc3_Q30                                0.829
+#2 SFR_ASUM_CSV Row_16_of_25  cDNA_Q30                               0.795
+#2 SFR_ASUM_CSV Row_17_of_25  polyN_Q30                              0.824
+#2 SFR_ASUM_CSV Row_18_of_25  sample_tmap_fraction                   0.067
+#2 SFR_ASUM_CSV Row_19_of_25  transcriptome_map_fraction             0.012
+#2 SFR_ASUM_CSV Row_20_of_25  tso_fraction_in_read1                  0.566
+#2 SFR_ASUM_CSV Row_21_of_25  tmuris_fraction_reads_in_cells         0.841
+#2 SFR_ASUM_CSV Row_22_of_25  tmuris_fraction_tscp_in_cells          0.835
+#2 SFR_ASUM_CSV Row_23_of_25  tmuris_fraction_exonic                 0.968
+#2 SFR_ASUM_CSV Row_24_of_25  cell_tscp_cutoff                          45
+#2 SFR_ASUM_CSV Row_25_of_25  cell_tscp_f01_slope                    1.673
+# DGE processing sample (2) tmuris_adult_male
+#R MemStatus: DGE_samp_2  5.45Gb proc, 561Mb rss, 4.88Gb vms, 3.8% usd, 4.15Tb avail
+# Simple sample tmuris_adult_male; calculating DGE
+#2 Getting unfiltered DGE matrix
+# >> Getting DGE; tmuris_adult_male Unfiltered, Genes all, Barcodes TBD
+#2 Raw transcript counts (14802, 1)
+#2 Getting tscp cutoff to call cells
+#2 Cells filtered by tscp cutoff 10: cells 2117
+#2 << DGE matrix tmuris_adult_male Unfiltered, Genes all, Barcodes TBD (2117, 15755), cells 2117
+#2 Matrix 2117 x 15755 = 33353335 total>=1.0 = 70457 (  0.21%); >=3.0 = 3559 (  0.01%); >=10.0 = 488 (  0.00%)
+# Wrote 2117 by 15755 table to /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/tmuris_adult_male/DGE_unfiltered/count_matrix.mtx
+#2 Copy /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/process/all_genes.csv to /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/tmuris_adult_male/DGE_unfiltered/all_genes.csv
+# Wrote 2117 x 9 table to /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/tmuris_adult_male/DGE_unfiltered/cell_metadata.csv
+#2 SF_NU_CELL Row_1_of_2119                       sample species gene_count tscp_count mread_count bc1_well bc2_well bc3_well
+#2 SF_NU_CELL Row_2_of_2119  bc_wells                                                                                        
+#2 SF_NU_CELL Row_3_of_2119  07_01_03  tmuris_adult_male  tmuris         20         22          27       A7       A1       A3
+#2 SF_NU_CELL Row_4_of_2119  07_01_04  tmuris_adult_male  tmuris          9         14          16       A7       A1       A4
+#2 SF_NU_CELL Row_5_of_2119  07_01_24  tmuris_adult_male  tmuris         26         28          34       A7       A1      B12
+#2 SF_NU_CELL Row_6_of_2119  07_01_36  tmuris_adult_male  tmuris         14         14          16       A7       A1      C12
+#2 Getting filtered DGE matrix
+# >> Getting DGE; tmuris_adult_male Filtered, Genes all, Barcodes TBD
+#2 Raw transcript counts (14802, 1)
+#2 Getting tscp cutoff to call cells
+#2 Calculating tscp cutoff; Cell min_c=10 (h_min_c=5), max_c=24000, min_t=30
+#2 Cell bounds scaled by 3 wells; min=5, max=6000
+#2 Transcript cutoff status True, thresh 90
+#2 Cells filtered by tscp cutoff 90: cells 188
+#2 << DGE matrix tmuris_adult_male Filtered, Genes all, Barcodes TBD (188, 15755), cells 188
+#2 Matrix 188 x 15755 = 2961940 total>=1.0 = 33025 (  1.11%); >=3.0 = 2384 (  0.08%); >=10.0 = 435 (  0.01%)
+# Wrote 188 by 15755 table to /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/tmuris_adult_male/DGE_filtered/count_matrix.mtx
+#2 Copy /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/process/all_genes.csv to /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/tmuris_adult_male/DGE_filtered/all_genes.csv
+# Wrote 188 x 9 table to /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/tmuris_adult_male/DGE_filtered/cell_metadata.csv
+#2 SF_NF_CELL Row_1_of_190                       sample species gene_count tscp_count mread_count bc1_well bc2_well bc3_well
+#2 SF_NF_CELL Row_2_of_190  bc_wells                                                                                        
+#2 SF_NF_CELL Row_3_of_190  07_01_43  tmuris_adult_male  tmuris        107        120         153       A7       A1       D7
+#2 SF_NF_CELL Row_4_of_190  07_02_86  tmuris_adult_male  tmuris        182        275         337       A7       A2       H2
+#2 SF_NF_CELL Row_5_of_190  07_03_69  tmuris_adult_male  tmuris         84        102         134       A7       A3       F9
+#2 SF_NF_CELL Row_6_of_190  07_04_04  tmuris_adult_male  tmuris        238        327         456       A7       A4       A4
+# Wrote 5744 x 5 table to /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/tmuris_adult_male/report/expressed_genes.csv
+#2 SFR_EXPRESS_GENE Row_1_of_5745                gene_id       gene_name  genome cell_count tscp_count
+#2 SFR_EXPRESS_GENE Row_2_of_5745  2      WBGene00284909  WBGene00284909  tmuris          4          4
+#2 SFR_EXPRESS_GENE Row_3_of_5745  3      WBGene00284910  WBGene00284910  tmuris          1          1
+#2 SFR_EXPRESS_GENE Row_4_of_5745  4      WBGene00284911  WBGene00284911  tmuris          1          1
+#2 SFR_EXPRESS_GENE Row_5_of_5745  5      WBGene00284912  WBGene00284912  tmuris         11         14
+#2 SFR_EXPRESS_GENE Row_6_of_5745  7      WBGene00284915  WBGene00284915  tmuris          4          4
+# Wrote 33 x 2 table to /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/tmuris_adult_male/report/tscp_cutoff_calc.csv
+#2 SFR_TSCP_CUTOFF Row_1_of_35                               value
+#2 SFR_TSCP_CUTOFF Row_2_of_35  statistic                         
+#2 SFR_TSCP_CUTOFF Row_3_of_35  cell_call          get_tscp_cutoff
+#2 SFR_TSCP_CUTOFF Row_4_of_35  cell_tscp_cutoff                90
+#2 SFR_TSCP_CUTOFF Row_5_of_35  cnt_scale_fac                    1
+#2 SFR_TSCP_CUTOFF Row_6_of_35  cv_slope_win                  0.02
+# Wrote 14802 x 2 table to /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/tmuris_adult_male/report/tscp_counts.csv
+#2 SFR_TSCP_CT Row_1_of_14804           count
+#2 SFR_TSCP_CT Row_2_of_14804  bc_wells      
+#2 SFR_TSCP_CT Row_3_of_14804  07_01_01     9
+#2 SFR_TSCP_CT Row_4_of_14804  07_01_03    22
+#2 SFR_TSCP_CT Row_5_of_14804  07_01_04    14
+#2 SFR_TSCP_CT Row_6_of_14804  07_01_06     3
+# Wrote 3 x 2 table to /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/tmuris_adult_male/report/tscp_median_by_rnd1_well.csv
+#2 SFR_TSCP_R1W Row_1_of_5       count
+#2 SFR_TSCP_R1W Row_2_of_5  well      
+#2 SFR_TSCP_R1W Row_3_of_5  A7     175
+#2 SFR_TSCP_R1W Row_4_of_5  A8     154
+#2 SFR_TSCP_R1W Row_5_of_5  A9     155
+# Wrote 79 x 2 table to /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/tmuris_adult_male/report/tscp_median_by_rnd2_well.csv
+#2 SFR_TSCP_R2W Row_1_of_81       count
+#2 SFR_TSCP_R2W Row_2_of_81  well      
+#2 SFR_TSCP_R2W Row_3_of_81  A1     215
+#2 SFR_TSCP_R2W Row_4_of_81  A2     187
+#2 SFR_TSCP_R2W Row_5_of_81  A3     102
+#2 SFR_TSCP_R2W Row_6_of_81  A4     231
+# Wrote 77 x 2 table to /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/tmuris_adult_male/report/tscp_median_by_rnd3_well.csv
+#2 SFR_TSCP_R3W Row_1_of_79       count
+#2 SFR_TSCP_R3W Row_2_of_79  well      
+#2 SFR_TSCP_R3W Row_3_of_79  A1     362
+#2 SFR_TSCP_R3W Row_4_of_79  A3    1242
+#2 SFR_TSCP_R3W Row_5_of_79  A4     271
+#2 SFR_TSCP_R3W Row_6_of_79  A6     201
+# Wrote 3 x 2 table to /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/tmuris_adult_male/report/cell_counts_by_rnd1_well.csv
+#2 SFR_CELL_R1W Row_1_of_5       count
+#2 SFR_CELL_R1W Row_2_of_5  well      
+#2 SFR_CELL_R1W Row_3_of_5  A7      81
+#2 SFR_CELL_R1W Row_4_of_5  A8      58
+#2 SFR_CELL_R1W Row_5_of_5  A9      49
+# Wrote 79 x 2 table to /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/tmuris_adult_male/report/cell_counts_by_rnd2_well.csv
+#2 SFR_CELL_R2W Row_1_of_81       count
+#2 SFR_CELL_R2W Row_2_of_81  well      
+#2 SFR_CELL_R2W Row_3_of_81  A1       2
+#2 SFR_CELL_R2W Row_4_of_81  A2       2
+#2 SFR_CELL_R2W Row_5_of_81  A3       1
+#2 SFR_CELL_R2W Row_6_of_81  A4       2
+# Wrote 77 x 2 table to /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/tmuris_adult_male/report/cell_counts_by_rnd3_well.csv
+#2 SFR_CELL_R3W Row_1_of_79       count
+#2 SFR_CELL_R3W Row_2_of_79  well      
+#2 SFR_CELL_R3W Row_3_of_79  A1       1
+#2 SFR_CELL_R3W Row_4_of_79  A3       2
+#2 SFR_CELL_R3W Row_5_of_79  A4       3
+#2 SFR_CELL_R3W Row_6_of_79  A6       1
+#2 Read Dataframe: Dims 28 x 1, Mem 448Bb (448) from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/process/pre_align_stats.csv
+# Wrote 6 x 2 table to /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/tmuris_adult_male/report/sample_mrtg_counts.csv
+#2 SFR_SAMP_MRTG_CT Row_1_of_8                      count
+#2 SFR_SAMP_MRTG_CT Row_2_of_8  statistic                
+#2 SFR_SAMP_MRTG_CT Row_3_of_8  cell_gene_count      5744
+#2 SFR_SAMP_MRTG_CT Row_4_of_8  cell_mread_count    74298
+#2 SFR_SAMP_MRTG_CT Row_5_of_8  cell_tscp_count     55171
+#2 SFR_SAMP_MRTG_CT Row_6_of_8  total_gene_count     7163
+#2 Read Dataframe: Dims 6 x 1, Mem 96Bb (96) from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/tmuris_adult_male/report/sample_mrtg_counts.csv
+# Wrote 56 x 2 table to /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/tmuris_adult_male/report/sample_all_stats.csv
+#2 SFR_ALLSTATS Row_1_of_58                                        value
+#2 SFR_ALLSTATS Row_2_of_58  statistic                                  
+#2 SFR_ALLSTATS Row_3_of_58  bc1_Q30                               0.796
+#2 SFR_ALLSTATS Row_4_of_58  bc2_Q30                               0.821
+#2 SFR_ALLSTATS Row_5_of_58  bc3_Q30                               0.829
+#2 SFR_ALLSTATS Row_6_of_58  bc1_perfrac                           0.586
+# Wrote 23 x 2 table to /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/tmuris_adult_male/report/analysis_summary.csv
+#2 SFR_ASUM_CSV Row_1_of_25                                        value
+#2 SFR_ASUM_CSV Row_2_of_25  statistic                                  
+#2 SFR_ASUM_CSV Row_3_of_25  sample_well_count                         3
+#2 SFR_ASUM_CSV Row_4_of_25  number_of_cells                         188
+#2 SFR_ASUM_CSV Row_5_of_25  tmuris_median_tscp_per_cell           158.5
+#2 SFR_ASUM_CSV Row_6_of_25  tmuris_median_tscp_at50             325.257
+#2 SFR_ASUM_CSV Row_7_of_25  tmuris_median_genes_per_cell            116
+#2 SFR_ASUM_CSV Row_8_of_25  mean_reads_per_cell               26762.318
+#2 SFR_ASUM_CSV Row_9_of_25  number_of_reads                 5031315.799
+#2 SFR_ASUM_CSV Row_10_of_25  number_of_tscp                       128523
+#2 SFR_ASUM_CSV Row_11_of_25  sequencing_saturation                 0.244
+#2 SFR_ASUM_CSV Row_12_of_25  valid_barcode_fraction                0.674
+#2 SFR_ASUM_CSV Row_13_of_25  bc1_Q30                               0.796
+#2 SFR_ASUM_CSV Row_14_of_25  bc2_Q30                               0.821
+#2 SFR_ASUM_CSV Row_15_of_25  bc3_Q30                               0.829
+#2 SFR_ASUM_CSV Row_16_of_25  cDNA_Q30                              0.795
+#2 SFR_ASUM_CSV Row_17_of_25  polyN_Q30                             0.824
+#2 SFR_ASUM_CSV Row_18_of_25  sample_tmap_fraction                   0.05
+#2 SFR_ASUM_CSV Row_19_of_25  transcriptome_map_fraction            0.012
+#2 SFR_ASUM_CSV Row_20_of_25  tso_fraction_in_read1                 0.566
+#2 SFR_ASUM_CSV Row_21_of_25  tmuris_fraction_reads_in_cells        0.437
+#2 SFR_ASUM_CSV Row_22_of_25  tmuris_fraction_tscp_in_cells         0.429
+#2 SFR_ASUM_CSV Row_23_of_25  tmuris_fraction_exonic                0.916
+#2 SFR_ASUM_CSV Row_24_of_25  cell_tscp_cutoff                         90
+#2 SFR_ASUM_CSV Row_25_of_25  cell_tscp_f01_slope                   1.165
+# DGE processing sample (3) all-sample
+#R MemStatus: DGE_samp_3  5.45Gb proc, 561Mb rss, 4.88Gb vms, 3.8% usd, 4.15Tb avail
+# Meta sample all-sample; combining DGE parts
+#2 Combining DGE files; DIR_S_DGE_N_F
+# DGE files from potentially 2 parts
+# Combining 2 cell bc files for all-sample
+#2 Loaded (979, 8) from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/tmuris_adult_female/DGE_filtered/cell_metadata.csv
+#2 Loaded (188, 8) from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/tmuris_adult_male/DGE_filtered/cell_metadata.csv
+#2 Combined 2 files, 1167 lines into /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/all-sample/DGE_filtered/cell_metadata.csv
+# Combining 2 count matrix files for all-sample
+#2 Loaded 136383 elements from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/tmuris_adult_female/DGE_filtered/count_matrix.mtx
+#2 Loaded 33025 elements from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/tmuris_adult_male/DGE_filtered/count_matrix.mtx
+#2 Combined 2 files, 169408 data lines to /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/all-sample/DGE_filtered/count_matrix.mtx
+# Copy /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/process/all_genes.csv to /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/all-sample/DGE_filtered/all_genes.csv
+#2 Combining DGE files; DIR_S_DGE_N_UF
+# DGE files from potentially 2 parts
+# Combining 2 cell bc files for all-sample
+#2 Loaded (2248, 8) from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/tmuris_adult_female/DGE_unfiltered/cell_metadata.csv
+#2 Loaded (2117, 8) from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/tmuris_adult_male/DGE_unfiltered/cell_metadata.csv
+#2 Combined 2 files, 4365 lines into /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/all-sample/DGE_unfiltered/cell_metadata.csv
+# Combining 2 count matrix files for all-sample
+#2 Loaded 157373 elements from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/tmuris_adult_female/DGE_unfiltered/count_matrix.mtx
+#2 Loaded 70457 elements from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/tmuris_adult_male/DGE_unfiltered/count_matrix.mtx
+#2 Combined 2 files, 227830 data lines to /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/all-sample/DGE_unfiltered/count_matrix.mtx
+# Copy /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/process/all_genes.csv to /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/all-sample/DGE_unfiltered/all_genes.csv
+#2 Read Dataframe: Dims 7212 x 4, Mem 288Kb (288480) from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/tmuris_adult_female/report/expressed_genes.csv
+#2 Read Dataframe: Dims 5744 x 4, Mem 230Kb (229760) from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/tmuris_adult_male/report/expressed_genes.csv
+# Wrote 8146 x 6 table to /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/all-sample/report/expressed_genes.csv
+#2 SFR_EXPRESS_GENE Row_1_of_8148                       gene_name  genome cell_count cell_count__tmuris_adult_female cell_count__tmuris_adult_male
+#2 SFR_EXPRESS_GENE Row_2_of_8148  gene_id                                                                                                        
+#2 SFR_EXPRESS_GENE Row_3_of_8148  WBGene00284906  WBGene00284906  tmuris          3                               3                             0
+#2 SFR_EXPRESS_GENE Row_4_of_8148  WBGene00284908  WBGene00284908  tmuris         37                              37                             0
+#2 SFR_EXPRESS_GENE Row_5_of_8148  WBGene00284909  WBGene00284909  tmuris          6                               2                             4
+#2 SFR_EXPRESS_GENE Row_6_of_8148  WBGene00284910  WBGene00284910  tmuris          7                               6                             1
+#2 Read Dataframe: Dims 56 x 1, Mem 896Bb (896) from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/tmuris_adult_female/report/sample_all_stats.csv
+#2 Read Dataframe: Dims 56 x 1, Mem 896Bb (896) from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/tmuris_adult_male/report/sample_all_stats.csv
+#2 Read Dataframe: Dims 14453 x 1, Mem 231Kb (231248) from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/tmuris_adult_female/report/tscp_counts.csv
+#2 Read Dataframe: Dims 14802 x 1, Mem 237Kb (236832) from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/tmuris_adult_male/report/tscp_counts.csv
+# Wrote 29255 x 2 table to /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/all-sample/report/tscp_counts.csv
+#2 SFR_TSCP_CT Row_1_of_29257            count
+#2 SFR_TSCP_CT Row_2_of_29257  bc_wells       
+#2 SFR_TSCP_CT Row_3_of_29257  05_01_01      6
+#2 SFR_TSCP_CT Row_4_of_29257  05_01_03     10
+#2 SFR_TSCP_CT Row_5_of_29257  05_01_04     90
+#2 SFR_TSCP_CT Row_6_of_29257  05_01_05     23
+#2 Read Dataframe: Dims 33 x 1, Mem 528Bb (528) from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/tmuris_adult_female/report/tscp_cutoff_calc.csv
+#2 Read Dataframe: Dims 33 x 1, Mem 528Bb (528) from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/tmuris_adult_male/report/tscp_cutoff_calc.csv
+# Wrote 33 x 4 table to /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/all-sample/report/tscp_cutoff_calc.csv
+#2 SFR_TSCP_CUTOFF Row_1_of_35                               value all-sample__tmuris_adult_female all-sample__tmuris_adult_male
+#2 SFR_TSCP_CUTOFF Row_2_of_35  statistic                                                                                       
+#2 SFR_TSCP_CUTOFF Row_3_of_35  cell_call          get_tscp_cutoff                 get_tscp_cutoff               get_tscp_cutoff
+#2 SFR_TSCP_CUTOFF Row_4_of_35  cell_tscp_cutoff            59.584                              45                            90
+#2 SFR_TSCP_CUTOFF Row_5_of_35  cnt_scale_fac                    1                               1                             1
+#2 SFR_TSCP_CUTOFF Row_6_of_35  cv_slope_win                  0.02                            0.02                          0.02
+#2 Read Dataframe: Dims 6 x 1, Mem 96Bb (96) from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/tmuris_adult_female/report/sample_mrtg_counts.csv
+#2 Read Dataframe: Dims 6 x 1, Mem 96Bb (96) from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/tmuris_adult_male/report/sample_mrtg_counts.csv
+# Wrote 6 x 4 table to /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/all-sample/report/sample_mrtg_counts.csv
+#2 SFR_SAMP_MRTG_CT Row_1_of_8                      count all-sample__tmuris_adult_female all-sample__tmuris_adult_male
+#2 SFR_SAMP_MRTG_CT Row_2_of_8  statistic                                                                              
+#2 SFR_SAMP_MRTG_CT Row_3_of_8  cell_gene_count     12956                            7212                          5744
+#2 SFR_SAMP_MRTG_CT Row_4_of_8  cell_mread_count   470203                          395905                         74298
+#2 SFR_SAMP_MRTG_CT Row_5_of_8  cell_tscp_count    350558                          295387                         55171
+#2 SFR_SAMP_MRTG_CT Row_6_of_8  total_gene_count    14899                            7736                          7163
+#2 Read Dataframe: Dims 1167 x 8, Mem 84Kb (84024) from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/all-sample/DGE_filtered/cell_metadata.csv
+# Wrote 5 x 2 table to /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/all-sample/report/tscp_median_by_rnd1_well.csv
+#2 SFR_TSCP_R1W Row_1_of_7       count
+#2 SFR_TSCP_R1W Row_2_of_7  well      
+#2 SFR_TSCP_R1W Row_3_of_7  A5     111
+#2 SFR_TSCP_R1W Row_4_of_7  A6     119
+#2 SFR_TSCP_R1W Row_5_of_7  A7     175
+#2 SFR_TSCP_R1W Row_6_of_7  A8     154
+# Wrote 94 x 2 table to /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/all-sample/report/tscp_median_by_rnd2_well.csv
+#2 SFR_TSCP_R2W Row_1_of_96       count
+#2 SFR_TSCP_R2W Row_2_of_96  well      
+#2 SFR_TSCP_R2W Row_3_of_96  A1     128
+#2 SFR_TSCP_R2W Row_4_of_96  A2      99
+#2 SFR_TSCP_R2W Row_5_of_96  A3     121
+#2 SFR_TSCP_R2W Row_6_of_96  A4     113
+# Wrote 92 x 2 table to /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/all-sample/report/tscp_median_by_rnd3_well.csv
+#2 SFR_TSCP_R3W Row_1_of_94       count
+#2 SFR_TSCP_R3W Row_2_of_94  well      
+#2 SFR_TSCP_R3W Row_3_of_94  A1     107
+#2 SFR_TSCP_R3W Row_4_of_94  A2      59
+#2 SFR_TSCP_R3W Row_5_of_94  A3      70
+#2 SFR_TSCP_R3W Row_6_of_94  A4      94
+# Wrote 5 x 2 table to /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/all-sample/report/cell_counts_by_rnd1_well.csv
+#2 SFR_CELL_R1W Row_1_of_7       count
+#2 SFR_CELL_R1W Row_2_of_7  well      
+#2 SFR_CELL_R1W Row_3_of_7  A5     459
+#2 SFR_CELL_R1W Row_4_of_7  A6     520
+#2 SFR_CELL_R1W Row_5_of_7  A7      81
+#2 SFR_CELL_R1W Row_6_of_7  A8      58
+# Wrote 94 x 2 table to /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/all-sample/report/cell_counts_by_rnd2_well.csv
+#2 SFR_CELL_R2W Row_1_of_96       count
+#2 SFR_CELL_R2W Row_2_of_96  well      
+#2 SFR_CELL_R2W Row_3_of_96  A1      15
+#2 SFR_CELL_R2W Row_4_of_96  A2      13
+#2 SFR_CELL_R2W Row_5_of_96  A3      12
+#2 SFR_CELL_R2W Row_6_of_96  A4      10
+# Wrote 92 x 2 table to /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/all-sample/report/cell_counts_by_rnd3_well.csv
+#2 SFR_CELL_R3W Row_1_of_94       count
+#2 SFR_CELL_R3W Row_2_of_94  well      
+#2 SFR_CELL_R3W Row_3_of_94  A1       9
+#2 SFR_CELL_R3W Row_4_of_94  A2       9
+#2 SFR_CELL_R3W Row_5_of_94  A3      12
+#2 SFR_CELL_R3W Row_6_of_94  A4      13
+#2 Recalculating some merged stats
+#2 Read Dataframe: Dims 6 x 3, Mem 192Bb (192) from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/all-sample/report/sample_mrtg_counts.csv
+#2 Read Dataframe: Dims 1167 x 8, Mem 84Kb (84024) from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/all-sample/DGE_filtered/cell_metadata.csv
+#2 Read Dataframe: Dims 6 x 3, Mem 192Bb (192) from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/all-sample/report/sample_mrtg_counts.csv
+# Wrote 56 x 4 table to /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/all-sample/report/sample_all_stats.csv
+#2 SFR_ALLSTATS Row_1_of_58                                      combined all-sample__tmuris_adult_female all-sample__tmuris_adult_male
+#2 SFR_ALLSTATS Row_2_of_58  statistic                                                                                                 
+#2 SFR_ALLSTATS Row_3_of_58  bc1_Q30                                0.796                           0.796                         0.796
+#2 SFR_ALLSTATS Row_4_of_58  bc2_Q30                                0.821                           0.821                         0.821
+#2 SFR_ALLSTATS Row_5_of_58  bc3_Q30                                0.829                           0.829                         0.829
+#2 SFR_ALLSTATS Row_6_of_58  bc1_perfrac                            0.586                           0.586                         0.586
+# Wrote 23 x 4 table to /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/all-sample/report/analysis_summary.csv
+#2 SFR_ASUM_CSV Row_1_of_25                                      combined all-sample__tmuris_adult_female all-sample__tmuris_adult_male
+#2 SFR_ASUM_CSV Row_2_of_25  statistic                                                                                                 
+#2 SFR_ASUM_CSV Row_3_of_25  sample_well_count                          5                               2                             3
+#2 SFR_ASUM_CSV Row_4_of_25  number_of_cells                         1167                             979                           188
+#2 SFR_ASUM_CSV Row_5_of_25  tmuris_median_tscp_per_cell              127                             114                         158.5
+#2 SFR_ASUM_CSV Row_6_of_25  tmuris_median_tscp_at50              256.884                         229.403                       325.257
+#2 SFR_ASUM_CSV Row_7_of_25  tmuris_median_genes_per_cell              81                              71                           116
+#2 SFR_ASUM_CSV Row_8_of_25  mean_reads_per_cell                13302.949                       10718.311                     26762.318
+#2 SFR_ASUM_CSV Row_9_of_25  number_of_reads                 15524541.993                    10493226.193                   5031315.799
+#2 SFR_ASUM_CSV Row_10_of_25  number_of_tscp                        482242                          353719                        128523
+#2 SFR_ASUM_CSV Row_11_of_25  sequencing_saturation                  0.247                           0.248                         0.244
+#2 SFR_ASUM_CSV Row_12_of_25  valid_barcode_fraction                 0.674                           0.674                         0.674
+#2 SFR_ASUM_CSV Row_13_of_25  bc1_Q30                                0.796                           0.796                         0.796
+#2 SFR_ASUM_CSV Row_14_of_25  bc2_Q30                                0.821                           0.821                         0.821
+#2 SFR_ASUM_CSV Row_15_of_25  bc3_Q30                                0.829                           0.829                         0.829
+#2 SFR_ASUM_CSV Row_16_of_25  cDNA_Q30                               0.795                           0.795                         0.795
+#2 SFR_ASUM_CSV Row_17_of_25  polyN_Q30                              0.824                           0.824                         0.824
+#2 SFR_ASUM_CSV Row_18_of_25  sample_tmap_fraction                   0.061                           0.067                          0.05
+#2 SFR_ASUM_CSV Row_19_of_25  transcriptome_map_fraction             0.012                           0.012                         0.012
+#2 SFR_ASUM_CSV Row_20_of_25  tso_fraction_in_read1                  0.566                           0.566                         0.566
+#2 SFR_ASUM_CSV Row_21_of_25  tmuris_fraction_reads_in_cells         0.734                           0.841                         0.437
+#2 SFR_ASUM_CSV Row_22_of_25  tmuris_fraction_tscp_in_cells          0.727                           0.835                         0.429
+#2 SFR_ASUM_CSV Row_23_of_25  tmuris_fraction_exonic                 0.951                           0.968                         0.916
+#2 SFR_ASUM_CSV Row_24_of_25  cell_tscp_cutoff                      59.584                              45                            90
+#2 SFR_ASUM_CSV Row_25_of_25  cell_tscp_f01_slope                    1.508                           1.673                         1.165
+# Aggregating sample analysis_summary csv files
+#2 Read Dataframe: Dims 23 x 1, Mem 368Bb (368) from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/tmuris_adult_female/report/analysis_summary.csv
+#2 Read Dataframe: Dims 23 x 1, Mem 368Bb (368) from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/tmuris_adult_male/report/analysis_summary.csv
+#2 Read Dataframe: Dims 23 x 3, Mem 736Bb (736) from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/all-sample/report/analysis_summary.csv
+# Wrote 3 x 24 table to /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/agg_sample_summary.csv
+#2 SF_AGG_ASUM_CSV Row_1_of_5  statistic           sample_well_count number_of_cells tmuris_median_tscp_per_cell tmuris_median_tscp_at50 tmuris_median_genes_per_cell mean_reads_per_cell number_of_reads number_of_tscp sequencing_saturation valid_barcode_fraction bc1_Q30 bc2_Q30 bc3_Q30 cDNA_Q30 polyN_Q30 sample_tmap_fraction transcriptome_map_fraction tso_fraction_in_read1 tmuris_fraction_reads_in_cells tmuris_fraction_tscp_in_cells tmuris_fraction_exonic cell_tscp_cutoff cell_tscp_f01_slope
+#2 SF_AGG_ASUM_CSV Row_2_of_5  sample                                                                                                                                                                                                                                                                                                                                                                                                                                                                          
+#2 SF_AGG_ASUM_CSV Row_3_of_5  tmuris_adult_female                 2             979                         114                 229.403                           71           10718.311    10493226.193         353719                 0.248                  0.674   0.796   0.821   0.829    0.795     0.824                0.067                      0.012                 0.566                          0.841                         0.835                  0.968               45               1.673
+#2 SF_AGG_ASUM_CSV Row_4_of_5  tmuris_adult_male                   3             188                       158.5                 325.257                          116           26762.318     5031315.799         128523                 0.244                  0.674   0.796   0.821   0.829    0.795     0.824                 0.05                      0.012                 0.566                          0.437                         0.429                  0.916               90               1.165
+#2 SF_AGG_ASUM_CSV Row_5_of_5  all-sample                          5            1167                         127                 256.884                           81           13302.949    15524541.993         482242                 0.247                  0.674   0.796   0.821   0.829    0.795     0.824                0.061                      0.012                 0.566                          0.734                         0.727                  0.951           59.584               1.508
+#2 Not compressing DGE output files
+#R MemStatus: DGE  5.45Gb proc, 564Mb rss, 4.89Gb vms, 3.7% usd, 4.16Tb avail
+#R DskStatus: DGE  '/nfs/' 5.29Pb total, 2.71Pb (51.18%) used, 2.31Pb (43.77%) free
+#P << Running DGE; Status True; Duration 0:00:03.34
+#P 
+#P >> Running SubSampling
+#R MemStatus: SubSampling  5.45Gb proc, 564Mb rss, 4.89Gb vms, 3.7% usd, 4.16Tb avail
+#R DskStatus: SubSampling  '/nfs/' 5.29Pb total, 2.71Pb (51.18%) used, 2.31Pb (43.77%) free
+# Loading cell data for 3 samples; drop_multiplet=True
+#2 Read Dataframe: Dims 979 x 1, Mem 15.7Kb (15664) from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/tmuris_adult_female/DGE_filtered/cell_metadata.csv
+#2 Read Dataframe: Dims 188 x 1, Mem 3.01Kb (3008) from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/tmuris_adult_male/DGE_filtered/cell_metadata.csv
+#2 Read Dataframe: Dims 1167 x 1, Mem 18.7Kb (18672) from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/all-sample/DGE_filtered/cell_metadata.csv
+# Total cell barcodes = 1167  {'tmuris': 1167}
+# Collecting 1167 cell tscp and gene counts for ['tmuris']
+# Subsample depths: [0.0, 0.03, 0.07, 0.11, 0.17, 0.23, 0.31, 0.4, 0.51, 0.65, 0.81, 1.0]
+#2 Total processed cells:    0   0.00%  {'tmuris': 0}
+#2 Total processed cells:    0   0.00%  {'tmuris': 0}
+#2 Total processed cells:    0   0.00%  {'tmuris': 0}
+#2 Total processed cells:  147  12.60%  {'tmuris': 147}
+#2 Total processed cells:  464  39.76%  {'tmuris': 464}
+#2 Total processed cells:  723  61.95%  {'tmuris': 723}
+#2 Total processed cells:  945  80.98%  {'tmuris': 945}
+#2 Total processed cells: 1110  95.12%  {'tmuris': 1110}
+#2 Total processed cells: 1167 100.00%  {'tmuris': 1167}
+#2 Total processed cells: 1167 100.00%  {'tmuris': 1167}
+# Finalizing cell subsample count tables
+# Partitioning subsampled read counts for 3 samples
+#2 Read Dataframe: Dims 56 x 1, Mem 896Bb (896) from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/tmuris_adult_female/report/sample_all_stats.csv
+#3 tmuris_adult_female species='tmuris' num_reads=10493226.193 species_num_cells=979.0
+#3 tmuris_adult_female species='tmuris' species_prop=1.0 species_reads=10493226.193 reads_per_cell=10718.310718079672
+# Wrote 12 x 2 table to /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/tmuris_adult_female/report/tscp_counts_subsampled.csv
+#2 SFR_SS_TSCP_CT Row_1_of_13        tmuris
+#2 SFR_SS_TSCP_CT Row_2_of_13  0          0
+#2 SFR_SS_TSCP_CT Row_3_of_13  322        5
+#2 SFR_SS_TSCP_CT Row_4_of_13  750       11
+#2 SFR_SS_TSCP_CT Row_5_of_13  1179      16
+#2 SFR_SS_TSCP_CT Row_6_of_13  1822      25
+# Wrote 12 x 2 table to /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/tmuris_adult_female/report/gene_counts_subsampled.csv
+#2 SFR_SS_GENE_CT Row_1_of_13        tmuris
+#2 SFR_SS_GENE_CT Row_2_of_13  0          0
+#2 SFR_SS_GENE_CT Row_3_of_13  322        4
+#2 SFR_SS_GENE_CT Row_4_of_13  750        9
+#2 SFR_SS_GENE_CT Row_5_of_13  1179      13
+#2 SFR_SS_GENE_CT Row_6_of_13  1822      18
+#2 Read Dataframe: Dims 56 x 1, Mem 896Bb (896) from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/tmuris_adult_male/report/sample_all_stats.csv
+#3 tmuris_adult_male species='tmuris' num_reads=5031315.799 species_num_cells=188.0
+#3 tmuris_adult_male species='tmuris' species_prop=1.0 species_reads=5031315.799 reads_per_cell=26762.318079787234
+# Wrote 12 x 2 table to /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/tmuris_adult_male/report/tscp_counts_subsampled.csv
+#2 SFR_SS_TSCP_CT Row_1_of_13        tmuris
+#2 SFR_SS_TSCP_CT Row_2_of_13  0          0
+#2 SFR_SS_TSCP_CT Row_3_of_13  803        7
+#2 SFR_SS_TSCP_CT Row_4_of_13  1873      16
+#2 SFR_SS_TSCP_CT Row_5_of_13  2944      22
+#2 SFR_SS_TSCP_CT Row_6_of_13  4550      34
+# Wrote 12 x 2 table to /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/tmuris_adult_male/report/gene_counts_subsampled.csv
+#2 SFR_SS_GENE_CT Row_1_of_13        tmuris
+#2 SFR_SS_GENE_CT Row_2_of_13  0          0
+#2 SFR_SS_GENE_CT Row_3_of_13  803        6
+#2 SFR_SS_GENE_CT Row_4_of_13  1873      14
+#2 SFR_SS_GENE_CT Row_5_of_13  2944      21
+#2 SFR_SS_GENE_CT Row_6_of_13  4550      30
+#2 Read Dataframe: Dims 56 x 3, Mem 1.79Kb (1792) from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/all-sample/report/sample_all_stats.csv
+#3 all-sample species='tmuris' num_reads=15524541.993 species_num_cells=1167.0
+#3 all-sample species='tmuris' species_prop=1.0 species_reads=15524541.993 reads_per_cell=13302.949437017995
+# Wrote 12 x 2 table to /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/all-sample/report/tscp_counts_subsampled.csv
+#2 SFR_SS_TSCP_CT Row_1_of_13        tmuris
+#2 SFR_SS_TSCP_CT Row_2_of_13  0          0
+#2 SFR_SS_TSCP_CT Row_3_of_13  399        5
+#2 SFR_SS_TSCP_CT Row_4_of_13  931       12
+#2 SFR_SS_TSCP_CT Row_5_of_13  1463      18
+#2 SFR_SS_TSCP_CT Row_6_of_13  2262      27
+# Wrote 12 x 2 table to /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/all-sample/report/gene_counts_subsampled.csv
+#2 SFR_SS_GENE_CT Row_1_of_13        tmuris
+#2 SFR_SS_GENE_CT Row_2_of_13  0          0
+#2 SFR_SS_GENE_CT Row_3_of_13  399        5
+#2 SFR_SS_GENE_CT Row_4_of_13  931       10
+#2 SFR_SS_GENE_CT Row_5_of_13  1463      14
+#2 SFR_SS_GENE_CT Row_6_of_13  2262      21
+#R MemStatus: SubSampling  5.43Gb proc, 559Mb rss, 4.88Gb vms, 3.7% usd, 4.16Tb avail
+#R DskStatus: SubSampling  '/nfs/' 5.29Pb total, 2.71Pb (51.18%) used, 2.31Pb (43.77%) free
+#P << Running SubSampling; Status True; Duration 0:00:03.79
+#P 
+#P >> Running Analysis
+#R MemStatus: Analysis  5.43Gb proc, 558Mb rss, 4.87Gb vms, 3.7% usd, 4.16Tb avail
+#R DskStatus: Analysis  '/nfs/' 5.29Pb total, 2.71Pb (51.18%) used, 2.31Pb (43.77%) free
+# 
+# Analysis processing sample (1 of 3) tmuris_adult_female
+#R MemStatus: Analysis_samp_1  5.43Gb proc, 558Mb rss, 4.87Gb vms, 3.7% usd, 4.16Tb avail
+#2 Loaded anndata (979, 15755) /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/tmuris_adult_female/DGE_filtered/
+#2 Calling scanpy cluster (adata shape (979, 15755))
+#R MemStatus: SCA_(979,_15755)_function_scanpy_cluster_anndata_start,_rseed=42  5.43Gb proc, 558Mb rss, 4.87Gb vms, 3.7% usd, 4.16Tb avail
+#R MemStatus: SCA_(979,_5193)_After_filter_and_normalize  5.89Gb proc, 589Mb rss, 5.31Gb vms, 3.7% usd, 4.16Tb avail
+#R MemStatus: SCA_(979,_5193)_After_log1p  5.89Gb proc, 589Mb rss, 5.31Gb vms, 3.7% usd, 4.16Tb avail
+#R MemStatus: SCA_(979,_5193)_After_highly_variable_genes  5.93Gb proc, 604Mb rss, 5.32Gb vms, 3.8% usd, 4.15Tb avail
+#R MemStatus: SCA_(979,_5193)_After_scale_(max=10.0,_zero_center=False)  5.93Gb proc, 604Mb rss, 5.32Gb vms, 3.8% usd, 4.15Tb avail
+#2 PCA using 1566 highly variable genes
+#2 PCA irlbpy, n_comps 50
+#2 PCA via irlbpy, input shape (979, 1566), n_comps=50, use_hv=True, zero_center=True
+#R MemStatus: SCA_(979,_5193)_After_irlbpy;_Next_neighbors  6.02Gb proc, 606Mb rss, 5.42Gb vms, 3.9% usd, 4.15Tb avail
+#R MemStatus: SCA_(979,_5193)_After_neighbors,_n_neighbors=50;_Next_umap  8.36Gb proc, 673Mb rss, 7.69Gb vms, 4.3% usd, 4.13Tb avail
+#R MemStatus: SCA_(979,_5193)_After_umap,_min_dist=0.5  8.43Gb proc, 676Mb rss, 7.76Gb vms, 4.3% usd, 4.13Tb avail
+#2 Clustering (leiden)
+#R MemStatus: SCA_(979,_5193)_After_clustering_leiden,_done  8.46Gb proc, 684Mb rss, 7.77Gb vms, 4.3% usd, 4.13Tb avail
+# Wrote 979 x 4 table to /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/tmuris_adult_female/report/cluster_assignment.csv
+#2 SFR_CLUST_ASSIGN Row_1_of_981           cluster  umap_X  umap_Y
+#2 SFR_CLUST_ASSIGN Row_2_of_981  bc_wells                        
+#2 SFR_CLUST_ASSIGN Row_3_of_981  05_01_04       1  -4.337  12.408
+#2 SFR_CLUST_ASSIGN Row_4_of_981  05_01_18       2  -2.258   9.052
+#2 SFR_CLUST_ASSIGN Row_5_of_981  05_01_20       3  -4.716   9.379
+#2 SFR_CLUST_ASSIGN Row_6_of_981  05_01_24       6  -1.482  12.805
+# Getting gene enrichment table, 12 clusters, top 20 genes each
+#2 Collecting data for 12 clusters
+#2 Calculating enrichment stats
+# Wrote 240 x 9 table to /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/tmuris_adult_female/report/cluster_diff_exp.csv
+#2 SFR_CLUST_DIFF_EXP Row_1_of_241      cluster         gene_id       gene_name  genome    score log2_FC   pct1    pct2   pval_adj
+#2 SFR_CLUST_DIFF_EXP Row_2_of_241  0         1  WBGene00290972  WBGene00290972  tmuris   45.811   3.786  0.145   0.012  1.629e-10
+#2 SFR_CLUST_DIFF_EXP Row_3_of_241  1         1  WBGene00288812  WBGene00288812  tmuris   38.921   4.276  0.129   0.014  2.143e-07
+#2 SFR_CLUST_DIFF_EXP Row_4_of_241  2         1  WBGene00285340  WBGene00285340  tmuris    36.06   4.471  0.081  0.0044  2.722e-07
+#2 SFR_CLUST_DIFF_EXP Row_5_of_241  3         1  WBGene00288539  WBGene00288539  tmuris   22.971   4.747  0.048  0.0022  1.865e-04
+#2 SFR_CLUST_DIFF_EXP Row_6_of_241  4         1  WBGene00289140  WBGene00289140  tmuris   21.865   3.449  0.097   0.015  2.128e-03
+# 
+# Analysis processing sample (2 of 3) tmuris_adult_male
+#R MemStatus: Analysis_samp_2  8.46Gb proc, 685Mb rss, 7.77Gb vms, 4.3% usd, 4.13Tb avail
+#2 Loaded anndata (188, 15755) /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/tmuris_adult_male/DGE_filtered/
+#2 Calling scanpy cluster (adata shape (188, 15755))
+#R MemStatus: SCA_(188,_15755)_function_scanpy_cluster_anndata_start,_rseed=42  8.65Gb proc, 688Mb rss, 7.96Gb vms, 4.3% usd, 4.13Tb avail
+#R MemStatus: SCA_(188,_2945)_After_filter_and_normalize  8.65Gb proc, 688Mb rss, 7.96Gb vms, 4.3% usd, 4.13Tb avail
+#R MemStatus: SCA_(188,_2945)_After_log1p  8.65Gb proc, 688Mb rss, 7.96Gb vms, 4.3% usd, 4.13Tb avail
+#R MemStatus: SCA_(188,_2945)_After_highly_variable_genes  8.65Gb proc, 688Mb rss, 7.96Gb vms, 4.3% usd, 4.13Tb avail
+#R MemStatus: SCA_(188,_2945)_After_scale_(max=10.0,_zero_center=False)  8.65Gb proc, 688Mb rss, 7.96Gb vms, 4.3% usd, 4.13Tb avail
+#2 PCA using 824 highly variable genes
+#2 PCA irlbpy, n_comps 50
+#2 PCA via irlbpy, input shape (188, 824), n_comps=50, use_hv=True, zero_center=True
+#R MemStatus: SCA_(188,_2945)_After_irlbpy;_Next_neighbors  8.65Gb proc, 688Mb rss, 7.96Gb vms, 4.3% usd, 4.13Tb avail
+#R MemStatus: SCA_(188,_2945)_After_neighbors,_n_neighbors=50;_Next_umap  8.65Gb proc, 688Mb rss, 7.96Gb vms, 4.3% usd, 4.13Tb avail
+#R MemStatus: SCA_(188,_2945)_After_umap,_min_dist=0.5  8.65Gb proc, 688Mb rss, 7.96Gb vms, 4.3% usd, 4.13Tb avail
+#2 Clustering (leiden)
+#R MemStatus: SCA_(188,_2945)_After_clustering_leiden,_done  8.65Gb proc, 688Mb rss, 7.96Gb vms, 4.3% usd, 4.13Tb avail
+# Wrote 188 x 4 table to /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/tmuris_adult_male/report/cluster_assignment.csv
+#2 SFR_CLUST_ASSIGN Row_1_of_190           cluster  umap_X  umap_Y
+#2 SFR_CLUST_ASSIGN Row_2_of_190  bc_wells                        
+#2 SFR_CLUST_ASSIGN Row_3_of_190  07_01_43       1   0.171   8.942
+#2 SFR_CLUST_ASSIGN Row_4_of_190  07_02_86       3   2.867   9.206
+#2 SFR_CLUST_ASSIGN Row_5_of_190  07_03_69       5   3.796   9.647
+#2 SFR_CLUST_ASSIGN Row_6_of_190  07_04_04       5   2.952  10.039
+# Getting gene enrichment table, 8 clusters, top 20 genes each
+#2 Collecting data for 8 clusters
+#2 Calculating enrichment stats
+# Wrote 160 x 9 table to /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/tmuris_adult_male/report/cluster_diff_exp.csv
+#2 SFR_CLUST_DIFF_EXP Row_1_of_161      cluster         gene_id       gene_name  genome    score log2_FC   pct1    pct2   pval_adj
+#2 SFR_CLUST_DIFF_EXP Row_2_of_161  0         1  WBGene00300126  WBGene00300126  tmuris  152.292   6.853  0.222  0.0056  6.656e-05
+#2 SFR_CLUST_DIFF_EXP Row_3_of_161  1         1  WBGene00290682  WBGene00290682  tmuris  139.414   6.274  0.222  0.0056  6.656e-05
+#2 SFR_CLUST_DIFF_EXP Row_4_of_161  2         1  WBGene00288275  WBGene00288275  tmuris  138.524   6.234  0.222  0.0056  6.656e-05
+#2 SFR_CLUST_DIFF_EXP Row_5_of_161  3         1  WBGene00302503  WBGene00302503  tmuris  134.147   6.037  0.222  0.0056  6.656e-05
+#2 SFR_CLUST_DIFF_EXP Row_6_of_161  4         1  WBGene00286646  WBGene00286646  tmuris  125.688   5.656  0.222  0.0056  7.743e-05
+# 
+# Analysis processing sample (3 of 3) all-sample
+#R MemStatus: Analysis_samp_3  8.65Gb proc, 688Mb rss, 7.96Gb vms, 4.3% usd, 4.13Tb avail
+#2 Loaded anndata (1167, 15755) /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/all-sample/DGE_filtered/
+#2 Calling scanpy cluster (adata shape (1167, 15755))
+#R MemStatus: SCA_(1167,_15755)_function_scanpy_cluster_anndata_start,_rseed=42  8.92Gb proc, 688Mb rss, 8.23Gb vms, 4.3% usd, 4.13Tb avail
+#R MemStatus: SCA_(1167,_6013)_After_filter_and_normalize  8.92Gb proc, 689Mb rss, 8.23Gb vms, 4.3% usd, 4.13Tb avail
+#R MemStatus: SCA_(1167,_6013)_After_log1p  8.92Gb proc, 689Mb rss, 8.23Gb vms, 4.3% usd, 4.13Tb avail
+#R MemStatus: SCA_(1167,_6013)_After_highly_variable_genes  8.92Gb proc, 689Mb rss, 8.23Gb vms, 4.3% usd, 4.13Tb avail
+#R MemStatus: SCA_(1167,_6013)_After_scale_(max=10.0,_zero_center=False)  8.92Gb proc, 689Mb rss, 8.23Gb vms, 4.3% usd, 4.13Tb avail
+#2 PCA using 1761 highly variable genes
+#2 PCA irlbpy, n_comps 50
+#2 PCA via irlbpy, input shape (1167, 1761), n_comps=50, use_hv=True, zero_center=True
+#R MemStatus: SCA_(1167,_6013)_After_irlbpy;_Next_neighbors  8.92Gb proc, 691Mb rss, 8.23Gb vms, 4.3% usd, 4.13Tb avail
+#R MemStatus: SCA_(1167,_6013)_After_neighbors,_n_neighbors=50;_Next_umap  8.91Gb proc, 691Mb rss, 8.22Gb vms, 4.3% usd, 4.13Tb avail
+#R MemStatus: SCA_(1167,_6013)_After_umap,_min_dist=0.5  8.91Gb proc, 691Mb rss, 8.22Gb vms, 4.3% usd, 4.13Tb avail
+#2 Clustering (leiden)
+#R MemStatus: SCA_(1167,_6013)_After_clustering_leiden,_done  8.92Gb proc, 697Mb rss, 8.22Gb vms, 4.3% usd, 4.13Tb avail
+# Wrote 1167 x 4 table to /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/all-sample/report/cluster_assignment.csv
+#2 SFR_CLUST_ASSIGN Row_1_of_1169           cluster  umap_X   umap_Y
+#2 SFR_CLUST_ASSIGN Row_2_of_1169  bc_wells                         
+#2 SFR_CLUST_ASSIGN Row_3_of_1169  05_01_04       1  -3.726  -11.119
+#2 SFR_CLUST_ASSIGN Row_4_of_1169  05_01_18       4  -2.183   -7.806
+#2 SFR_CLUST_ASSIGN Row_5_of_1169  05_01_20       4  -3.276    -7.62
+#2 SFR_CLUST_ASSIGN Row_6_of_1169  05_01_24       5  -6.646   -9.155
+# Getting gene enrichment table, 9 clusters, top 20 genes each
+#2 Collecting data for 9 clusters
+#2 Calculating enrichment stats
+# Wrote 180 x 9 table to /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/all-sample/report/cluster_diff_exp.csv
+#2 SFR_CLUST_DIFF_EXP Row_1_of_181      cluster         gene_id       gene_name  genome    score log2_FC   pct1     pct2    pval_adj
+#2 SFR_CLUST_DIFF_EXP Row_2_of_181  0         1  WBGene00302563  WBGene00302563  tmuris     21.6   3.433  0.076    0.012   9.117e-04
+#2 SFR_CLUST_DIFF_EXP Row_3_of_181  1         1  WBGene00291797  WBGene00291797  tmuris   16.088     3.7  0.043   0.0056   2.696e-02
+#2 SFR_CLUST_DIFF_EXP Row_4_of_181  2         1  WBGene00293524  WBGene00293524  tmuris    15.99   3.284  0.054    0.011   1.447e-01
+#2 SFR_CLUST_DIFF_EXP Row_5_of_181  3         1  WBGene00285876  WBGene00285876  tmuris   15.281   3.515  0.043   0.0084   3.483e-01
+#2 SFR_CLUST_DIFF_EXP Row_6_of_181  4         1  WBGene00295263  WBGene00295263  tmuris     14.7   3.019  0.054    0.011   1.543e-01
+#R MemStatus: Analysis  8.92Gb proc, 697Mb rss, 8.22Gb vms, 4.3% usd, 4.13Tb avail
+#R DskStatus: Analysis  '/nfs/' 5.29Pb total, 2.71Pb (51.18%) used, 2.31Pb (43.77%) free
+#P << Running Analysis; Status True; Duration 0:00:46.73
+#P 
+#P >> Running Reports
+#R MemStatus: Reports  8.92Gb proc, 697Mb rss, 8.22Gb vms, 4.3% usd, 4.13Tb avail
+#R DskStatus: Reports  '/nfs/' 5.29Pb total, 2.71Pb (51.18%) used, 2.31Pb (43.77%) free
+# 
+# Report processing sample (1 of 3) tmuris_adult_female
+#R MemStatus: Report_samp_1  8.92Gb proc, 697Mb rss, 8.22Gb vms, 4.3% usd, 4.13Tb avail
+#2 Loaded anndata (979, 15755) from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/tmuris_adult_female/DGE_filtered/
+#2 anndata needs norm10K layer; Filter min_cells=3 and normalize
+#2 Loaded analysis info from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/tmuris_adult_female/report/analysis_process.json
+#2 Read Dataframe: Dims 979 x 3, Mem 31.3Kb (31328) from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/tmuris_adult_female/report/cluster_assignment.csv
+#2 Loaded umap cluster data (979, 3) from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/tmuris_adult_female/report/cluster_assignment.csv
+# No subsampling for umap; All 979 cells plotted
+#2 Read Dataframe: Dims 56 x 1, Mem 896Bb (896) from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/tmuris_adult_female/report/sample_all_stats.csv
+#2 Generating barcode rank plot
+#2 Read Dataframe: Dims 14453 x 1, Mem 231Kb (231248) from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/tmuris_adult_female/report/tscp_counts.csv
+#2 Generating subsample saturation plots
+#2 Read Dataframe: Dims 12 x 1, Mem 192Bb (192) from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/tmuris_adult_female/report/tscp_counts_subsampled.csv
+#2 Read Dataframe: Dims 12 x 1, Mem 192Bb (192) from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/tmuris_adult_female/report/gene_counts_subsampled.csv
+#2 Generating plate figures
+#2 Read Dataframe: Dims 2 x 1, Mem 32Bb (32) from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/tmuris_adult_female/report/tscp_median_by_rnd1_well.csv
+#2 Read Dataframe: Dims 2 x 1, Mem 32Bb (32) from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/tmuris_adult_female/report/cell_counts_by_rnd1_well.csv
+#2 Read Dataframe: Dims 94 x 1, Mem 1.5Kb (1504) from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/tmuris_adult_female/report/tscp_median_by_rnd2_well.csv
+#2 Read Dataframe: Dims 94 x 1, Mem 1.5Kb (1504) from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/tmuris_adult_female/report/cell_counts_by_rnd2_well.csv
+#2 Read Dataframe: Dims 92 x 1, Mem 1.47Kb (1472) from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/tmuris_adult_female/report/tscp_median_by_rnd3_well.csv
+#2 Read Dataframe: Dims 92 x 1, Mem 1.47Kb (1472) from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/tmuris_adult_female/report/cell_counts_by_rnd3_well.csv
+#2 Rendering gene enrichment table (pb)
+#2 Read Dataframe: Dims 240 x 9, Mem 17.4Kb (17412) from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/tmuris_adult_female/report/cluster_diff_exp.csv
+#2 Generating 6 umap cluster plot figures
+#2 Generating and saving umap cluster plot 'Cluster'
+#2 Not plotting single-valued 'Sample'
+#2 Not plotting single-valued 'Species'
+#2 Generating and saving umap cluster plot 'Gene_count'
+#2 Generating and saving umap cluster plot 'Tscp_count'
+#2 Generating and saving umap cluster plot 'Read_count'
+# Packaging norm10K DGE count data from (979, 5193) matrix
+# Packaging auxilary count data from matrix
+#2 Using norm logo /software/conda/users/sd21/spipe_1.9.0/lib/python3.12/site-packages/splitpipe/templates/Parse_logo.png
+# New report html: /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/tmuris_adult_female_analysis_summary.html
+# 
+# Report processing sample (2 of 3) tmuris_adult_male
+#R MemStatus: Report_samp_2  9.02Gb proc, 726Mb rss, 8.29Gb vms, 4.3% usd, 4.13Tb avail
+#2 Loaded anndata (188, 15755) from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/tmuris_adult_male/DGE_filtered/
+#2 anndata needs norm10K layer; Filter min_cells=3 and normalize
+#2 Loaded analysis info from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/tmuris_adult_male/report/analysis_process.json
+#2 Read Dataframe: Dims 188 x 3, Mem 6.02Kb (6016) from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/tmuris_adult_male/report/cluster_assignment.csv
+#2 Loaded umap cluster data (188, 3) from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/tmuris_adult_male/report/cluster_assignment.csv
+# No subsampling for umap; All 188 cells plotted
+#2 Read Dataframe: Dims 56 x 1, Mem 896Bb (896) from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/tmuris_adult_male/report/sample_all_stats.csv
+#2 Generating barcode rank plot
+#2 Read Dataframe: Dims 14802 x 1, Mem 237Kb (236832) from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/tmuris_adult_male/report/tscp_counts.csv
+#2 Generating subsample saturation plots
+#2 Read Dataframe: Dims 12 x 1, Mem 192Bb (192) from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/tmuris_adult_male/report/tscp_counts_subsampled.csv
+#2 Read Dataframe: Dims 12 x 1, Mem 192Bb (192) from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/tmuris_adult_male/report/gene_counts_subsampled.csv
+#2 Generating plate figures
+#2 Read Dataframe: Dims 3 x 1, Mem 48Bb (48) from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/tmuris_adult_male/report/tscp_median_by_rnd1_well.csv
+#2 Read Dataframe: Dims 3 x 1, Mem 48Bb (48) from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/tmuris_adult_male/report/cell_counts_by_rnd1_well.csv
+#2 Read Dataframe: Dims 79 x 1, Mem 1.26Kb (1264) from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/tmuris_adult_male/report/tscp_median_by_rnd2_well.csv
+#2 Read Dataframe: Dims 79 x 1, Mem 1.26Kb (1264) from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/tmuris_adult_male/report/cell_counts_by_rnd2_well.csv
+#2 Read Dataframe: Dims 77 x 1, Mem 1.23Kb (1232) from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/tmuris_adult_male/report/tscp_median_by_rnd3_well.csv
+#2 Read Dataframe: Dims 77 x 1, Mem 1.23Kb (1232) from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/tmuris_adult_male/report/cell_counts_by_rnd3_well.csv
+#2 Rendering gene enrichment table (pb)
+#2 Read Dataframe: Dims 160 x 9, Mem 11.7Kb (11652) from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/tmuris_adult_male/report/cluster_diff_exp.csv
+#2 Generating 6 umap cluster plot figures
+#2 Generating and saving umap cluster plot 'Cluster'
+#2 Not plotting single-valued 'Sample'
+#2 Not plotting single-valued 'Species'
+#2 Generating and saving umap cluster plot 'Gene_count'
+#2 Generating and saving umap cluster plot 'Tscp_count'
+#2 Generating and saving umap cluster plot 'Read_count'
+# Packaging norm10K DGE count data from (188, 2945) matrix
+# Packaging auxilary count data from matrix
+#2 Using norm logo /software/conda/users/sd21/spipe_1.9.0/lib/python3.12/site-packages/splitpipe/templates/Parse_logo.png
+# New report html: /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/tmuris_adult_male_analysis_summary.html
+# 
+# Report processing sample (3 of 3) all-sample
+#R MemStatus: Report_samp_3  9.06Gb proc, 746Mb rss, 8.31Gb vms, 4.3% usd, 4.13Tb avail
+#2 Loaded anndata (1167, 15755) from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/all-sample/DGE_filtered/
+#2 anndata needs norm10K layer; Filter min_cells=3 and normalize
+#2 Loaded analysis info from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/all-sample/report/analysis_process.json
+#2 Read Dataframe: Dims 1167 x 3, Mem 37.3Kb (37344) from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/all-sample/report/cluster_assignment.csv
+#2 Loaded umap cluster data (1167, 3) from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/all-sample/report/cluster_assignment.csv
+# No subsampling for umap; All 1167 cells plotted
+#2 Read Dataframe: Dims 56 x 3, Mem 1.79Kb (1792) from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/all-sample/report/sample_all_stats.csv
+#2 Generating barcode rank plot
+#2 Read Dataframe: Dims 29255 x 1, Mem 468Kb (468080) from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/all-sample/report/tscp_counts.csv
+#2 Generating subsample saturation plots
+#2 Read Dataframe: Dims 12 x 1, Mem 192Bb (192) from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/all-sample/report/tscp_counts_subsampled.csv
+#2 Read Dataframe: Dims 12 x 1, Mem 192Bb (192) from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/all-sample/report/gene_counts_subsampled.csv
+#2 Generating plate figures
+#2 Read Dataframe: Dims 5 x 1, Mem 80Bb (80) from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/all-sample/report/tscp_median_by_rnd1_well.csv
+#2 Read Dataframe: Dims 5 x 1, Mem 80Bb (80) from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/all-sample/report/cell_counts_by_rnd1_well.csv
+#2 Read Dataframe: Dims 94 x 1, Mem 1.5Kb (1504) from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/all-sample/report/tscp_median_by_rnd2_well.csv
+#2 Read Dataframe: Dims 94 x 1, Mem 1.5Kb (1504) from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/all-sample/report/cell_counts_by_rnd2_well.csv
+#2 Read Dataframe: Dims 92 x 1, Mem 1.47Kb (1472) from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/all-sample/report/tscp_median_by_rnd3_well.csv
+#2 Read Dataframe: Dims 92 x 1, Mem 1.47Kb (1472) from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/all-sample/report/cell_counts_by_rnd3_well.csv
+#2 Rendering gene enrichment table (pb)
+#2 Read Dataframe: Dims 180 x 9, Mem 13.1Kb (13092) from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/all-sample/report/cluster_diff_exp.csv
+#2 Generating 6 umap cluster plot figures
+#2 Generating and saving umap cluster plot 'Cluster'
+#2 Generating and saving umap cluster plot 'Sample'
+#2 Not plotting single-valued 'Species'
+#2 Generating and saving umap cluster plot 'Gene_count'
+#2 Generating and saving umap cluster plot 'Tscp_count'
+#2 Generating and saving umap cluster plot 'Read_count'
+# Packaging norm10K DGE count data from (1167, 6013) matrix
+# Packaging auxilary count data from matrix
+#2 Using norm logo /software/conda/users/sd21/spipe_1.9.0/lib/python3.12/site-packages/splitpipe/templates/Parse_logo.png
+# New report html: /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/all-sample_analysis_summary.html
+#R MemStatus: Reports  9.14Gb proc, 791Mb rss, 8.35Gb vms, 4.3% usd, 4.13Tb avail
+#R DskStatus: Reports  '/nfs/' 5.29Pb total, 2.71Pb (51.18%) used, 2.31Pb (43.77%) free
+#P << Running Reports; Status True; Duration 0:00:07.81
+#P 
+#P >> Running Clean
+#R MemStatus: Clean  9.14Gb proc, 791Mb rss, 8.35Gb vms, 4.3% usd, 4.13Tb avail
+#R DskStatus: Clean  '/nfs/' 5.29Pb total, 2.71Pb (51.18%) used, 2.31Pb (43.77%) free
+# Status:successfully (0 problems)
+# Creating zip archive; 7 files
+# Created new zip archive: /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/all_summaries.zip
+# Per sample clean up...
+#2 Checking to remove 8 working/temp files
+#2   Removed 8
+#2 Checking to remove 0 working/temp dirs
+#2   Removed 0
+#2 Compressing 3 files
+#2 Removing empty subdirs
+#2 Done; 1 empty subdirs removed
+#R MemStatus: Clean  9.14Gb proc, 791Mb rss, 8.35Gb vms, 4.4% usd, 4.13Tb avail
+#R DskStatus: Clean  '/nfs/' 5.29Pb total, 2.71Pb (51.18%) used, 2.31Pb (43.77%) free
+#P << Running Clean; Status True; Duration 0:00:00.56
+#P 
+# Saved barcode data /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/tmuris_48240_1_1/process/barcode_data.csv
+#R MemStatus: Run_resource_summary
+#R wall_time:_4.68_hr
+#R cpu_eff:_0.03
+#R rss_peak:_14Gb
+#R pct_mem:_0.32%
+#R num_peak:_31
+#R avail_min:_3.7Tb  9.14Gb proc, 791Mb rss, 8.35Gb vms, 4.4% usd, 4.13Tb avail
+# Finished successfully (0 problems)
+# Time	Total elapsed split-pipe v1.9.0	4:39:28.44
+# Time	All done split-pipe v1.9.0	2026-10-10 22:37:23.102658+0

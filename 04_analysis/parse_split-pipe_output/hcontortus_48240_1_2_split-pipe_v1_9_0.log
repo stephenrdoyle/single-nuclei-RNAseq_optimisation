@@ -1,0 +1,2335 @@
+################################################################################
+# Program                   split-pipe v1.9.0
+# Run date                  2026-10-10 16:57:46.130273+0
+# Run on                    b11-hm-02 (x86_64 Linux) by sd21
+# System                    4.32Tb (4,316,031,746,048) RAM and 256 CPUs
+# PID                       3001403
+################################################################################
+#
+#                ------ >>> Command line <<< -----------------
+#
+/software/conda/users/sd21/spipe_1.9.0/bin/split-pipe \
+--mode all \
+--chemistry v2 \
+--kit WT_mini \
+--nthreads 30 \
+--parfile parfile.txt \
+--fq1 /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/02_raw-data/results/raw_fastqs/48240_1#2_raw_1.fastq.gz \
+--fq2 /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/02_raw-data/results/raw_fastqs/48240_1#2_raw_2.fastq.gz \
+--output_dir /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2 \
+--genome_dir /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/01_references/hcontortus \
+--sample hcontortus_adult_female A1,A2 \
+--sample hcontortus_adult_male A3,A4 \
+--sample hcontortus_L3 A12
+#
+#                ------ >>> Initialization messages <<< ------
+#
+# Parsing parameters from parfile.txt
+#2 Set parameter post_min_map_frac = 0.01
+# Current python version '3.12.8' >= min version v3.12.8
+# Set threads to 30 (ncpu=256, initial nthreads=30.0) (init threads)
+# Set bc_amp_seq for chemistry 2 (set chem defaults)
+# Set kit to WT_mini, given (init kit)
+# Set 3 samples, 
+# Set run_name 'hcontortus-48240-1-2' (init run_name)
+# Use_case set to 'normal' Normal WT analysis (init use_case)
+# Setting up run-time env; Use_case normal, Mode all, Kit WT_mini Chem 2
+# Checking run env (conda); timeout 30
+# Checking called executables; timeout 30
+# Version info: 2.7.11b /software/conda/users/sd21/spipe_1.9.0/bin/STAR
+# Version info: samtools 1.24 /software/conda/users/sd21/spipe_1.9.0/bin/samtools
+# Version info: gzip 1.10 /usr/bin/gzip
+# Version info: bgzip (htslib) 1.24 /software/conda/users/sd21/spipe_1.9.0/bin/bgzip
+# Version info: pigz 2.8 /software/conda/users/sd21/spipe_1.9.0/bin/pigz
+# Version info: FastQC v0.11.8 /data/pam/installs/etc/fastqc/0.11.8-c2/wrappers/fastqc
+# Version info: UnZip 6.00 of 20 April 2009, by Debian. Original by Info-ZIP. /usr/bin/unzip
+# Set pre_head_name_num_split to |/| (init fastqs)
+# Estimating read count from 1 fq pairs (init fastqs)
+# Total estimated reads 132,261,787 (fq1 133,279,650 and fq2 131,243,924)
+# Fastq read estimate difference is good: 0.015
+# Fastq slice From 5,000,000 to 15,000,000 should fit with fastq (guess 132,261,787)
+# Scoring R2 sample for chemistry v2
+# Sampling 10,000,000 R2 reads (from 5,000,000 to 15,000,000)
+#2 Score sample 1,000,000; Kept 1000000 last reads
+# Chemistry v2 score is good: [0.7293, 0.7464, 0.8642, 0.8825]
+# Scoring fastq data against 3 kits, chemistry v2
+#2 Score sample 1,000,000; Kept 1000000 last reads
+#   WT_mini        = 0.708    (n24_v4)
+#   WT             = 0.248    (n99_v5)
+#   WT_mega        = 0.131    (n198_v5)
+# Best scoring kit = WT_mini, 0.708
+# Given and guessed kit match: WT_mini
+# Set barcodes for kit WT_mini chemistry 2 (set kit defaults)
+# Set sample_bc_rounds to 1 (set kit defaults)
+# Set dge_cell_max for kit WT_mini chemistry 2 (set kit defaults)
+# Set comb_max_sublibs for kit WT_mini (set kit defaults)
+# Filtering barcodes for Default case ['R', 'T']
+# Raw barcode count 24 filtered to 24
+# Genome /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/01_references/hcontortus version '1.9.0' >= min 'v1.5.0'
+# Setting up genome files
+# Copy /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/01_references/hcontortus/all_genes.csv to /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/process/all_genes.csv
+# Setting up samples
+# Added 'all-sample' sample; ['all-sample', 'hcontortus_adult_female,hcontortus_adult_male,hcontortus_L3']
+# WARNING: 'all-sample' sample covers < all wells; (1, 12): 5 of 12 wells
+# Mode 'all'; Not checking any sample status files
+# Set up 4 samples
+# Run process definitions set from current settings
+# Opening log /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/split-pipe_v1_9_0.log 
+#
+#                ------ >>> Parameter settings <<< -----------
+#
+# use_case                  normal
+# mode                      all
+# chemistry                 v2
+# kit                       WT_mini	Kit WT_mini; Chemistry v2; Samples  12; Plate (1, 12); Barcodes n24_v4, v1, v1
+# kit_source                given
+# parfile                   parfile.txt
+# logfile                   /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/split-pipe_v1_9_0.log
+# run_name                  hcontortus-48240-1-2
+# max_run_name_chars        0
+# input_dir                 <Not set>
+# output_dir                /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/
+# parent_dir                <Not set>
+# fq1                       Item_1_of_1	/nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/02_raw-data/results/raw_fastqs/48240_1#2_raw_1.fastq.gz
+# fq2                       Item_1_of_1	/nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/02_raw-data/results/raw_fastqs/48240_1#2_raw_2.fastq.gz
+# sublib_list               <Not set>
+# sublib_pref               <Not set>
+# sublib_suff               <Not set>
+# sublibraries              <Not set>
+# samp_list                 <Not set>
+# samp_sltab                <Not set>
+# sample                    Item_1_of_4	['hcontortus_adult_female', 'A1-A2 (2)']
+# sample                    Item_2_of_4	['hcontortus_adult_male', 'A3-A4 (2)']
+# sample                    Item_3_of_4	['hcontortus_L3', 'A12 (1)']
+# sample                    Item_4_of_4	['all-sample', 'A1-A4,A12 (5)', ['hcontortus_adult_female', 'hcontortus_adult_male', 'hcontortus_L3']]
+# genome_dir                /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/01_references/hcontortus/
+# genome_name               <Not set>
+# genes                     <Not set>
+# fasta                     <Not set>
+# gfasta                    <Not set>
+# targeted_list             <Not set>
+# genome_min_version        v1.5.0
+# parent_min_version        current
+# python_min_version        v3.12.8
+# nthreads                  30
+# max_threads               32
+# rseed                     42
+# reuse                     False
+# make_allwell              False
+# make_allsample            True
+# merge_samp_list_names     False
+# merge_sltab_list_names    True
+# sample_well_overlap       False
+# keep_going                True
+# keep_temps                False
+# no_compress               False
+# gzip_compresslevel        4
+# log_memory_use            True
+# one_step                  False
+# until_step                <Not set>
+# start_timeout             30
+# agg_sum_transpose         False
+# bc_save_data_clean        True
+# bc_use_case_filter        True
+# bc_use_case_immune_one    True
+# bc_amp_seq                NNNNNNNNNN33333333GTGGCCGATGTTTCGCATCGGCGTACGACT22222222ATCCACGTGCTTGAGACTGTGG11111111
+# bc_round_set              Item_1_of_3	['bc1', 'n24_v4', ' 24 barcodes,  12 wells; rows A-A, cols 1-12 (Original count 24)']
+# bc_round_set              Item_2_of_3	['bc2', 'v1', ' 96 barcodes,  96 wells; rows A-H, cols 1-12']
+# bc_round_set              Item_3_of_3	['bc3', 'v1', ' 96 barcodes,  96 wells; rows A-H, cols 1-12']
+# bc_edit_dist              2
+# sample_bc_rounds          1
+# kit_score_warn            0.7
+# kit_score_min             0.1
+# kit_score_remain_frac     0.2
+# kit_score_agree           False
+# kit_score_skip            False
+# chem_score_warn           0.5
+# chem_score_min            0.2
+# chem_score_max_len        10
+# chem_score_skip           False
+# fq_size_dif_warn          0.12
+# fq_size_dif_max           0.2
+# fq_size_dif_check         True
+# fq_size_guess_min         100000
+# fastq_samp_slice          [5000000, 15000000]
+# fastq_min_samp_slice      [100000, 500000]
+# fastq_slice_guess_fac     0.75
+# fastq_samp_score_max      1000000
+# mkref_id_for_no_name      True
+# mkref_na_for_no_biotype   True
+# mkref_clean_gene_name     True
+# mkref_gff3_gene_features  gene,pseudogene,ncRNA_gene
+# mkref_gff3_exon_parents   mRNA,transcript
+# mkref_chr_geno_prefix     True
+# mkref_max_gtf_not_fas     0
+# mkref_geno_no_exon        True
+# mkref_gtf_dict_stepsize   10000
+# mkref_star_args           --genomeSAindexNbases,14,--genomeSAsparseD,2,--limitGenomeGenerateRAM,24000000000
+# mkref_star_splicing       True
+# mkref_validate            False
+# bcr_analysis              False
+# tcr_analysis              False
+# irep_analysis             False
+# immune_genome             <Not set>
+# immune_use_imgt_db        False
+# immune_kmer               21
+# immune_read_thresh        2
+# immune_max_reads_per_cell 100000
+# immune_bcr_trim           0
+# immune_tcr_trim           30
+# immune_no_filter_run      0
+# immune_filter_only_run    0
+# crsp_analysis             False
+# crsp_guides               <Not set>
+# crsp_use_star             False
+# crsp_guide_offset         0
+# crsp_pref_samp_len        10
+# crsp_match_hamming_dist   1
+# crsp_num_multiproc        8
+# ffpe_analysis             False
+# ffpe_allow_chemistry      v4,v3
+# inqc_fastqc_run           False
+# inqc_fastqc_show_warn     False
+# inqc_min_reads            100000
+# inqc_min_good_r1len_frac  0.5
+# inqc_min_good_r2len_frac  0.9
+# inqc_min_perf_frac        0.3
+# inqc_warn_perf_frac       0.5
+# pre_min_r1_len            45
+# pre_check_name_match      True
+# pre_head_name_num_regex   <Not set>
+# pre_head_name_num_split   /
+# pre_name_mismatch_stop    1
+# pre_head_seq_index_regex  .+:(\w+)$
+# pre_head_keep_original    True
+# pre_perfect_bc_cell_frac  0.92
+# pre_perfect_bc_cell_min   5
+# pre_tso_seq               AACGCAGAGTGAATGGG
+# pre_tso_read_limit        15
+# pre_num_multiproc         8
+# pre_multiproc_timeout     108000
+# pre_keep_no_bc_fq         False
+# pre_keep_bc_fq            False
+# pre_filtered_bc           False
+# align_min_start_reads     50000
+# align_star_keep_no_map    False
+# align_star_args           --outFilterMultimapNmax,3
+# align_star_linker_clip3p  True
+# post_warn_map_frac        0.33
+# post_min_map_frac         0.01
+# post_samtools_extra_args  <Not set>
+# mol_min_mapq_score        255
+# mol_samtools_extra_args   <Not set>
+# mol_awuf_read_thresh      1
+# mol_awuf_tscp_thresh      3
+# given_cell_list           <Not set>
+# dge_min_start_tscp        10000
+# dge_copy_dge_genes_file   True
+# dge_save_express_gene_file True
+# dge_compress_dge_files    False
+# dge_keep_orphan_unfilt    False
+# dge_species_purity_thresh 0.9
+# dge_species2_purity_thresh 0.9
+# dge_tscp_cut_given        <Not set>
+# dge_tscp_cut_min          30
+# dge_tscp_cut_max          <Not set>
+# dge_tscp_cut_scale_fac    1.0
+# dge_cell_est              <Not set>
+# dge_cell_given            <Not set>
+# dge_cell_gxfold           3
+# dge_cell_min              10
+# dge_cell_auc_min          0.5
+# dge_cell_max              24000
+# dge_cell_scale_by_frac    True
+# dge_cell_hard_min         5
+# dge_gene_cell_min         3
+# dge_tscp_cut_umin         10
+# dge_gene_cell_umin        1
+# dge_tscp_cut_targeted_min 15
+# dge_tscp_cut_targeted_umin 5
+# dge_gene_cell_targeted_min 2
+# dge_tscp_cut_ffpe_min     200
+# dge_tscp_cut_ffpe_scale_fac 1
+# dge_tscp_read_min         1
+# dge_gene_tscp_min         1
+# dge_tscp_read_crsp_min    1
+# dge_gene_tscp_crsp_min    1
+# dge_gene_tscp_crsp_umin   1
+# dge_tscp_read_crsp_umin   1
+# subsamp_num_samp          10
+# subsamp_step_jump         1.2
+# comb_new_tscp             False
+# comb_unfilt_dge           True
+# comb_max_sublibs          0
+# analysis_run              True
+# ana_do_simple_samps       True
+# ana_scanpy_verbosity      <Not set>
+# ana_save_anndata          False
+# ana_scale_max_value       10
+# ana_scale_zero_center     True
+# ana_pca_min_hvar          100
+# ana_pca_dim_max           50
+# ana_pca_dim_min           10
+# ana_pca_dim_targeted_max  10
+# ana_pca_irlbpy            True
+# ana_cluster_cell_min      30
+# ana_cluster_cell_max      100000
+# ana_cluster_cell_subsamp  True
+# ana_cluster_1base         True
+# ana_umap_n_neighbors      50
+# ana_umap_min_dist         0.5
+# ana_cluster_alg           leiden
+# ana_cluster_2nd_alg       louvain
+# ana_ctab_top_n            20
+# ana_ctab_sco_min_den      0.01
+# ana_gene_cell_min         3
+# rep_do_simple_samps       True
+# rep_save_figs             True
+# rep_fig_format            png
+# rep_plate_min_zero        True
+# rep_umap_subsamp          15000
+# rep_umap_ss_clus_min      10
+# rep_umap_norm_fac         10000.0
+# rep_umap_crsp_zero_nc     True
+# rep_gene_def_url          https://www.ncbi.nlm.nih.gov/gene/?term={gene_id}
+# rep_gene_url              <Not set>
+# rep_alt_sty_fmt           False
+# clean_per_step            False
+# clean_make_summaries_zip  True
+# map_targ_genome_dir_path  map_targs
+# map_targ                  <Not set>
+# map_targ_kmer_len         30
+# map_targ_kmer_step        1
+# map_targ_kmer_search_max  41
+# map_targ_kmer_search_step 10
+#
+#                ------ >>> Run details <<< ------------------
+#
+# Run_plan step_1_of_10     InQC
+# Run_plan step_2_of_10     PreProcess
+# Run_plan step_3_of_10     Align
+# Run_plan step_4_of_10     PostProcess
+# Run_plan step_5_of_10     Molinfo
+# Run_plan step_6_of_10     DGE
+# Run_plan step_7_of_10     SubSample
+# Run_plan step_8_of_10     Analysis
+# Run_plan step_9_of_10     Report
+# Run_plan step_10_of_10    Clean
+#
+# Genome_specs mkref version split-pipe v1.9.0
+# Genome_specs mkref date   2026-10-10
+# Genome_specs genome_dir   /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/01_references/hcontortus
+# Genome_specs number_genes hcontortus  19778
+# Genome_specs in_fasta     hcontortus  /lustre/scratch127/pam/teams/team333/sd21/single-nuclei-rnaseq/protocol_optimisation/01_references/haemonchus_contortus.PRJEB506.WBPS19.genomic.fa.gz
+# Genome_specs in_gtf       hcontortus  /lustre/scratch127/pam/teams/team333/sd21/single-nuclei-rnaseq/protocol_optimisation/01_references/haemonchus_contortus.PRJEB506.WBPS19.annotations.minimal_clean.gtf
+#
+# Kit_score Processing:     Score kit barcodes
+# Kit_score Given kit:      WT_mini
+# Kit_score Total screened: 3
+# Kit_score Score WT_mini (n24_v4)         = 0.708    <---- using
+# Kit_score Score WT (n99_v5)              = 0.248
+# Kit_score Score WT_mega (n198_v5)        = 0.131
+#
+############################  Plate sample layout  ############################
+# Plate_samples           1  2  3  4  5  6  7  8  9  10  11  12
+# Plate_samples    Wells                                       
+# Plate_samples    A      1  1  2  2  0  0  0  0  0   0   0   3
+#
+################################################################################
+
+
+# Starting memory profile tracing
+# Memory log /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/process/mem_profile.txt
+#2 Call: /software/conda/users/sd21/spipe_1.9.0/lib/python3.12/site-packages/splitpipe/scripts/mem_loop.py --outfile /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/process/mem_profile.txt --append --number 302400 --seconds 2 --quiet --hide_self_sh --show_pio --show_cpu_detail --pid 3001403 --prefix 'Tstep' 
+# Time	Starting split-pipe v1.9.0	2026-10-10 16:57:46.190495+0
+# Saved barcode data /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/process/barcode_data.csv
+#P >> Running InQC
+#R MemStatus: InQC  23.5Gb proc, 10.3Gb rss, 13.2Gb vms, 2.4% usd, 4.21Tb avail
+#R DskStatus: InQC  '/nfs/' 5.29Pb total, 2.71Pb (51.22%) used, 2.31Pb (43.73%) free
+# Input fastq R1: /, 4.1Kb, (4096), 06/09/2025
+# Input fastq R2: 
+# Checking fastq read lengths
+# Sampling 10,000,000 R1 reads (from 5,000,000 to 15,000,000)
+#2 Score sample 1,000,000; Kept 1000000 last reads
+#2 R1 fastq read length good fraction: 1.0
+#2 Score sample 1,000,000; Kept 1000000 last reads
+#2 R2 fastq read length good fraction: 1.0
+# Checking perfect barcode fractions
+# Perfect barcode fractions: [0.5724, 0.6611, 0.7869]
+# Skipping fastQC input checks; Parameter not set
+#R MemStatus: InQC  31.6Gb proc, 14.3Gb rss, 17.3Gb vms, 2.5% usd, 4.21Tb avail
+#R DskStatus: InQC  '/nfs/' 5.29Pb total, 2.71Pb (51.22%) used, 2.31Pb (43.73%) free
+#P << Running InQC; Status True; Duration 0:00:38.77
+#P 
+#P >> Running Preprocess
+#R MemStatus: Preprocess  31.6Gb proc, 14.3Gb rss, 17.3Gb vms, 2.5% usd, 4.21Tb avail
+#R DskStatus: Preprocess  '/nfs/' 5.29Pb total, 2.71Pb (51.22%) used, 2.31Pb (43.73%) free
+# Preprocess 1 fastq input pairs
+# Getting read stats and counts for BC correction
+# Getting fastq samples; 10000000 reads (From 5,000,000 to 15,000,000)
+#2 Collecting R1 Q30 stats
+#2 Collecting R2 Q30 stats
+#2 Collecting perfect bc counts for correction
+#2 Freeing fastq sample slice
+# Initializing 1 fastq pairs for BC correction
+#2 Fastq pair 1, estimated read count 132,261,787
+# Run plan: Run plan: Round-1 (fastq-1, 8 pt)
+# Multiprocessing 8 parts, last-fraction 0.7
+# Block percentages [14.8, 14.1, 13.5, 12.9, 12.1, 11.5, 10.9, 10.2]
+# ======== Round-1 (fastq-1, 8 pt) ========
+# Indexing 1 fastq file pairs
+#2 Indexed fastq pair 1 done; Collected 1449 per file
+#2 Set fastq pair 1 record indexes for 8 chunks
+# Fastq pair 0 will run in 8 parts
+# Round 1, collecting results for 8 processes
+# Done Round-1 (fastq-1, 8 pt)
+# Wrote 19 x 2 table to /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/process/pre_align_stats.csv
+#2 PF_PRE_ALIGN_STAT Row_1_of_21                           value
+#2 PF_PRE_ALIGN_STAT Row_2_of_21  statistic                     
+#2 PF_PRE_ALIGN_STAT Row_3_of_21  bc1_Q30                  0.792
+#2 PF_PRE_ALIGN_STAT Row_4_of_21  bc2_Q30                  0.819
+#2 PF_PRE_ALIGN_STAT Row_5_of_21  bc3_Q30                  0.827
+#2 PF_PRE_ALIGN_STAT Row_6_of_21  bc1_perfrac              0.572
+#2 PF_PRE_ALIGN_STAT Row_7_of_21  bc2_perfrac              0.661
+#2 PF_PRE_ALIGN_STAT Row_8_of_21  bc3_perfrac              0.787
+#2 PF_PRE_ALIGN_STAT Row_9_of_21  bc123_perfrac            0.519
+#2 PF_PRE_ALIGN_STAT Row_10_of_21  bc_edit_dist_0        79655937
+#2 PF_PRE_ALIGN_STAT Row_11_of_21  bc_edit_dist_1         9490770
+#2 PF_PRE_ALIGN_STAT Row_12_of_21  bc_edit_dist_2        16621771
+#2 PF_PRE_ALIGN_STAT Row_13_of_21  bc_edit_dist_NA       38984118
+#2 PF_PRE_ALIGN_STAT Row_14_of_21  cDNA_Q30                 0.805
+#2 PF_PRE_ALIGN_STAT Row_15_of_21  number_of_reads      144816774
+#2 PF_PRE_ALIGN_STAT Row_16_of_21  polyN_Q30                0.822
+#2 PF_PRE_ALIGN_STAT Row_17_of_21  reads_ambig_bc           64178
+#2 PF_PRE_ALIGN_STAT Row_18_of_21  reads_length_trim            0
+#2 PF_PRE_ALIGN_STAT Row_19_of_21  reads_too_short              0
+#2 PF_PRE_ALIGN_STAT Row_20_of_21  reads_tso_trim        49398259
+#2 PF_PRE_ALIGN_STAT Row_21_of_21  reads_valid_barcode   95214286
+# Wrote 17 x 2 table to /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/process/bcc_read_length_counts.csv
+#2 PF_BCC_READ_LENS Row_1_of_19             count
+#2 PF_BCC_READ_LENS Row_2_of_19  length          
+#2 PF_BCC_READ_LENS Row_3_of_19  119          141
+#2 PF_BCC_READ_LENS Row_4_of_19  120        32790
+#2 PF_BCC_READ_LENS Row_5_of_19  121     38231293
+#2 PF_BCC_READ_LENS Row_6_of_19  122      1809911
+# Wrote 12 x 2 table to /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/process/well_vbc_counts.csv
+#2 PF_VAL_BC_DATA Row_1_of_14           count
+#2 PF_VAL_BC_DATA Row_2_of_14  well          
+#2 PF_VAL_BC_DATA Row_3_of_14  A1    28116901
+#2 PF_VAL_BC_DATA Row_4_of_14  A2    31801161
+#2 PF_VAL_BC_DATA Row_5_of_14  A3     5343287
+#2 PF_VAL_BC_DATA Row_6_of_14  A4     5081726
+# Combining 8 partial barcode_head*fastq files
+# Preprocess_stat total reads: 144816774 
+# Preprocess_stat valid bc:    95214286    65.75%
+# Preprocess_stat too short:   0            0.00%
+# Preprocess_stat with ambig:  64178        0.04%
+# Preprocess_stat TSO trimmed: 49398259    34.11%
+#2 Not compressing barcode corrected fastq(s)
+#R MemStatus: Preprocess  3.86Gb proc, 538Mb rss, 3.32Gb vms, 3.7% usd, 4.16Tb avail
+#R DskStatus: Preprocess  '/nfs/' 5.29Pb total, 2.71Pb (51.23%) used, 2.31Pb (43.73%) free
+#P << Running Preprocess; Status True; Duration 0:19:05.55
+#P 
+#P >> Running Alignment
+#R MemStatus: Alignment  3.86Gb proc, 538Mb rss, 3.32Gb vms, 3.7% usd, 4.16Tb avail
+#R DskStatus: Alignment  '/nfs/' 5.29Pb total, 2.71Pb (51.23%) used, 2.31Pb (43.73%) free
+#2 Read Dataframe: Dims 19 x 1, Mem 304Bb (304) from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/process/pre_align_stats.csv
+# # Subproc: Call:   /software/conda/users/sd21/spipe_1.9.0/bin/STAR --genomeDir /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/01_references/hcontortus --runThreadN 30 --readFilesIn /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/process/barcode_head.fastq --outFileNamePrefix /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/process/barcode_head --outSAMtype BAM Unsorted --outFilterMultimapNmax 3 --clip3pAdapterSeq CCACAGTCTCAAGCACGTGGAT
+# # Subproc: Status: Success
+# # Subproc: Output: (first 100 char)
+# 	/software/conda/users/sd21/spipe_1.9.0/bin/STAR-avx2 --genomeDir /nfs/users/nfs_s/sd21/lustre_link/
+# # Subproc: Duration 0:25:52.31
+# STAR output saved to /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/process/STAR_align_sdtout.txt
+# Alignment result: 39092006 reads of 95214286 map uniquely;  41.06%
+# Wrote 26 x 2 table to /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/process/pre_align_stats.csv
+#2 PF_PRE_ALIGN_STAT Row_1_of_28                                 value
+#2 PF_PRE_ALIGN_STAT Row_2_of_28  statistic                           
+#2 PF_PRE_ALIGN_STAT Row_3_of_28  bc1_Q30                        0.792
+#2 PF_PRE_ALIGN_STAT Row_4_of_28  bc2_Q30                        0.819
+#2 PF_PRE_ALIGN_STAT Row_5_of_28  bc3_Q30                        0.827
+#2 PF_PRE_ALIGN_STAT Row_6_of_28  bc1_perfrac                    0.572
+#2 PF_PRE_ALIGN_STAT Row_7_of_28  bc2_perfrac                    0.661
+#2 PF_PRE_ALIGN_STAT Row_8_of_28  bc3_perfrac                    0.787
+#2 PF_PRE_ALIGN_STAT Row_9_of_28  bc123_perfrac                  0.519
+#2 PF_PRE_ALIGN_STAT Row_10_of_28  bc_edit_dist_0              79655937
+#2 PF_PRE_ALIGN_STAT Row_11_of_28  bc_edit_dist_1               9490770
+#2 PF_PRE_ALIGN_STAT Row_12_of_28  bc_edit_dist_2              16621771
+#2 PF_PRE_ALIGN_STAT Row_13_of_28  bc_edit_dist_NA             38984118
+#2 PF_PRE_ALIGN_STAT Row_14_of_28  cDNA_Q30                       0.805
+#2 PF_PRE_ALIGN_STAT Row_15_of_28  number_of_reads            144816774
+#2 PF_PRE_ALIGN_STAT Row_16_of_28  polyN_Q30                      0.822
+#2 PF_PRE_ALIGN_STAT Row_17_of_28  reads_align_input           95214286
+#2 PF_PRE_ALIGN_STAT Row_18_of_28  reads_align_mean_mlen         127.64
+#2 PF_PRE_ALIGN_STAT Row_19_of_28  reads_align_mean_rlen            131
+#2 PF_PRE_ALIGN_STAT Row_20_of_28  reads_align_multimap         4305364
+#2 PF_PRE_ALIGN_STAT Row_21_of_28  reads_align_too_many_loci   29276587
+#2 PF_PRE_ALIGN_STAT Row_22_of_28  reads_align_too_short       20276453
+#2 PF_PRE_ALIGN_STAT Row_23_of_28  reads_align_unique          39092006
+#2 PF_PRE_ALIGN_STAT Row_24_of_28  reads_ambig_bc                 64178
+#2 PF_PRE_ALIGN_STAT Row_25_of_28  reads_length_trim                  0
+#2 PF_PRE_ALIGN_STAT Row_26_of_28  reads_too_short                    0
+#2 PF_PRE_ALIGN_STAT Row_27_of_28  reads_tso_trim              49398259
+#2 PF_PRE_ALIGN_STAT Row_28_of_28  reads_valid_barcode         95214286
+#2 Removing: ['/nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/process/barcode_head.fastq']
+#2 Compressing: ['/nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/process/barcode_headSJ.out.tab']
+#R MemStatus: Alignment  3.86Gb proc, 539Mb rss, 3.32Gb vms, 3.7% usd, 4.15Tb avail
+#R DskStatus: Alignment  '/nfs/' 5.29Pb total, 2.71Pb (51.23%) used, 2.31Pb (43.73%) free
+#P << Running Alignment; Status True; Duration 0:26:02.66
+#P 
+#P >> Running Postprocess
+#R MemStatus: Postprocess  3.86Gb proc, 539Mb rss, 3.32Gb vms, 3.7% usd, 4.15Tb avail
+#R DskStatus: Postprocess  '/nfs/' 5.29Pb total, 2.71Pb (51.23%) used, 2.31Pb (43.73%) free
+# # Subproc: Call:   /software/conda/users/sd21/spipe_1.9.0/bin/samtools sort -n --threads 30 -T /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/process/barcode_headAligned_sorted -o /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/process/barcode_headAligned_sorted.bam /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/process/barcode_headAligned.out.bam
+# # Subproc: Status: Success
+# # Subproc: Output: (first 100 char)
+# [bam_sort_core] merging from 0 files and 30 in-memory blocks...
+# 
+# # Subproc: Duration 0:01:46.11
+#R MemStatus: Postprocess  3.86Gb proc, 539Mb rss, 3.32Gb vms, 3.7% usd, 4.15Tb avail
+#R DskStatus: Postprocess  '/nfs/' 5.29Pb total, 2.71Pb (51.22%) used, 2.31Pb (43.73%) free
+#P << Running Postprocess; Status True; Duration 0:01:46.28
+#P 
+#P >> Running Molinfo
+#R MemStatus: Molinfo  3.86Gb proc, 539Mb rss, 3.32Gb vms, 3.7% usd, 4.15Tb avail
+#R DskStatus: Molinfo  '/nfs/' 5.29Pb total, 2.71Pb (51.22%) used, 2.31Pb (43.73%) free
+# Pre-scanning bam for cell-boundary offsets (30 threads)
+# Thresh for all well unfiltered DGE 3 tscp, 1 reads
+#2 Starting thread 1  voffset=45285376  end=9470861696173
+#2 Starting thread 2  voffset=9470861696173  end=18999944491075
+#2 Starting thread 3  voffset=18999944491075  end=28403162324747
+#2 Starting thread 4  voffset=28403162324747  end=37864340243770
+#2 Starting thread 5  voffset=37864340243770  end=47282023098640
+#2 Starting thread 6  voffset=47282023098640  end=56837830709154
+#2 Starting thread 7  voffset=56837830709154  end=66074403240242
+#2 Starting thread 8  voffset=66074403240242  end=75562955331555
+#2 Starting thread 9  voffset=75562955331555  end=85195627337145
+#2 Starting thread 10  voffset=85195627337145  end=94398654418186
+#2 Starting thread 11  voffset=94398654418186  end=103930570980412
+#2 Starting thread 12  voffset=103930570980412  end=113293445800908
+#2 Starting thread 13  voffset=113293445800908  end=122731001823542
+#2 Starting thread 14  voffset=122731001823542  end=132221390584278
+#2 Starting thread 15  voffset=132221390584278  end=141665402945536
+#2 Starting thread 16  voffset=141665402945536  end=151237877106116
+#2 Starting thread 17  voffset=151237877106116  end=160475177334198
+#2 Starting thread 18  voffset=160475177334198  end=169951371252967
+#2 Starting thread 19  voffset=169951371252967  end=179421289579203
+#2 Starting thread 20  voffset=179421289579203  end=188970688522803
+#2 Starting thread 21  voffset=188970688522803  end=198369909023170
+#2 Starting thread 22  voffset=198369909023170  end=207972337601023
+#2 Starting thread 23  voffset=207972337601023  end=217519336908335
+#2 Starting thread 24  voffset=217519336908335  end=227112733158399
+#2 Starting thread 25  voffset=227112733158399  end=236669415883092
+#2 Starting thread 26  voffset=236669415883092  end=246322451974441
+#2 Starting thread 27  voffset=246322451974441  end=255931732155831
+#2 Starting thread 28  voffset=255931732155831  end=265546245335829
+#2 Starting thread 29  voffset=265546245335829  end=275165299439026
+#2 Starting thread 30  voffset=275165299439026  end=None
+#3 Molinfo processed 100,000 aligned reads...  thread 6
+#3 Molinfo processed 100,000 aligned reads...  thread 8
+#3 Molinfo processed 100,000 aligned reads...  thread 9
+#3 Molinfo processed 100,000 aligned reads...  thread 20
+#3 Molinfo processed 100,000 aligned reads...  thread 7
+#3 Molinfo processed 100,000 aligned reads...  thread 5
+#3 Molinfo processed 100,000 aligned reads...  thread 15
+#3 Molinfo processed 100,000 aligned reads...  thread 11
+#3 Molinfo processed 100,000 aligned reads...  thread 1
+#3 Molinfo processed 100,000 aligned reads...  thread 13
+#3 Molinfo processed 100,000 aligned reads...  thread 2
+#3 Molinfo processed 100,000 aligned reads...  thread 4
+#3 Molinfo processed 100,000 aligned reads...  thread 21
+#3 Molinfo processed 100,000 aligned reads...  thread 3
+#3 Molinfo processed 100,000 aligned reads...  thread 12
+#3 Molinfo processed 100,000 aligned reads...  thread 26
+#3 Molinfo processed 100,000 aligned reads...  thread 17
+#3 Molinfo processed 100,000 aligned reads...  thread 14
+#3 Molinfo processed 100,000 aligned reads...  thread 25
+#3 Molinfo processed 100,000 aligned reads...  thread 22
+#3 Molinfo processed 100,000 aligned reads...  thread 24
+#3 Molinfo processed 100,000 aligned reads...  thread 30
+#3 Molinfo processed 100,000 aligned reads...  thread 10
+#3 Molinfo processed 100,000 aligned reads...  thread 23
+#3 Molinfo processed 100,000 aligned reads...  thread 28
+#3 Molinfo processed 100,000 aligned reads...  thread 27
+#3 Molinfo processed 100,000 aligned reads...  thread 29
+#3 Molinfo processed 200,000 aligned reads...  thread 20
+#3 Molinfo processed 200,000 aligned reads...  thread 7
+#3 Molinfo processed 200,000 aligned reads...  thread 6
+#3 Molinfo processed 100,000 aligned reads...  thread 19
+#3 Molinfo processed 100,000 aligned reads...  thread 16
+#3 Molinfo processed 200,000 aligned reads...  thread 8
+#3 Molinfo processed 100,000 aligned reads...  thread 18
+#3 Molinfo processed 200,000 aligned reads...  thread 9
+#3 Molinfo processed 200,000 aligned reads...  thread 5
+#3 Molinfo processed 200,000 aligned reads...  thread 15
+#3 Molinfo processed 200,000 aligned reads...  thread 2
+#3 Molinfo processed 300,000 aligned reads...  thread 20
+#3 Molinfo processed 300,000 aligned reads...  thread 7
+#3 Molinfo processed 300,000 aligned reads...  thread 6
+#3 Molinfo processed 200,000 aligned reads...  thread 11
+#3 Molinfo processed 300,000 aligned reads...  thread 9
+#3 Molinfo processed 300,000 aligned reads...  thread 8
+#3 Molinfo processed 200,000 aligned reads...  thread 1
+#3 Molinfo processed 200,000 aligned reads...  thread 4
+#3 Molinfo processed 200,000 aligned reads...  thread 3
+#3 Molinfo processed 300,000 aligned reads...  thread 5
+#3 Molinfo processed 200,000 aligned reads...  thread 13
+#3 Molinfo processed 200,000 aligned reads...  thread 21
+#3 Molinfo processed 200,000 aligned reads...  thread 26
+#3 Molinfo processed 200,000 aligned reads...  thread 17
+#3 Molinfo processed 200,000 aligned reads...  thread 14
+#3 Molinfo processed 200,000 aligned reads...  thread 12
+#3 Molinfo processed 300,000 aligned reads...  thread 15
+#3 Molinfo processed 200,000 aligned reads...  thread 25
+#3 Molinfo processed 200,000 aligned reads...  thread 23
+#3 Molinfo processed 200,000 aligned reads...  thread 18
+#3 Molinfo processed 200,000 aligned reads...  thread 10
+#3 Molinfo processed 200,000 aligned reads...  thread 22
+#3 Molinfo processed 200,000 aligned reads...  thread 16
+#3 Molinfo processed 200,000 aligned reads...  thread 24
+#3 Molinfo processed 200,000 aligned reads...  thread 30
+#3 Molinfo processed 200,000 aligned reads...  thread 29
+#3 Molinfo processed 200,000 aligned reads...  thread 28
+#3 Molinfo processed 300,000 aligned reads...  thread 2
+#3 Molinfo processed 200,000 aligned reads...  thread 27
+#3 Molinfo processed 200,000 aligned reads...  thread 19
+#3 Molinfo processed 400,000 aligned reads...  thread 20
+#3 Molinfo processed 400,000 aligned reads...  thread 7
+#3 Molinfo processed 400,000 aligned reads...  thread 8
+#3 Molinfo processed 400,000 aligned reads...  thread 6
+#3 Molinfo processed 400,000 aligned reads...  thread 9
+#3 Molinfo processed 400,000 aligned reads...  thread 5
+#3 Molinfo processed 400,000 aligned reads...  thread 15
+#3 Molinfo processed 300,000 aligned reads...  thread 1
+#3 Molinfo processed 400,000 aligned reads...  thread 2
+#3 Molinfo processed 300,000 aligned reads...  thread 3
+#3 Molinfo processed 300,000 aligned reads...  thread 4
+#3 Molinfo processed 300,000 aligned reads...  thread 11
+#3 Molinfo processed 300,000 aligned reads...  thread 14
+#3 Molinfo processed 300,000 aligned reads...  thread 13
+#3 Molinfo processed 300,000 aligned reads...  thread 17
+#3 Molinfo processed 300,000 aligned reads...  thread 26
+#3 Molinfo processed 300,000 aligned reads...  thread 12
+#3 Molinfo processed 300,000 aligned reads...  thread 21
+#3 Molinfo processed 500,000 aligned reads...  thread 20
+#3 Molinfo processed 500,000 aligned reads...  thread 8
+#3 Molinfo processed 500,000 aligned reads...  thread 9
+#3 Molinfo processed 500,000 aligned reads...  thread 7
+#3 Molinfo processed 300,000 aligned reads...  thread 10
+#3 Molinfo processed 500,000 aligned reads...  thread 5
+#3 Molinfo processed 500,000 aligned reads...  thread 6
+#3 Molinfo processed 300,000 aligned reads...  thread 16
+#3 Molinfo processed 300,000 aligned reads...  thread 18
+#3 Molinfo processed 300,000 aligned reads...  thread 25
+#3 Molinfo processed 300,000 aligned reads...  thread 24
+#3 Molinfo processed 300,000 aligned reads...  thread 22
+#3 Molinfo processed 300,000 aligned reads...  thread 23
+#3 Molinfo processed 300,000 aligned reads...  thread 30
+#3 Molinfo processed 300,000 aligned reads...  thread 29
+#3 Molinfo processed 300,000 aligned reads...  thread 28
+#3 Molinfo processed 300,000 aligned reads...  thread 27
+#3 Molinfo processed 500,000 aligned reads...  thread 15
+#3 Molinfo processed 300,000 aligned reads...  thread 19
+#3 Molinfo processed 500,000 aligned reads...  thread 2
+#3 Molinfo processed 600,000 aligned reads...  thread 20
+#3 Molinfo processed 600,000 aligned reads...  thread 8
+#3 Molinfo processed 600,000 aligned reads...  thread 9
+#3 Molinfo processed 600,000 aligned reads...  thread 7
+#3 Molinfo processed 600,000 aligned reads...  thread 5
+#3 Molinfo processed 600,000 aligned reads...  thread 6
+#3 Molinfo processed 400,000 aligned reads...  thread 3
+#3 Molinfo processed 400,000 aligned reads...  thread 4
+#3 Molinfo processed 400,000 aligned reads...  thread 1
+#3 Molinfo processed 400,000 aligned reads...  thread 13
+#3 Molinfo processed 400,000 aligned reads...  thread 12
+#3 Molinfo processed 400,000 aligned reads...  thread 11
+#3 Molinfo processed 400,000 aligned reads...  thread 14
+#3 Molinfo processed 400,000 aligned reads...  thread 21
+#3 Molinfo processed 600,000 aligned reads...  thread 15
+#3 Molinfo processed 400,000 aligned reads...  thread 26
+#3 Molinfo processed 400,000 aligned reads...  thread 17
+#3 Molinfo processed 400,000 aligned reads...  thread 10
+#3 Molinfo processed 400,000 aligned reads...  thread 16
+#3 Molinfo processed 600,000 aligned reads...  thread 2
+#3 Molinfo processed 400,000 aligned reads...  thread 18
+#3 Molinfo processed 400,000 aligned reads...  thread 25
+#3 Molinfo processed 700,000 aligned reads...  thread 20
+#3 Molinfo processed 400,000 aligned reads...  thread 22
+#3 Molinfo processed 400,000 aligned reads...  thread 24
+#3 Molinfo processed 700,000 aligned reads...  thread 8
+#3 Molinfo processed 400,000 aligned reads...  thread 19
+#3 Molinfo processed 700,000 aligned reads...  thread 9
+#3 Molinfo processed 700,000 aligned reads...  thread 5
+#3 Molinfo processed 700,000 aligned reads...  thread 7
+#3 Molinfo processed 400,000 aligned reads...  thread 23
+#3 Molinfo processed 400,000 aligned reads...  thread 29
+#3 Molinfo processed 400,000 aligned reads...  thread 30
+#3 Molinfo processed 700,000 aligned reads...  thread 6
+#3 Molinfo processed 400,000 aligned reads...  thread 27
+#3 Molinfo processed 400,000 aligned reads...  thread 28
+#3 Molinfo processed 500,000 aligned reads...  thread 3
+#3 Molinfo processed 700,000 aligned reads...  thread 15
+#3 Molinfo processed 500,000 aligned reads...  thread 13
+#3 Molinfo processed 500,000 aligned reads...  thread 4
+#3 Molinfo processed 700,000 aligned reads...  thread 2
+#3 Molinfo processed 500,000 aligned reads...  thread 21
+#3 Molinfo processed 500,000 aligned reads...  thread 12
+#3 Molinfo processed 500,000 aligned reads...  thread 1
+#3 Molinfo processed 500,000 aligned reads...  thread 14
+#3 Molinfo processed 800,000 aligned reads...  thread 8
+#3 Molinfo processed 500,000 aligned reads...  thread 11
+#3 Molinfo processed 500,000 aligned reads...  thread 26
+#3 Molinfo processed 500,000 aligned reads...  thread 10
+#3 Molinfo processed 800,000 aligned reads...  thread 7
+#3 Molinfo processed 500,000 aligned reads...  thread 17
+#3 Molinfo processed 800,000 aligned reads...  thread 9
+#3 Molinfo processed 800,000 aligned reads...  thread 20
+#3 Molinfo processed 500,000 aligned reads...  thread 22
+#3 Molinfo processed 800,000 aligned reads...  thread 5
+#3 Molinfo processed 800,000 aligned reads...  thread 6
+#3 Molinfo processed 500,000 aligned reads...  thread 16
+#3 Molinfo processed 800,000 aligned reads...  thread 15
+#3 Molinfo processed 500,000 aligned reads...  thread 25
+#3 Molinfo processed 500,000 aligned reads...  thread 19
+#3 Molinfo processed 500,000 aligned reads...  thread 24
+#3 Molinfo processed 500,000 aligned reads...  thread 18
+#3 Molinfo processed 600,000 aligned reads...  thread 3
+#3 Molinfo processed 600,000 aligned reads...  thread 21
+#3 Molinfo processed 500,000 aligned reads...  thread 23
+#3 Molinfo processed 800,000 aligned reads...  thread 2
+#3 Molinfo processed 500,000 aligned reads...  thread 29
+#3 Molinfo processed 500,000 aligned reads...  thread 30
+#3 Molinfo processed 500,000 aligned reads...  thread 27
+#3 Molinfo processed 900,000 aligned reads...  thread 8
+#3 Molinfo processed 500,000 aligned reads...  thread 28
+#3 Molinfo processed 900,000 aligned reads...  thread 7
+#3 Molinfo processed 900,000 aligned reads...  thread 9
+#3 Molinfo processed 900,000 aligned reads...  thread 20
+#3 Molinfo processed 900,000 aligned reads...  thread 6
+#3 Molinfo processed 600,000 aligned reads...  thread 22
+#3 Molinfo processed 900,000 aligned reads...  thread 15
+#3 Molinfo processed 600,000 aligned reads...  thread 11
+#3 Molinfo processed 600,000 aligned reads...  thread 4
+#3 Molinfo processed 600,000 aligned reads...  thread 1
+#3 Molinfo processed 600,000 aligned reads...  thread 12
+#3 Molinfo processed 600,000 aligned reads...  thread 14
+#3 Molinfo processed 600,000 aligned reads...  thread 26
+#3 Molinfo processed 600,000 aligned reads...  thread 10
+#3 Molinfo processed 600,000 aligned reads...  thread 13
+#3 Molinfo processed 900,000 aligned reads...  thread 2
+#3 Molinfo processed 600,000 aligned reads...  thread 17
+#3 Molinfo processed 700,000 aligned reads...  thread 21
+#3 Molinfo processed 900,000 aligned reads...  thread 5
+#3 Molinfo processed 1,000,000 aligned reads...  thread 7
+#3 Molinfo processed 1,000,000 aligned reads...  thread 8
+#3 Molinfo processed 1,000,000 aligned reads...  thread 9
+#3 Molinfo processed 1,000,000 aligned reads...  thread 20
+#3 Molinfo processed 600,000 aligned reads...  thread 25
+#3 Molinfo processed 600,000 aligned reads...  thread 24
+#3 Molinfo processed 600,000 aligned reads...  thread 19
+#3 Molinfo processed 700,000 aligned reads...  thread 3
+#3 Molinfo processed 700,000 aligned reads...  thread 22
+#3 Molinfo processed 1,000,000 aligned reads...  thread 6
+#3 Molinfo processed 1,000,000 aligned reads...  thread 15
+#3 Molinfo processed 600,000 aligned reads...  thread 23
+#3 Molinfo processed 600,000 aligned reads...  thread 30
+#3 Molinfo processed 600,000 aligned reads...  thread 27
+#3 Molinfo processed 1,000,000 aligned reads...  thread 2
+#3 Molinfo processed 600,000 aligned reads...  thread 29
+#3 Molinfo processed 600,000 aligned reads...  thread 28
+#3 Molinfo processed 600,000 aligned reads...  thread 16
+#3 Molinfo processed 800,000 aligned reads...  thread 21
+#3 Molinfo processed 700,000 aligned reads...  thread 4
+#3 Molinfo processed 600,000 aligned reads...  thread 18
+#3 Molinfo processed 1,100,000 aligned reads...  thread 8
+#3 Molinfo processed 1,100,000 aligned reads...  thread 7
+#3 Molinfo processed 1,100,000 aligned reads...  thread 20
+#3 Molinfo processed 1,100,000 aligned reads...  thread 9
+#3 Molinfo processed 700,000 aligned reads...  thread 1
+#3 Molinfo processed 700,000 aligned reads...  thread 26
+#3 Molinfo processed 700,000 aligned reads...  thread 12
+#3 Molinfo processed 700,000 aligned reads...  thread 11
+#3 Molinfo processed 700,000 aligned reads...  thread 14
+#3 Molinfo processed 700,000 aligned reads...  thread 10
+#3 Molinfo processed 700,000 aligned reads...  thread 17
+#3 Molinfo processed 800,000 aligned reads...  thread 22
+#3 Molinfo processed 1,100,000 aligned reads...  thread 6
+#3 Molinfo processed 1,000,000 aligned reads...  thread 5
+#3 Molinfo processed 1,100,000 aligned reads...  thread 15
+#3 Molinfo processed 1,100,000 aligned reads...  thread 2
+#3 Molinfo processed 700,000 aligned reads...  thread 19
+#3 Molinfo processed 700,000 aligned reads...  thread 25
+#3 Molinfo processed 1,200,000 aligned reads...  thread 8
+#3 Molinfo processed 800,000 aligned reads...  thread 3
+#3 Molinfo processed 700,000 aligned reads...  thread 24
+#3 Molinfo processed 900,000 aligned reads...  thread 21
+#3 Molinfo processed 1,200,000 aligned reads...  thread 20
+#3 Molinfo processed 1,200,000 aligned reads...  thread 9
+#3 Molinfo processed 700,000 aligned reads...  thread 13
+#3 Molinfo processed 800,000 aligned reads...  thread 12
+#3 Molinfo processed 700,000 aligned reads...  thread 23
+#3 Molinfo processed 700,000 aligned reads...  thread 27
+#3 Molinfo processed 700,000 aligned reads...  thread 30
+#3 Molinfo processed 1,200,000 aligned reads...  thread 6
+#3 Molinfo processed 1,200,000 aligned reads...  thread 7
+#3 Molinfo processed 800,000 aligned reads...  thread 1
+#3 Molinfo processed 800,000 aligned reads...  thread 4
+#3 Molinfo processed 700,000 aligned reads...  thread 29
+#3 Molinfo processed 700,000 aligned reads...  thread 28
+#3 Molinfo processed 800,000 aligned reads...  thread 26
+#3 Molinfo processed 1,200,000 aligned reads...  thread 2
+#3 Molinfo processed 800,000 aligned reads...  thread 11
+#3 Molinfo processed 700,000 aligned reads...  thread 16
+#3 Molinfo processed 800,000 aligned reads...  thread 14
+#3 Molinfo processed 1,300,000 aligned reads...  thread 8
+#3 Molinfo processed 1,100,000 aligned reads...  thread 5
+#3 Molinfo processed 800,000 aligned reads...  thread 19
+#3 Molinfo processed 800,000 aligned reads...  thread 10
+#3 Molinfo processed 700,000 aligned reads...  thread 18
+#3 Molinfo processed 800,000 aligned reads...  thread 17
+#3 Molinfo processed 1,200,000 aligned reads...  thread 15
+#3 Molinfo processed 1,300,000 aligned reads...  thread 9
+#3 Molinfo processed 1,300,000 aligned reads...  thread 20
+#3 Molinfo processed 1,000,000 aligned reads...  thread 21
+#3 Molinfo processed 900,000 aligned reads...  thread 22
+#3 Molinfo processed 1,300,000 aligned reads...  thread 6
+#3 Molinfo processed 900,000 aligned reads...  thread 3
+#3 Molinfo processed 800,000 aligned reads...  thread 24
+#3 Molinfo processed 800,000 aligned reads...  thread 25
+#3 Molinfo processed 1,300,000 aligned reads...  thread 2
+#3 Molinfo processed 900,000 aligned reads...  thread 1
+#3 Molinfo processed 800,000 aligned reads...  thread 13
+#3 Molinfo processed 900,000 aligned reads...  thread 12
+#3 Molinfo processed 800,000 aligned reads...  thread 23
+#3 Molinfo processed 1,400,000 aligned reads...  thread 8
+#3 Molinfo processed 900,000 aligned reads...  thread 11
+#3 Molinfo processed 1,400,000 aligned reads...  thread 9
+#3 Molinfo processed 900,000 aligned reads...  thread 4
+#3 Molinfo processed 1,300,000 aligned reads...  thread 15
+#3 Molinfo processed 1,400,000 aligned reads...  thread 20
+#3 Molinfo processed 900,000 aligned reads...  thread 26
+#3 Molinfo processed 800,000 aligned reads...  thread 27
+#3 Molinfo processed 800,000 aligned reads...  thread 30
+#3 Molinfo processed 1,300,000 aligned reads...  thread 7
+#3 Molinfo processed 800,000 aligned reads...  thread 29
+#3 Molinfo processed 800,000 aligned reads...  thread 28
+#3 Molinfo processed 800,000 aligned reads...  thread 18
+#3 Molinfo processed 1,400,000 aligned reads...  thread 6
+#3 Molinfo processed 1,200,000 aligned reads...  thread 5
+#3 Molinfo processed 900,000 aligned reads...  thread 10
+#3 Molinfo processed 800,000 aligned reads...  thread 16
+#3 Molinfo processed 900,000 aligned reads...  thread 14
+#3 Molinfo processed 900,000 aligned reads...  thread 17
+#3 Molinfo processed 900,000 aligned reads...  thread 19
+#3 Molinfo processed 1,000,000 aligned reads...  thread 22
+#3 Molinfo processed 1,100,000 aligned reads...  thread 21
+#3 Molinfo processed 1,400,000 aligned reads...  thread 2
+#3 Molinfo processed 1,500,000 aligned reads...  thread 9
+#3 Molinfo processed 1,000,000 aligned reads...  thread 12
+#3 Molinfo processed 1,500,000 aligned reads...  thread 8
+#3 Molinfo processed 1,500,000 aligned reads...  thread 20
+#3 Molinfo processed 1,000,000 aligned reads...  thread 1
+#3 Molinfo processed 1,000,000 aligned reads...  thread 3
+#3 Molinfo processed 900,000 aligned reads...  thread 24
+#3 Molinfo processed 900,000 aligned reads...  thread 18
+#3 Molinfo processed 900,000 aligned reads...  thread 25
+#3 Molinfo processed 1,500,000 aligned reads...  thread 6
+#3 Molinfo processed 900,000 aligned reads...  thread 13
+#3 Molinfo processed 1,000,000 aligned reads...  thread 4
+#3 Molinfo processed 900,000 aligned reads...  thread 23
+#3 Molinfo processed 1,500,000 aligned reads...  thread 2
+#3 Molinfo processed 1,000,000 aligned reads...  thread 11
+#3 Molinfo processed 1,000,000 aligned reads...  thread 26
+#3 Molinfo processed 1,400,000 aligned reads...  thread 7
+#3 Molinfo processed 1,600,000 aligned reads...  thread 9
+#3 Molinfo processed 1,400,000 aligned reads...  thread 15
+#3 Molinfo processed 1,300,000 aligned reads...  thread 5
+#3 Molinfo processed 900,000 aligned reads...  thread 28
+#3 Molinfo processed 900,000 aligned reads...  thread 27
+#3 Molinfo processed 900,000 aligned reads...  thread 30
+#3 Molinfo processed 1,000,000 aligned reads...  thread 14
+#3 Molinfo processed 1,600,000 aligned reads...  thread 8
+#3 Molinfo processed 1,000,000 aligned reads...  thread 19
+#3 Molinfo processed 1,200,000 aligned reads...  thread 21
+#3 Molinfo processed 900,000 aligned reads...  thread 29
+#3 Molinfo processed 1,600,000 aligned reads...  thread 20
+#3 Molinfo processed 1,000,000 aligned reads...  thread 10
+#3 Molinfo processed 1,100,000 aligned reads...  thread 12
+#3 Molinfo processed 1,000,000 aligned reads...  thread 17
+#3 Molinfo processed 1,000,000 aligned reads...  thread 18
+#3 Molinfo processed 1,100,000 aligned reads...  thread 22
+#3 Molinfo processed 1,600,000 aligned reads...  thread 6
+#3 Molinfo processed 1,000,000 aligned reads...  thread 25
+#3 Molinfo processed 900,000 aligned reads...  thread 16
+#3 Molinfo processed 1,600,000 aligned reads...  thread 2
+#3 Molinfo processed 1,100,000 aligned reads...  thread 1
+#3 Molinfo processed 1,500,000 aligned reads...  thread 7
+#3 Molinfo processed 1,700,000 aligned reads...  thread 9
+#3 Molinfo processed 1,100,000 aligned reads...  thread 3
+#3 Molinfo processed 1,000,000 aligned reads...  thread 24
+#3 Molinfo processed 1,100,000 aligned reads...  thread 4
+#3 Molinfo processed 1,300,000 aligned reads...  thread 21
+#3 Molinfo processed 1,000,000 aligned reads...  thread 28
+#3 Molinfo processed 1,100,000 aligned reads...  thread 18
+#3 Molinfo processed 1,500,000 aligned reads...  thread 15
+#3 Molinfo processed 1,100,000 aligned reads...  thread 26
+#3 Molinfo processed 1,000,000 aligned reads...  thread 23
+#3 Molinfo processed 1,100,000 aligned reads...  thread 11
+#3 Molinfo processed 1,000,000 aligned reads...  thread 13
+#3 Molinfo processed 1,100,000 aligned reads...  thread 25
+#3 Molinfo processed 1,400,000 aligned reads...  thread 5
+#3 Molinfo processed 1,100,000 aligned reads...  thread 14
+#3 Molinfo processed 1,100,000 aligned reads...  thread 19
+#3 Molinfo processed 1,600,000 aligned reads...  thread 7
+#3 Molinfo processed 1,100,000 aligned reads...  thread 10
+#3 Molinfo processed 1,000,000 aligned reads...  thread 27
+#3 Molinfo processed 1,000,000 aligned reads...  thread 30
+#3 Molinfo processed 1,000,000 aligned reads...  thread 29
+#3 Molinfo processed 1,000,000 aligned reads...  thread 16
+#3 Molinfo processed 1,100,000 aligned reads...  thread 17
+#3 Molinfo processed 1,200,000 aligned reads...  thread 12
+#3 Molinfo processed 1,200,000 aligned reads...  thread 1
+#3 Molinfo processed 1,200,000 aligned reads...  thread 18
+#3 Molinfo processed 1,400,000 aligned reads...  thread 21
+#3 Molinfo processed 1,200,000 aligned reads...  thread 22
+#3 Molinfo processed 1,600,000 aligned reads...  thread 15
+#3 Molinfo processed 1,200,000 aligned reads...  thread 3
+#3 Molinfo processed 1,200,000 aligned reads...  thread 25
+#3 Molinfo processed 1,100,000 aligned reads...  thread 13
+#3 Molinfo processed 1,200,000 aligned reads...  thread 11
+#3 Molinfo processed 1,100,000 aligned reads...  thread 24
+#3 Molinfo processed 1,100,000 aligned reads...  thread 23
+#3 Molinfo processed 1,200,000 aligned reads...  thread 4
+#3 Molinfo processed 1,500,000 aligned reads...  thread 5
+#3 Molinfo processed 1,100,000 aligned reads...  thread 28
+#3 Molinfo processed 1,200,000 aligned reads...  thread 26
+#3 Molinfo processed 1,200,000 aligned reads...  thread 19
+#3 Molinfo processed 1,100,000 aligned reads...  thread 29
+#3 Molinfo processed 1,300,000 aligned reads...  thread 18
+#3 Molinfo processed 1,100,000 aligned reads...  thread 27
+#3 Molinfo processed 1,200,000 aligned reads...  thread 14
+#3 Molinfo processed 1,200,000 aligned reads...  thread 10
+#3 Molinfo processed 1,300,000 aligned reads...  thread 25
+#3 Molinfo processed 1,200,000 aligned reads...  thread 13
+#3 Molinfo processed 1,200,000 aligned reads...  thread 17
+#3 Molinfo processed 1,100,000 aligned reads...  thread 30
+#3 Molinfo processed 1,100,000 aligned reads...  thread 16
+#3 Molinfo processed 1,600,000 aligned reads...  thread 5
+#3 Molinfo processed 1,300,000 aligned reads...  thread 1
+#3 Molinfo processed 1,200,000 aligned reads...  thread 23
+#3 Molinfo processed 1,300,000 aligned reads...  thread 11
+#3 Molinfo processed 1,500,000 aligned reads...  thread 21
+#3 Molinfo processed 1,300,000 aligned reads...  thread 22
+#3 Molinfo processed 1,300,000 aligned reads...  thread 12
+#3 Molinfo processed 1,300,000 aligned reads...  thread 3
+#3 Molinfo processed 1,300,000 aligned reads...  thread 19
+#3 Molinfo processed 1,200,000 aligned reads...  thread 28
+#3 Molinfo processed 1,400,000 aligned reads...  thread 18
+#3 Molinfo processed 1,200,000 aligned reads...  thread 29
+#3 Molinfo processed 1,200,000 aligned reads...  thread 24
+#3 Molinfo processed 1,300,000 aligned reads...  thread 4
+#3 Molinfo processed 1,200,000 aligned reads...  thread 27
+#3 Molinfo processed 1,400,000 aligned reads...  thread 25
+#3 Molinfo processed 1,300,000 aligned reads...  thread 13
+#3 Molinfo processed 1,300,000 aligned reads...  thread 26
+#3 Molinfo processed 1,300,000 aligned reads...  thread 17
+#3 Molinfo processed 1,400,000 aligned reads...  thread 11
+#3 Molinfo processed 1,300,000 aligned reads...  thread 10
+#3 Molinfo processed 1,300,000 aligned reads...  thread 23
+#3 Molinfo processed 1,300,000 aligned reads...  thread 14
+#3 Molinfo processed 1,500,000 aligned reads...  thread 18
+#3 Molinfo processed 1,400,000 aligned reads...  thread 19
+#3 Molinfo processed 1,400,000 aligned reads...  thread 3
+#3 Molinfo processed 1,400,000 aligned reads...  thread 1
+#3 Molinfo processed 1,300,000 aligned reads...  thread 28
+#3 Molinfo processed 1,200,000 aligned reads...  thread 16
+#3 Molinfo processed 1,300,000 aligned reads...  thread 29
+#3 Molinfo processed 1,200,000 aligned reads...  thread 30
+#3 Molinfo processed 1,400,000 aligned reads...  thread 13
+#3 Molinfo processed 1,300,000 aligned reads...  thread 27
+#3 Molinfo processed 1,500,000 aligned reads...  thread 25
+#3 Molinfo processed 1,400,000 aligned reads...  thread 12
+#3 Molinfo processed 1,600,000 aligned reads...  thread 21
+#3 Molinfo processed 1,400,000 aligned reads...  thread 22
+#3 Molinfo processed 1,400,000 aligned reads...  thread 26
+#3 Molinfo processed 1,500,000 aligned reads...  thread 11
+#3 Molinfo processed 1,400,000 aligned reads...  thread 17
+#3 Molinfo processed 1,400,000 aligned reads...  thread 4
+#3 Molinfo processed 1,600,000 aligned reads...  thread 18
+#3 Molinfo processed 1,300,000 aligned reads...  thread 24
+#3 Molinfo processed 1,400,000 aligned reads...  thread 23
+#3 Molinfo processed 1,500,000 aligned reads...  thread 19
+#3 Molinfo processed 1,500,000 aligned reads...  thread 3
+#3 Molinfo processed 1,400,000 aligned reads...  thread 10
+#3 Molinfo processed 1,400,000 aligned reads...  thread 28
+#3 Molinfo processed 1,500,000 aligned reads...  thread 13
+#3 Molinfo processed 1,400,000 aligned reads...  thread 29
+#3 Molinfo processed 1,400,000 aligned reads...  thread 14
+#3 Molinfo processed 1,400,000 aligned reads...  thread 27
+#3 Molinfo processed 1,300,000 aligned reads...  thread 30
+#3 Molinfo processed 1,500,000 aligned reads...  thread 17
+#3 Molinfo processed 1,600,000 aligned reads...  thread 11
+#3 Molinfo processed 1,500,000 aligned reads...  thread 26
+#3 Molinfo processed 1,500,000 aligned reads...  thread 1
+#3 Molinfo processed 1,500,000 aligned reads...  thread 12
+#3 Molinfo processed 1,300,000 aligned reads...  thread 16
+#3 Molinfo processed 1,600,000 aligned reads...  thread 19
+#3 Molinfo processed 1,500,000 aligned reads...  thread 23
+#3 Molinfo processed 1,600,000 aligned reads...  thread 3
+#3 Molinfo processed 1,500,000 aligned reads...  thread 22
+#3 Molinfo processed 1,500,000 aligned reads...  thread 4
+#3 Molinfo processed 1,600,000 aligned reads...  thread 13
+#3 Molinfo processed 1,500,000 aligned reads...  thread 28
+#3 Molinfo processed 1,400,000 aligned reads...  thread 24
+#3 Molinfo processed 1,500,000 aligned reads...  thread 29
+#3 Molinfo processed 1,500,000 aligned reads...  thread 27
+#3 Molinfo processed 1,400,000 aligned reads...  thread 30
+#3 Molinfo processed 1,600,000 aligned reads...  thread 17
+#3 Molinfo processed 1,500,000 aligned reads...  thread 10
+#3 Molinfo processed 1,600,000 aligned reads...  thread 12
+#3 Molinfo processed 1,600,000 aligned reads...  thread 26
+#3 Molinfo processed 1,500,000 aligned reads...  thread 14
+#3 Molinfo processed 1,600,000 aligned reads...  thread 22
+#3 Molinfo processed 1,600,000 aligned reads...  thread 1
+#3 Molinfo processed 1,400,000 aligned reads...  thread 16
+#3 Molinfo processed 1,600,000 aligned reads...  thread 4
+#3 Molinfo processed 1,500,000 aligned reads...  thread 30
+#3 Molinfo processed 1,600,000 aligned reads...  thread 14
+#3 Molinfo processed 1,500,000 aligned reads...  thread 24
+#3 Molinfo processed 1,500,000 aligned reads...  thread 16
+#3 Molinfo processed 1,600,000 aligned reads...  thread 10
+#3 Molinfo processed 1,600,000 aligned reads...  thread 16
+#3 Molinfo processed 1,600,000 aligned reads...  thread 24
+#2 Combining 30 annotated bam parts
+#3 bam part file /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/process/barcode_headAligned_anno_chunk1.bam
+#3 bam part file /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/process/barcode_headAligned_anno_chunk2.bam
+#3 bam part file /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/process/barcode_headAligned_anno_chunk3.bam
+#3 bam part file /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/process/barcode_headAligned_anno_chunk4.bam
+#3 bam part file /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/process/barcode_headAligned_anno_chunk5.bam
+#3 bam part file /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/process/barcode_headAligned_anno_chunk6.bam
+#3 bam part file /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/process/barcode_headAligned_anno_chunk7.bam
+#3 bam part file /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/process/barcode_headAligned_anno_chunk8.bam
+#3 bam part file /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/process/barcode_headAligned_anno_chunk9.bam
+#3 bam part file /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/process/barcode_headAligned_anno_chunk10.bam
+#3 bam part file /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/process/barcode_headAligned_anno_chunk11.bam
+#3 bam part file /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/process/barcode_headAligned_anno_chunk12.bam
+#3 bam part file /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/process/barcode_headAligned_anno_chunk13.bam
+#3 bam part file /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/process/barcode_headAligned_anno_chunk14.bam
+#3 bam part file /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/process/barcode_headAligned_anno_chunk15.bam
+#3 bam part file /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/process/barcode_headAligned_anno_chunk16.bam
+#3 bam part file /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/process/barcode_headAligned_anno_chunk17.bam
+#3 bam part file /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/process/barcode_headAligned_anno_chunk18.bam
+#3 bam part file /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/process/barcode_headAligned_anno_chunk19.bam
+#3 bam part file /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/process/barcode_headAligned_anno_chunk20.bam
+#3 bam part file /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/process/barcode_headAligned_anno_chunk21.bam
+#3 bam part file /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/process/barcode_headAligned_anno_chunk22.bam
+#3 bam part file /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/process/barcode_headAligned_anno_chunk23.bam
+#3 bam part file /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/process/barcode_headAligned_anno_chunk24.bam
+#3 bam part file /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/process/barcode_headAligned_anno_chunk25.bam
+#3 bam part file /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/process/barcode_headAligned_anno_chunk26.bam
+#3 bam part file /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/process/barcode_headAligned_anno_chunk27.bam
+#3 bam part file /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/process/barcode_headAligned_anno_chunk28.bam
+#3 bam part file /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/process/barcode_headAligned_anno_chunk29.bam
+#3 bam part file /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/process/barcode_headAligned_anno_chunk30.bam
+# # Subproc: Call:   /software/conda/users/sd21/spipe_1.9.0/bin/samtools cat -b /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/process/temp1.temp -o /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/process/barcode_headAligned_anno.bam
+# # Subproc: Status: Success
+# # Subproc: Output: (first 100 char)
+# 
+# # Subproc: Duration 0:00:07.35
+#2 Combining 30 transcript assignment parts
+#2 Wrote 21959297 lines to /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/process/tscp_assignment.csv
+# Wrote 28 x 2 table to /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/process/pre_align_stats.csv
+#2 PF_PRE_ALIGN_STAT Row_1_of_30                                 value
+#2 PF_PRE_ALIGN_STAT Row_2_of_30  statistic                           
+#2 PF_PRE_ALIGN_STAT Row_3_of_30  bc1_Q30                        0.792
+#2 PF_PRE_ALIGN_STAT Row_4_of_30  bc2_Q30                        0.819
+#2 PF_PRE_ALIGN_STAT Row_5_of_30  bc3_Q30                        0.827
+#2 PF_PRE_ALIGN_STAT Row_6_of_30  bc1_perfrac                    0.572
+#2 PF_PRE_ALIGN_STAT Row_7_of_30  bc2_perfrac                    0.661
+#2 PF_PRE_ALIGN_STAT Row_8_of_30  bc3_perfrac                    0.787
+#2 PF_PRE_ALIGN_STAT Row_9_of_30  bc123_perfrac                  0.519
+#2 PF_PRE_ALIGN_STAT Row_10_of_30  bc_edit_dist_0              79655937
+#2 PF_PRE_ALIGN_STAT Row_11_of_30  bc_edit_dist_1               9490770
+#2 PF_PRE_ALIGN_STAT Row_12_of_30  bc_edit_dist_2              16621771
+#2 PF_PRE_ALIGN_STAT Row_13_of_30  bc_edit_dist_NA             38984118
+#2 PF_PRE_ALIGN_STAT Row_14_of_30  cDNA_Q30                       0.805
+#2 PF_PRE_ALIGN_STAT Row_15_of_30  number_of_reads            144816774
+#2 PF_PRE_ALIGN_STAT Row_16_of_30  number_of_tscp              21959297
+#2 PF_PRE_ALIGN_STAT Row_17_of_30  polyN_Q30                      0.822
+#2 PF_PRE_ALIGN_STAT Row_18_of_30  reads_align_input           95214286
+#2 PF_PRE_ALIGN_STAT Row_19_of_30  reads_align_mean_mlen         127.64
+#2 PF_PRE_ALIGN_STAT Row_20_of_30  reads_align_mean_rlen            131
+#2 PF_PRE_ALIGN_STAT Row_21_of_30  reads_align_multimap         4305364
+#2 PF_PRE_ALIGN_STAT Row_22_of_30  reads_align_too_many_loci   29276587
+#2 PF_PRE_ALIGN_STAT Row_23_of_30  reads_align_too_short       20276453
+#2 PF_PRE_ALIGN_STAT Row_24_of_30  reads_align_unique          39092006
+#2 PF_PRE_ALIGN_STAT Row_25_of_30  reads_ambig_bc                 64178
+#2 PF_PRE_ALIGN_STAT Row_26_of_30  reads_length_trim                  0
+#2 PF_PRE_ALIGN_STAT Row_27_of_30  reads_map_transcriptome     27560210
+#2 PF_PRE_ALIGN_STAT Row_28_of_30  reads_too_short                    0
+#2 PF_PRE_ALIGN_STAT Row_29_of_30  reads_tso_trim              49398259
+#2 PF_PRE_ALIGN_STAT Row_30_of_30  reads_valid_barcode         95214286
+#2 Combining 30 barcode tscp count parts
+#2 Wrote 101667 lines to /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/process/aw_uf_bc_counts.csv
+#2 Read Dataframe: Dims 101666 x 5, Mem 4.88Mb (4879968) from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/process/aw_uf_bc_counts.csv
+# Wrote 86971 x 9 table to /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/process/aw_uf_cell_metadata.csv
+#2 PF_AW_UF_CELL Row_1_of_86973                             sample     species gene_count tscp_count mread_count bc1_well bc2_well bc3_well
+#2 PF_AW_UF_CELL Row_2_of_86973  bc_wells                                                                                                  
+#2 PF_AW_UF_CELL Row_3_of_86973  01_01_01  hcontortus_adult_female  hcontortus        119        138         171       A1       A1       A1
+#2 PF_AW_UF_CELL Row_4_of_86973  01_01_02  hcontortus_adult_female  hcontortus        719       1902        2393       A1       A1       A2
+#2 PF_AW_UF_CELL Row_5_of_86973  01_01_03  hcontortus_adult_female  hcontortus        184        229         268       A1       A1       A3
+#2 PF_AW_UF_CELL Row_6_of_86973  01_01_04  hcontortus_adult_female  hcontortus         97        119         143       A1       A1       A4
+#2 Combining 30 DGE mtx files
+#2 Loaded 302841 elements from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/process/aw_uf_count_matrix_chunk1.mtx
+#2 Loaded 295432 elements from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/process/aw_uf_count_matrix_chunk2.mtx
+#2 Loaded 295332 elements from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/process/aw_uf_count_matrix_chunk3.mtx
+#2 Loaded 273758 elements from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/process/aw_uf_count_matrix_chunk4.mtx
+#2 Loaded 301105 elements from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/process/aw_uf_count_matrix_chunk5.mtx
+#2 Loaded 315089 elements from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/process/aw_uf_count_matrix_chunk6.mtx
+#2 Loaded 285604 elements from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/process/aw_uf_count_matrix_chunk7.mtx
+#2 Loaded 316086 elements from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/process/aw_uf_count_matrix_chunk8.mtx
+#2 Loaded 268399 elements from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/process/aw_uf_count_matrix_chunk9.mtx
+#2 Loaded 276051 elements from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/process/aw_uf_count_matrix_chunk10.mtx
+#2 Loaded 257889 elements from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/process/aw_uf_count_matrix_chunk11.mtx
+#2 Loaded 275972 elements from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/process/aw_uf_count_matrix_chunk12.mtx
+#2 Loaded 285472 elements from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/process/aw_uf_count_matrix_chunk13.mtx
+#2 Loaded 281447 elements from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/process/aw_uf_count_matrix_chunk14.mtx
+#2 Loaded 314866 elements from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/process/aw_uf_count_matrix_chunk15.mtx
+#2 Loaded 281961 elements from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/process/aw_uf_count_matrix_chunk16.mtx
+#2 Loaded 283658 elements from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/process/aw_uf_count_matrix_chunk17.mtx
+#2 Loaded 260015 elements from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/process/aw_uf_count_matrix_chunk18.mtx
+#2 Loaded 286371 elements from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/process/aw_uf_count_matrix_chunk19.mtx
+#2 Loaded 266210 elements from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/process/aw_uf_count_matrix_chunk20.mtx
+#2 Loaded 301783 elements from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/process/aw_uf_count_matrix_chunk21.mtx
+#2 Loaded 318078 elements from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/process/aw_uf_count_matrix_chunk22.mtx
+#2 Loaded 325954 elements from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/process/aw_uf_count_matrix_chunk23.mtx
+#2 Loaded 326129 elements from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/process/aw_uf_count_matrix_chunk24.mtx
+#2 Loaded 417939 elements from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/process/aw_uf_count_matrix_chunk25.mtx
+#2 Loaded 546572 elements from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/process/aw_uf_count_matrix_chunk26.mtx
+#2 Loaded 514086 elements from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/process/aw_uf_count_matrix_chunk27.mtx
+#2 Loaded 518108 elements from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/process/aw_uf_count_matrix_chunk28.mtx
+#2 Loaded 500096 elements from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/process/aw_uf_count_matrix_chunk29.mtx
+#2 Loaded 536939 elements from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/process/aw_uf_count_matrix_chunk30.mtx
+#2 Combined 30 files, 10029242 data lines to /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/process/aw_uf_count_matrix.mtx
+# Cleaning molinfo temp files for 30 chunks
+# Compressing transcript assignment csv; /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/process/tscp_assignment.csv
+#R MemStatus: Molinfo  3.94Gb proc, 584Mb rss, 3.36Gb vms, 3.7% usd, 4.15Tb avail
+#R DskStatus: Molinfo  '/nfs/' 5.29Pb total, 2.71Pb (51.22%) used, 2.31Pb (43.73%) free
+#P << Running Molinfo; Status True; Duration 0:04:45.22
+#P 
+#P >> Running DGE
+#R MemStatus: DGE  3.94Gb proc, 584Mb rss, 3.36Gb vms, 3.7% usd, 4.15Tb avail
+#R DskStatus: DGE  '/nfs/' 5.29Pb total, 2.71Pb (51.22%) used, 2.31Pb (43.73%) free
+# Loading all-well unfiltered data from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/process/
+# Loading DGE parts from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/process/
+# Dataframe 'unfiltered_cells': Dims 86971 x 8, Mem 5.04Mb (5044638)
+# Dataframe 'all_genes': Dims 19778 x 3, Mem 475Kb (474804)
+# Matrix 'count_matrix':Dims 86971 x 19778, Mem 121Mb (121046680); Elements >=1.0 = 10029242 (  0.58%)
+#2 Read Dataframe: Dims 101666 x 5, Mem 4.88Mb (4879968) from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/process/aw_uf_bc_counts.csv
+# Processing data for 4 samples
+# DGE processing sample (1) hcontortus_adult_female
+#R MemStatus: DGE_samp_1  11.8Gb proc, 741Mb rss, 11Gb vms, 3.8% usd, 4.15Tb avail
+# Simple sample hcontortus_adult_female; calculating DGE
+#2 Getting unfiltered DGE matrix
+# >> Getting DGE; hcontortus_adult_female Unfiltered, Genes all, Barcodes TBD
+#2 Raw transcript counts (18370, 1)
+#2 Getting tscp cutoff to call cells
+#2 Cells filtered by tscp cutoff 10: cells 17760
+#2 << DGE matrix hcontortus_adult_female Unfiltered, Genes all, Barcodes TBD (17760, 19778), cells 17760
+#2 Matrix 17760 x 19778 = 351257280 total>=1.0 = 5809131 (  1.65%); >=3.0 = 861046 (  0.25%); >=10.0 = 190298 (  0.05%)
+# Wrote 17760 by 19778 table to /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/hcontortus_adult_female/DGE_unfiltered/count_matrix.mtx
+#2 Copy /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/process/all_genes.csv to /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/hcontortus_adult_female/DGE_unfiltered/all_genes.csv
+# Wrote 17760 x 9 table to /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/hcontortus_adult_female/DGE_unfiltered/cell_metadata.csv
+#2 SF_NU_CELL Row_1_of_17762                             sample     species gene_count tscp_count mread_count bc1_well bc2_well bc3_well
+#2 SF_NU_CELL Row_2_of_17762  bc_wells                                                                                                  
+#2 SF_NU_CELL Row_3_of_17762  01_01_01  hcontortus_adult_female  hcontortus        119        138         171       A1       A1       A1
+#2 SF_NU_CELL Row_4_of_17762  01_01_02  hcontortus_adult_female  hcontortus        719       1902        2393       A1       A1       A2
+#2 SF_NU_CELL Row_5_of_17762  01_01_03  hcontortus_adult_female  hcontortus        184        229         268       A1       A1       A3
+#2 SF_NU_CELL Row_6_of_17762  01_01_04  hcontortus_adult_female  hcontortus         97        119         143       A1       A1       A4
+#2 Getting filtered DGE matrix
+# >> Getting DGE; hcontortus_adult_female Filtered, Genes all, Barcodes TBD
+#2 Raw transcript counts (18370, 1)
+#2 Getting tscp cutoff to call cells
+#2 Calculating tscp cutoff; Cell min_c=10 (h_min_c=5), max_c=24000, min_t=30
+#2 Cell bounds scaled by 2 wells; min=5, max=4000
+#2 Transcript cutoff status True, thresh 795
+#2 Cells filtered by tscp cutoff 795: cells 3497
+#2 << DGE matrix hcontortus_adult_female Filtered, Genes all, Barcodes TBD (3497, 19778), cells 3497
+#2 Matrix 3497 x 19778 = 69163666 total>=1.0 = 3821009 (  5.52%); >=3.0 = 747697 (  1.08%); >=10.0 = 181517 (  0.26%)
+# Wrote 3497 by 19778 table to /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/hcontortus_adult_female/DGE_filtered/count_matrix.mtx
+#2 Copy /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/process/all_genes.csv to /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/hcontortus_adult_female/DGE_filtered/all_genes.csv
+# Wrote 3497 x 9 table to /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/hcontortus_adult_female/DGE_filtered/cell_metadata.csv
+#2 SF_NF_CELL Row_1_of_3499                             sample     species gene_count tscp_count mread_count bc1_well bc2_well bc3_well
+#2 SF_NF_CELL Row_2_of_3499  bc_wells                                                                                                  
+#2 SF_NF_CELL Row_3_of_3499  01_01_02  hcontortus_adult_female  hcontortus        719       1902        2393       A1       A1       A2
+#2 SF_NF_CELL Row_4_of_3499  01_01_08  hcontortus_adult_female  hcontortus        604       1327        1667       A1       A1       A8
+#2 SF_NF_CELL Row_5_of_3499  01_01_09  hcontortus_adult_female  hcontortus       1999       8757       10964       A1       A1       A9
+#2 SF_NF_CELL Row_6_of_3499  01_01_18  hcontortus_adult_female  hcontortus        701        897        1120       A1       A1       B6
+# Wrote 17267 x 5 table to /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/hcontortus_adult_female/report/expressed_genes.csv
+#2 SFR_EXPRESS_GENE Row_1_of_17268                     gene_id            gene_name      genome cell_count tscp_count
+#2 SFR_EXPRESS_GENE Row_2_of_17268  0            HCON_00000020        HCON_00000020  hcontortus        740       1001
+#2 SFR_EXPRESS_GENE Row_3_of_17268  1            HCON_00000030        HCON_00000030  hcontortus        494        668
+#2 SFR_EXPRESS_GENE Row_4_of_17268  2            HCON_00000040        HCON_00000040  hcontortus          1          1
+#2 SFR_EXPRESS_GENE Row_5_of_17268  4            HCON_00000060        HCON_00000060  hcontortus        179        206
+#2 SFR_EXPRESS_GENE Row_6_of_17268  5            HCON_00000070        HCON_00000070  hcontortus       2681       8303
+# Wrote 33 x 2 table to /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/hcontortus_adult_female/report/tscp_cutoff_calc.csv
+#2 SFR_TSCP_CUTOFF Row_1_of_35                               value
+#2 SFR_TSCP_CUTOFF Row_2_of_35  statistic                         
+#2 SFR_TSCP_CUTOFF Row_3_of_35  cell_call          get_tscp_cutoff
+#2 SFR_TSCP_CUTOFF Row_4_of_35  cell_tscp_cutoff               795
+#2 SFR_TSCP_CUTOFF Row_5_of_35  cnt_scale_fac                    1
+#2 SFR_TSCP_CUTOFF Row_6_of_35  cv_slope_win                  0.02
+# Wrote 18370 x 2 table to /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/hcontortus_adult_female/report/tscp_counts.csv
+#2 SFR_TSCP_CT Row_1_of_18372            count
+#2 SFR_TSCP_CT Row_2_of_18372  bc_wells       
+#2 SFR_TSCP_CT Row_3_of_18372  01_01_01    138
+#2 SFR_TSCP_CT Row_4_of_18372  01_01_02   1902
+#2 SFR_TSCP_CT Row_5_of_18372  01_01_03    229
+#2 SFR_TSCP_CT Row_6_of_18372  01_01_04    119
+# Wrote 2 x 2 table to /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/hcontortus_adult_female/report/tscp_median_by_rnd1_well.csv
+#2 SFR_TSCP_R1W Row_1_of_4       count
+#2 SFR_TSCP_R1W Row_2_of_4  well      
+#2 SFR_TSCP_R1W Row_3_of_4  A1    2087
+#2 SFR_TSCP_R1W Row_4_of_4  A2    2584
+# Wrote 94 x 2 table to /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/hcontortus_adult_female/report/tscp_median_by_rnd2_well.csv
+#2 SFR_TSCP_R2W Row_1_of_96       count
+#2 SFR_TSCP_R2W Row_2_of_96  well      
+#2 SFR_TSCP_R2W Row_3_of_96  A1    2928
+#2 SFR_TSCP_R2W Row_4_of_96  A2    2452
+#2 SFR_TSCP_R2W Row_5_of_96  A3    1763
+#2 SFR_TSCP_R2W Row_6_of_96  A4    2843
+# Wrote 92 x 2 table to /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/hcontortus_adult_female/report/tscp_median_by_rnd3_well.csv
+#2 SFR_TSCP_R3W Row_1_of_94       count
+#2 SFR_TSCP_R3W Row_2_of_94  well      
+#2 SFR_TSCP_R3W Row_3_of_94  A1    2599
+#2 SFR_TSCP_R3W Row_4_of_94  A2    1902
+#2 SFR_TSCP_R3W Row_5_of_94  A3    2076
+#2 SFR_TSCP_R3W Row_6_of_94  A4    2265
+# Wrote 2 x 2 table to /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/hcontortus_adult_female/report/cell_counts_by_rnd1_well.csv
+#2 SFR_CELL_R1W Row_1_of_4       count
+#2 SFR_CELL_R1W Row_2_of_4  well      
+#2 SFR_CELL_R1W Row_3_of_4  A1    1667
+#2 SFR_CELL_R1W Row_4_of_4  A2    1830
+# Wrote 94 x 2 table to /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/hcontortus_adult_female/report/cell_counts_by_rnd2_well.csv
+#2 SFR_CELL_R2W Row_1_of_96       count
+#2 SFR_CELL_R2W Row_2_of_96  well      
+#2 SFR_CELL_R2W Row_3_of_96  A1      48
+#2 SFR_CELL_R2W Row_4_of_96  A2      35
+#2 SFR_CELL_R2W Row_5_of_96  A3      36
+#2 SFR_CELL_R2W Row_6_of_96  A4      39
+# Wrote 92 x 2 table to /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/hcontortus_adult_female/report/cell_counts_by_rnd3_well.csv
+#2 SFR_CELL_R3W Row_1_of_94       count
+#2 SFR_CELL_R3W Row_2_of_94  well      
+#2 SFR_CELL_R3W Row_3_of_94  A1      33
+#2 SFR_CELL_R3W Row_4_of_94  A2      31
+#2 SFR_CELL_R3W Row_5_of_94  A3      40
+#2 SFR_CELL_R3W Row_6_of_94  A4      39
+#2 Read Dataframe: Dims 28 x 1, Mem 448Bb (448) from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/process/pre_align_stats.csv
+#2 Read Dataframe: Dims 12 x 1, Mem 192Bb (192) from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/process/well_vbc_counts.csv
+# Wrote 6 x 2 table to /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/hcontortus_adult_female/report/sample_mrtg_counts.csv
+#2 SFR_SAMP_MRTG_CT Row_1_of_8                        count
+#2 SFR_SAMP_MRTG_CT Row_2_of_8  statistic                  
+#2 SFR_SAMP_MRTG_CT Row_3_of_8  cell_gene_count       17267
+#2 SFR_SAMP_MRTG_CT Row_4_of_8  cell_mread_count   14994184
+#2 SFR_SAMP_MRTG_CT Row_5_of_8  cell_tscp_count    11875016
+#2 SFR_SAMP_MRTG_CT Row_6_of_8  total_gene_count      17761
+#2 Read Dataframe: Dims 6 x 1, Mem 96Bb (96) from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/hcontortus_adult_female/report/sample_mrtg_counts.csv
+# Wrote 56 x 2 table to /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/hcontortus_adult_female/report/sample_all_stats.csv
+#2 SFR_ALLSTATS Row_1_of_58                                             value
+#2 SFR_ALLSTATS Row_2_of_58  statistic                                       
+#2 SFR_ALLSTATS Row_3_of_58  bc1_Q30                                    0.792
+#2 SFR_ALLSTATS Row_4_of_58  bc2_Q30                                    0.819
+#2 SFR_ALLSTATS Row_5_of_58  bc3_Q30                                    0.827
+#2 SFR_ALLSTATS Row_6_of_58  bc1_perfrac                                0.572
+# Wrote 23 x 2 table to /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/hcontortus_adult_female/report/analysis_summary.csv
+#2 SFR_ASUM_CSV Row_1_of_25                                             value
+#2 SFR_ASUM_CSV Row_2_of_25  statistic                                       
+#2 SFR_ASUM_CSV Row_3_of_25  sample_well_count                              2
+#2 SFR_ASUM_CSV Row_4_of_25  number_of_cells                             3497
+#2 SFR_ASUM_CSV Row_5_of_25  hcontortus_median_tscp_per_cell             2323
+#2 SFR_ASUM_CSV Row_6_of_25  hcontortus_median_tscp_at50              5678.65
+#2 SFR_ASUM_CSV Row_7_of_25  hcontortus_median_genes_per_cell             929
+#2 SFR_ASUM_CSV Row_8_of_25  mean_reads_per_cell                    26060.268
+#2 SFR_ASUM_CSV Row_9_of_25  number_of_reads                     91132757.569
+#2 SFR_ASUM_CSV Row_10_of_25  number_of_tscp                          14577886
+#2 SFR_ASUM_CSV Row_11_of_25  sequencing_saturation                      0.205
+#2 SFR_ASUM_CSV Row_12_of_25  valid_barcode_fraction                     0.657
+#2 SFR_ASUM_CSV Row_13_of_25  bc1_Q30                                    0.792
+#2 SFR_ASUM_CSV Row_14_of_25  bc2_Q30                                    0.819
+#2 SFR_ASUM_CSV Row_15_of_25  bc3_Q30                                    0.827
+#2 SFR_ASUM_CSV Row_16_of_25  cDNA_Q30                                   0.805
+#2 SFR_ASUM_CSV Row_17_of_25  polyN_Q30                                  0.822
+#2 SFR_ASUM_CSV Row_18_of_25  sample_tmap_fraction                       0.306
+#2 SFR_ASUM_CSV Row_19_of_25  transcriptome_map_fraction                 0.289
+#2 SFR_ASUM_CSV Row_20_of_25  tso_fraction_in_read1                      0.519
+#2 SFR_ASUM_CSV Row_21_of_25  hcontortus_fraction_reads_in_cells         0.818
+#2 SFR_ASUM_CSV Row_22_of_25  hcontortus_fraction_tscp_in_cells          0.815
+#2 SFR_ASUM_CSV Row_23_of_25  hcontortus_fraction_exonic                 0.474
+#2 SFR_ASUM_CSV Row_24_of_25  cell_tscp_cutoff                             795
+#2 SFR_ASUM_CSV Row_25_of_25  cell_tscp_f01_slope                            2
+# DGE processing sample (2) hcontortus_adult_male
+#R MemStatus: DGE_samp_2  21.3Gb proc, 830Mb rss, 20.5Gb vms, 3.8% usd, 4.15Tb avail
+# Simple sample hcontortus_adult_male; calculating DGE
+#2 Getting unfiltered DGE matrix
+# >> Getting DGE; hcontortus_adult_male Unfiltered, Genes all, Barcodes TBD
+#2 Raw transcript counts (18068, 1)
+#2 Getting tscp cutoff to call cells
+#2 Cells filtered by tscp cutoff 10: cells 16481
+#2 << DGE matrix hcontortus_adult_male Unfiltered, Genes all, Barcodes TBD (16481, 19778), cells 16481
+#2 Matrix 16481 x 19778 = 325961218 total>=1.0 = 1389578 (  0.43%); >=3.0 = 194095 (  0.06%); >=10.0 = 44462 (  0.01%)
+# Wrote 16481 by 19778 table to /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/hcontortus_adult_male/DGE_unfiltered/count_matrix.mtx
+#2 Copy /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/process/all_genes.csv to /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/hcontortus_adult_male/DGE_unfiltered/all_genes.csv
+# Wrote 16481 x 9 table to /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/hcontortus_adult_male/DGE_unfiltered/cell_metadata.csv
+#2 SF_NU_CELL Row_1_of_16483                           sample     species gene_count tscp_count mread_count bc1_well bc2_well bc3_well
+#2 SF_NU_CELL Row_2_of_16483  bc_wells                                                                                                
+#2 SF_NU_CELL Row_3_of_16483  03_01_01  hcontortus_adult_male  hcontortus         31         33          41       A3       A1       A1
+#2 SF_NU_CELL Row_4_of_16483  03_01_02  hcontortus_adult_male  hcontortus         54         59          71       A3       A1       A2
+#2 SF_NU_CELL Row_5_of_16483  03_01_03  hcontortus_adult_male  hcontortus         44         44          53       A3       A1       A3
+#2 SF_NU_CELL Row_6_of_16483  03_01_04  hcontortus_adult_male  hcontortus         36         36          45       A3       A1       A4
+#2 Getting filtered DGE matrix
+# >> Getting DGE; hcontortus_adult_male Filtered, Genes all, Barcodes TBD
+#2 Raw transcript counts (18068, 1)
+#2 Getting tscp cutoff to call cells
+#2 Calculating tscp cutoff; Cell min_c=10 (h_min_c=5), max_c=24000, min_t=30
+#2 Cell bounds scaled by 2 wells; min=5, max=4000
+#2 Transcript cutoff status True, thresh 1163
+#2 Cells filtered by tscp cutoff 1163: cells 434
+#2 << DGE matrix hcontortus_adult_male Filtered, Genes all, Barcodes TBD (434, 19778), cells 434
+#2 Matrix 434 x 19778 = 8583652 total>=1.0 = 695176 (  8.10%); >=3.0 = 178570 (  2.08%); >=10.0 = 43154 (  0.50%)
+# Wrote 434 by 19778 table to /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/hcontortus_adult_male/DGE_filtered/count_matrix.mtx
+#2 Copy /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/process/all_genes.csv to /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/hcontortus_adult_male/DGE_filtered/all_genes.csv
+# Wrote 434 x 9 table to /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/hcontortus_adult_male/DGE_filtered/cell_metadata.csv
+#2 SF_NF_CELL Row_1_of_436                           sample     species gene_count tscp_count mread_count bc1_well bc2_well bc3_well
+#2 SF_NF_CELL Row_2_of_436  bc_wells                                                                                                
+#2 SF_NF_CELL Row_3_of_436  03_01_15  hcontortus_adult_male  hcontortus       2972      11533       14377       A3       A1       B3
+#2 SF_NF_CELL Row_4_of_436  03_01_49  hcontortus_adult_male  hcontortus       1606       3722        4681       A3       A1       E1
+#2 SF_NF_CELL Row_5_of_436  03_01_74  hcontortus_adult_male  hcontortus       1202       3292        4108       A3       A1       G2
+#2 SF_NF_CELL Row_6_of_436  03_02_11  hcontortus_adult_male  hcontortus       1908       7169        8963       A3       A2      A11
+# Wrote 15388 x 5 table to /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/hcontortus_adult_male/report/expressed_genes.csv
+#2 SFR_EXPRESS_GENE Row_1_of_15389                     gene_id            gene_name      genome cell_count tscp_count
+#2 SFR_EXPRESS_GENE Row_2_of_15389  0            HCON_00000020        HCON_00000020  hcontortus        125        193
+#2 SFR_EXPRESS_GENE Row_3_of_15389  1            HCON_00000030        HCON_00000030  hcontortus         70        113
+#2 SFR_EXPRESS_GENE Row_4_of_15389  4            HCON_00000060        HCON_00000060  hcontortus         28         29
+#2 SFR_EXPRESS_GENE Row_5_of_15389  5            HCON_00000070        HCON_00000070  hcontortus        345       1446
+#2 SFR_EXPRESS_GENE Row_6_of_15389  6            HCON_00000080        HCON_00000080  hcontortus          4          4
+# Wrote 33 x 2 table to /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/hcontortus_adult_male/report/tscp_cutoff_calc.csv
+#2 SFR_TSCP_CUTOFF Row_1_of_35                               value
+#2 SFR_TSCP_CUTOFF Row_2_of_35  statistic                         
+#2 SFR_TSCP_CUTOFF Row_3_of_35  cell_call          get_tscp_cutoff
+#2 SFR_TSCP_CUTOFF Row_4_of_35  cell_tscp_cutoff              1163
+#2 SFR_TSCP_CUTOFF Row_5_of_35  cnt_scale_fac                    1
+#2 SFR_TSCP_CUTOFF Row_6_of_35  cv_slope_win                  0.02
+# Wrote 18068 x 2 table to /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/hcontortus_adult_male/report/tscp_counts.csv
+#2 SFR_TSCP_CT Row_1_of_18070            count
+#2 SFR_TSCP_CT Row_2_of_18070  bc_wells       
+#2 SFR_TSCP_CT Row_3_of_18070  03_01_01     33
+#2 SFR_TSCP_CT Row_4_of_18070  03_01_02     59
+#2 SFR_TSCP_CT Row_5_of_18070  03_01_03     44
+#2 SFR_TSCP_CT Row_6_of_18070  03_01_04     36
+# Wrote 2 x 2 table to /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/hcontortus_adult_male/report/tscp_median_by_rnd1_well.csv
+#2 SFR_TSCP_R1W Row_1_of_4       count
+#2 SFR_TSCP_R1W Row_2_of_4  well      
+#2 SFR_TSCP_R1W Row_3_of_4  A3    4578
+#2 SFR_TSCP_R1W Row_4_of_4  A4    4158
+# Wrote 94 x 2 table to /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/hcontortus_adult_male/report/tscp_median_by_rnd2_well.csv
+#2 SFR_TSCP_R2W Row_1_of_96        count
+#2 SFR_TSCP_R2W Row_2_of_96  well       
+#2 SFR_TSCP_R2W Row_3_of_96  A1     5659
+#2 SFR_TSCP_R2W Row_4_of_96  A2     5756
+#2 SFR_TSCP_R2W Row_5_of_96  A3     4026
+#2 SFR_TSCP_R2W Row_6_of_96  A4     3081
+# Wrote 91 x 2 table to /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/hcontortus_adult_male/report/tscp_median_by_rnd3_well.csv
+#2 SFR_TSCP_R3W Row_1_of_93        count
+#2 SFR_TSCP_R3W Row_2_of_93  well       
+#2 SFR_TSCP_R3W Row_3_of_93  A1     2855
+#2 SFR_TSCP_R3W Row_4_of_93  A2     6549
+#2 SFR_TSCP_R3W Row_5_of_93  A3     4280
+#2 SFR_TSCP_R3W Row_6_of_93  A4     4616
+# Wrote 2 x 2 table to /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/hcontortus_adult_male/report/cell_counts_by_rnd1_well.csv
+#2 SFR_CELL_R1W Row_1_of_4       count
+#2 SFR_CELL_R1W Row_2_of_4  well      
+#2 SFR_CELL_R1W Row_3_of_4  A3     209
+#2 SFR_CELL_R1W Row_4_of_4  A4     225
+# Wrote 94 x 2 table to /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/hcontortus_adult_male/report/cell_counts_by_rnd2_well.csv
+#2 SFR_CELL_R2W Row_1_of_96       count
+#2 SFR_CELL_R2W Row_2_of_96  well      
+#2 SFR_CELL_R2W Row_3_of_96  A1       9
+#2 SFR_CELL_R2W Row_4_of_96  A2       5
+#2 SFR_CELL_R2W Row_5_of_96  A3       4
+#2 SFR_CELL_R2W Row_6_of_96  A4       5
+# Wrote 91 x 2 table to /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/hcontortus_adult_male/report/cell_counts_by_rnd3_well.csv
+#2 SFR_CELL_R3W Row_1_of_93       count
+#2 SFR_CELL_R3W Row_2_of_93  well      
+#2 SFR_CELL_R3W Row_3_of_93  A1       6
+#2 SFR_CELL_R3W Row_4_of_93  A2       2
+#2 SFR_CELL_R3W Row_5_of_93  A3       4
+#2 SFR_CELL_R3W Row_6_of_93  A4       3
+#2 Read Dataframe: Dims 28 x 1, Mem 448Bb (448) from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/process/pre_align_stats.csv
+# Wrote 6 x 2 table to /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/hcontortus_adult_male/report/sample_mrtg_counts.csv
+#2 SFR_SAMP_MRTG_CT Row_1_of_8                       count
+#2 SFR_SAMP_MRTG_CT Row_2_of_8  statistic                 
+#2 SFR_SAMP_MRTG_CT Row_3_of_8  cell_gene_count      15388
+#2 SFR_SAMP_MRTG_CT Row_4_of_8  cell_mread_count   3001642
+#2 SFR_SAMP_MRTG_CT Row_5_of_8  cell_tscp_count    2394047
+#2 SFR_SAMP_MRTG_CT Row_6_of_8  total_gene_count     16475
+#2 Read Dataframe: Dims 6 x 1, Mem 96Bb (96) from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/hcontortus_adult_male/report/sample_mrtg_counts.csv
+# Wrote 56 x 2 table to /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/hcontortus_adult_male/report/sample_all_stats.csv
+#2 SFR_ALLSTATS Row_1_of_58                                             value
+#2 SFR_ALLSTATS Row_2_of_58  statistic                                       
+#2 SFR_ALLSTATS Row_3_of_58  bc1_Q30                                    0.792
+#2 SFR_ALLSTATS Row_4_of_58  bc2_Q30                                    0.819
+#2 SFR_ALLSTATS Row_5_of_58  bc3_Q30                                    0.827
+#2 SFR_ALLSTATS Row_6_of_58  bc1_perfrac                                0.572
+# Wrote 23 x 2 table to /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/hcontortus_adult_male/report/analysis_summary.csv
+#2 SFR_ASUM_CSV Row_1_of_25                                             value
+#2 SFR_ASUM_CSV Row_2_of_25  statistic                                       
+#2 SFR_ASUM_CSV Row_3_of_25  sample_well_count                              2
+#2 SFR_ASUM_CSV Row_4_of_25  number_of_cells                              434
+#2 SFR_ASUM_CSV Row_5_of_25  hcontortus_median_tscp_per_cell             4397
+#2 SFR_ASUM_CSV Row_6_of_25  hcontortus_median_tscp_at50            11036.894
+#2 SFR_ASUM_CSV Row_7_of_25  hcontortus_median_genes_per_cell            1452
+#2 SFR_ASUM_CSV Row_8_of_25  mean_reads_per_cell                    36534.539
+#2 SFR_ASUM_CSV Row_9_of_25  number_of_reads                     15855989.841
+#2 SFR_ASUM_CSV Row_10_of_25  number_of_tscp                           3205179
+#2 SFR_ASUM_CSV Row_11_of_25  sequencing_saturation                      0.199
+#2 SFR_ASUM_CSV Row_12_of_25  valid_barcode_fraction                     0.657
+#2 SFR_ASUM_CSV Row_13_of_25  bc1_Q30                                    0.792
+#2 SFR_ASUM_CSV Row_14_of_25  bc2_Q30                                    0.819
+#2 SFR_ASUM_CSV Row_15_of_25  bc3_Q30                                    0.827
+#2 SFR_ASUM_CSV Row_16_of_25  cDNA_Q30                                   0.805
+#2 SFR_ASUM_CSV Row_17_of_25  polyN_Q30                                  0.822
+#2 SFR_ASUM_CSV Row_18_of_25  sample_tmap_fraction                       0.384
+#2 SFR_ASUM_CSV Row_19_of_25  transcriptome_map_fraction                 0.289
+#2 SFR_ASUM_CSV Row_20_of_25  tso_fraction_in_read1                      0.519
+#2 SFR_ASUM_CSV Row_21_of_25  hcontortus_fraction_reads_in_cells          0.75
+#2 SFR_ASUM_CSV Row_22_of_25  hcontortus_fraction_tscp_in_cells          0.747
+#2 SFR_ASUM_CSV Row_23_of_25  hcontortus_fraction_exonic                 0.403
+#2 SFR_ASUM_CSV Row_24_of_25  cell_tscp_cutoff                            1163
+#2 SFR_ASUM_CSV Row_25_of_25  cell_tscp_f01_slope                        3.974
+# DGE processing sample (3) hcontortus_L3
+#R MemStatus: DGE_samp_3  21.4Gb proc, 868Mb rss, 20.5Gb vms, 3.8% usd, 4.15Tb avail
+# Simple sample hcontortus_L3; calculating DGE
+#2 Getting unfiltered DGE matrix
+# >> Getting DGE; hcontortus_L3 Unfiltered, Genes all, Barcodes TBD
+#2 Raw transcript counts (9141, 1)
+#2 Getting tscp cutoff to call cells
+#2 Cells filtered by tscp cutoff 10: cells 8778
+#2 << DGE matrix hcontortus_L3 Unfiltered, Genes all, Barcodes TBD (8778, 19778), cells 8778
+#2 Matrix 8778 x 19778 = 173611284 total>=1.0 = 2207055 (  1.27%); >=3.0 = 207503 (  0.12%); >=10.0 = 20821 (  0.01%)
+# Wrote 8778 by 19778 table to /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/hcontortus_L3/DGE_unfiltered/count_matrix.mtx
+#2 Copy /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/process/all_genes.csv to /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/hcontortus_L3/DGE_unfiltered/all_genes.csv
+# Wrote 8778 x 9 table to /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/hcontortus_L3/DGE_unfiltered/cell_metadata.csv
+#2 SF_NU_CELL Row_1_of_8780                   sample     species gene_count tscp_count mread_count bc1_well bc2_well bc3_well
+#2 SF_NU_CELL Row_2_of_8780  bc_wells                                                                                        
+#2 SF_NU_CELL Row_3_of_8780  12_01_01  hcontortus_L3  hcontortus        101        107         136      A12       A1       A1
+#2 SF_NU_CELL Row_4_of_8780  12_01_02  hcontortus_L3  hcontortus        184        242         301      A12       A1       A2
+#2 SF_NU_CELL Row_5_of_8780  12_01_03  hcontortus_L3  hcontortus        208        250         316      A12       A1       A3
+#2 SF_NU_CELL Row_6_of_8780  12_01_04  hcontortus_L3  hcontortus         84         89         106      A12       A1       A4
+#2 Getting filtered DGE matrix
+# >> Getting DGE; hcontortus_L3 Filtered, Genes all, Barcodes TBD
+#2 Raw transcript counts (9141, 1)
+#2 Getting tscp cutoff to call cells
+#2 Calculating tscp cutoff; Cell min_c=10 (h_min_c=5), max_c=24000, min_t=30
+#2 Cell bounds scaled by 1 wells; min=5, max=2000
+#2 Transcript cutoff status True, thresh 662
+#2 Cells filtered by tscp cutoff 662: cells 1145
+#2 << DGE matrix hcontortus_L3 Filtered, Genes all, Barcodes TBD (1145, 19778), cells 1145
+#2 Matrix 1145 x 19778 = 22645810 total>=1.0 = 1191572 (  5.26%); >=3.0 = 173644 (  0.77%); >=10.0 = 19423 (  0.09%)
+# Wrote 1145 by 19778 table to /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/hcontortus_L3/DGE_filtered/count_matrix.mtx
+#2 Copy /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/process/all_genes.csv to /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/hcontortus_L3/DGE_filtered/all_genes.csv
+# Wrote 1145 x 9 table to /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/hcontortus_L3/DGE_filtered/cell_metadata.csv
+#2 SF_NF_CELL Row_1_of_1147                   sample     species gene_count tscp_count mread_count bc1_well bc2_well bc3_well
+#2 SF_NF_CELL Row_2_of_1147  bc_wells                                                                                        
+#2 SF_NF_CELL Row_3_of_1147  12_01_12  hcontortus_L3  hcontortus       1083       1662        2090      A12       A1      A12
+#2 SF_NF_CELL Row_4_of_1147  12_01_15  hcontortus_L3  hcontortus       1135       1817        2274      A12       A1       B3
+#2 SF_NF_CELL Row_5_of_1147  12_01_24  hcontortus_L3  hcontortus        833       1343        1713      A12       A1      B12
+#2 SF_NF_CELL Row_6_of_1147  12_01_27  hcontortus_L3  hcontortus       2033       3852        4862      A12       A1       C3
+# Wrote 15224 x 5 table to /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/hcontortus_L3/report/expressed_genes.csv
+#2 SFR_EXPRESS_GENE Row_1_of_15225                     gene_id            gene_name      genome cell_count tscp_count
+#2 SFR_EXPRESS_GENE Row_2_of_15225  0            HCON_00000020        HCON_00000020  hcontortus        167        200
+#2 SFR_EXPRESS_GENE Row_3_of_15225  1            HCON_00000030        HCON_00000030  hcontortus         11         11
+#2 SFR_EXPRESS_GENE Row_4_of_15225  2            HCON_00000040        HCON_00000040  hcontortus          1          1
+#2 SFR_EXPRESS_GENE Row_5_of_15225  4            HCON_00000060        HCON_00000060  hcontortus         35         38
+#2 SFR_EXPRESS_GENE Row_6_of_15225  5            HCON_00000070        HCON_00000070  hcontortus        730       1857
+# Wrote 33 x 2 table to /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/hcontortus_L3/report/tscp_cutoff_calc.csv
+#2 SFR_TSCP_CUTOFF Row_1_of_35                               value
+#2 SFR_TSCP_CUTOFF Row_2_of_35  statistic                         
+#2 SFR_TSCP_CUTOFF Row_3_of_35  cell_call          get_tscp_cutoff
+#2 SFR_TSCP_CUTOFF Row_4_of_35  cell_tscp_cutoff               662
+#2 SFR_TSCP_CUTOFF Row_5_of_35  cnt_scale_fac                    1
+#2 SFR_TSCP_CUTOFF Row_6_of_35  cv_slope_win                  0.02
+# Wrote 9141 x 2 table to /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/hcontortus_L3/report/tscp_counts.csv
+#2 SFR_TSCP_CT Row_1_of_9143            count
+#2 SFR_TSCP_CT Row_2_of_9143  bc_wells       
+#2 SFR_TSCP_CT Row_3_of_9143  12_01_01    107
+#2 SFR_TSCP_CT Row_4_of_9143  12_01_02    242
+#2 SFR_TSCP_CT Row_5_of_9143  12_01_03    250
+#2 SFR_TSCP_CT Row_6_of_9143  12_01_04     89
+# Wrote 1 x 2 table to /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/hcontortus_L3/report/tscp_median_by_rnd1_well.csv
+#2 SFR_TSCP_R1W Row_1_of_3       count
+#2 SFR_TSCP_R1W Row_2_of_3  well      
+#2 SFR_TSCP_R1W Row_3_of_3  A12   1218
+# Wrote 94 x 2 table to /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/hcontortus_L3/report/tscp_median_by_rnd2_well.csv
+#2 SFR_TSCP_R2W Row_1_of_96       count
+#2 SFR_TSCP_R2W Row_2_of_96  well      
+#2 SFR_TSCP_R2W Row_3_of_96  A1    1090
+#2 SFR_TSCP_R2W Row_4_of_96  A2    1158
+#2 SFR_TSCP_R2W Row_5_of_96  A3    2517
+#2 SFR_TSCP_R2W Row_6_of_96  A4    1609
+# Wrote 92 x 2 table to /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/hcontortus_L3/report/tscp_median_by_rnd3_well.csv
+#2 SFR_TSCP_R3W Row_1_of_94       count
+#2 SFR_TSCP_R3W Row_2_of_94  well      
+#2 SFR_TSCP_R3W Row_3_of_94  A1    1318
+#2 SFR_TSCP_R3W Row_4_of_94  A2    1077
+#2 SFR_TSCP_R3W Row_5_of_94  A3    1288
+#2 SFR_TSCP_R3W Row_6_of_94  A4    1495
+# Wrote 1 x 2 table to /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/hcontortus_L3/report/cell_counts_by_rnd1_well.csv
+#2 SFR_CELL_R1W Row_1_of_3       count
+#2 SFR_CELL_R1W Row_2_of_3  well      
+#2 SFR_CELL_R1W Row_3_of_3  A12   1145
+# Wrote 94 x 2 table to /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/hcontortus_L3/report/cell_counts_by_rnd2_well.csv
+#2 SFR_CELL_R2W Row_1_of_96       count
+#2 SFR_CELL_R2W Row_2_of_96  well      
+#2 SFR_CELL_R2W Row_3_of_96  A1      15
+#2 SFR_CELL_R2W Row_4_of_96  A2       6
+#2 SFR_CELL_R2W Row_5_of_96  A3       6
+#2 SFR_CELL_R2W Row_6_of_96  A4      15
+# Wrote 92 x 2 table to /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/hcontortus_L3/report/cell_counts_by_rnd3_well.csv
+#2 SFR_CELL_R3W Row_1_of_94       count
+#2 SFR_CELL_R3W Row_2_of_94  well      
+#2 SFR_CELL_R3W Row_3_of_94  A1      12
+#2 SFR_CELL_R3W Row_4_of_94  A2      11
+#2 SFR_CELL_R3W Row_5_of_94  A3      15
+#2 SFR_CELL_R3W Row_6_of_94  A4      20
+#2 Read Dataframe: Dims 28 x 1, Mem 448Bb (448) from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/process/pre_align_stats.csv
+# Wrote 6 x 2 table to /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/hcontortus_L3/report/sample_mrtg_counts.csv
+#2 SFR_SAMP_MRTG_CT Row_1_of_8                       count
+#2 SFR_SAMP_MRTG_CT Row_2_of_8  statistic                 
+#2 SFR_SAMP_MRTG_CT Row_3_of_8  cell_gene_count      15224
+#2 SFR_SAMP_MRTG_CT Row_4_of_8  cell_mread_count   2848151
+#2 SFR_SAMP_MRTG_CT Row_5_of_8  cell_tscp_count    2265012
+#2 SFR_SAMP_MRTG_CT Row_6_of_8  total_gene_count     16306
+#2 Read Dataframe: Dims 6 x 1, Mem 96Bb (96) from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/hcontortus_L3/report/sample_mrtg_counts.csv
+# Wrote 56 x 2 table to /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/hcontortus_L3/report/sample_all_stats.csv
+#2 SFR_ALLSTATS Row_1_of_58                                             value
+#2 SFR_ALLSTATS Row_2_of_58  statistic                                       
+#2 SFR_ALLSTATS Row_3_of_58  bc1_Q30                                    0.792
+#2 SFR_ALLSTATS Row_4_of_58  bc2_Q30                                    0.819
+#2 SFR_ALLSTATS Row_5_of_58  bc3_Q30                                    0.827
+#2 SFR_ALLSTATS Row_6_of_58  bc1_perfrac                                0.572
+# Wrote 23 x 2 table to /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/hcontortus_L3/report/analysis_summary.csv
+#2 SFR_ASUM_CSV Row_1_of_25                                             value
+#2 SFR_ASUM_CSV Row_2_of_25  statistic                                       
+#2 SFR_ASUM_CSV Row_3_of_25  sample_well_count                              1
+#2 SFR_ASUM_CSV Row_4_of_25  number_of_cells                             1145
+#2 SFR_ASUM_CSV Row_5_of_25  hcontortus_median_tscp_per_cell             1218
+#2 SFR_ASUM_CSV Row_6_of_25  hcontortus_median_tscp_at50             3017.297
+#2 SFR_ASUM_CSV Row_7_of_25  hcontortus_median_genes_per_cell             812
+#2 SFR_ASUM_CSV Row_8_of_25  mean_reads_per_cell                    20923.923
+#2 SFR_ASUM_CSV Row_9_of_25  number_of_reads                     23957891.673
+#2 SFR_ASUM_CSV Row_10_of_25  number_of_tscp                           3478621
+#2 SFR_ASUM_CSV Row_11_of_25  sequencing_saturation                      0.202
+#2 SFR_ASUM_CSV Row_12_of_25  valid_barcode_fraction                     0.657
+#2 SFR_ASUM_CSV Row_13_of_25  bc1_Q30                                    0.792
+#2 SFR_ASUM_CSV Row_14_of_25  bc2_Q30                                    0.819
+#2 SFR_ASUM_CSV Row_15_of_25  bc3_Q30                                    0.827
+#2 SFR_ASUM_CSV Row_16_of_25  cDNA_Q30                                   0.805
+#2 SFR_ASUM_CSV Row_17_of_25  polyN_Q30                                  0.822
+#2 SFR_ASUM_CSV Row_18_of_25  sample_tmap_fraction                       0.277
+#2 SFR_ASUM_CSV Row_19_of_25  transcriptome_map_fraction                 0.289
+#2 SFR_ASUM_CSV Row_20_of_25  tso_fraction_in_read1                      0.519
+#2 SFR_ASUM_CSV Row_21_of_25  hcontortus_fraction_reads_in_cells         0.654
+#2 SFR_ASUM_CSV Row_22_of_25  hcontortus_fraction_tscp_in_cells          0.651
+#2 SFR_ASUM_CSV Row_23_of_25  hcontortus_fraction_exonic                  0.65
+#2 SFR_ASUM_CSV Row_24_of_25  cell_tscp_cutoff                             662
+#2 SFR_ASUM_CSV Row_25_of_25  cell_tscp_f01_slope                        1.148
+# DGE processing sample (4) all-sample
+#R MemStatus: DGE_samp_4  21.3Gb proc, 829Mb rss, 20.5Gb vms, 3.8% usd, 4.15Tb avail
+# Meta sample all-sample; combining DGE parts
+#2 Combining DGE files; DIR_S_DGE_N_F
+# DGE files from potentially 3 parts
+# Combining 3 cell bc files for all-sample
+#2 Loaded (1145, 8) from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/hcontortus_L3/DGE_filtered/cell_metadata.csv
+#2 Loaded (3497, 8) from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/hcontortus_adult_female/DGE_filtered/cell_metadata.csv
+#2 Loaded (434, 8) from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/hcontortus_adult_male/DGE_filtered/cell_metadata.csv
+#2 Combined 3 files, 5076 lines into /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/all-sample/DGE_filtered/cell_metadata.csv
+# Combining 3 count matrix files for all-sample
+#2 Loaded 1191572 elements from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/hcontortus_L3/DGE_filtered/count_matrix.mtx
+#2 Loaded 3821009 elements from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/hcontortus_adult_female/DGE_filtered/count_matrix.mtx
+#2 Loaded 695176 elements from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/hcontortus_adult_male/DGE_filtered/count_matrix.mtx
+#2 Combined 3 files, 5707757 data lines to /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/all-sample/DGE_filtered/count_matrix.mtx
+# Copy /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/process/all_genes.csv to /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/all-sample/DGE_filtered/all_genes.csv
+#2 Combining DGE files; DIR_S_DGE_N_UF
+# DGE files from potentially 3 parts
+# Combining 3 cell bc files for all-sample
+#2 Loaded (8778, 8) from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/hcontortus_L3/DGE_unfiltered/cell_metadata.csv
+#2 Loaded (17760, 8) from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/hcontortus_adult_female/DGE_unfiltered/cell_metadata.csv
+#2 Loaded (16481, 8) from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/hcontortus_adult_male/DGE_unfiltered/cell_metadata.csv
+#2 Combined 3 files, 43019 lines into /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/all-sample/DGE_unfiltered/cell_metadata.csv
+# Combining 3 count matrix files for all-sample
+#2 Loaded 2207055 elements from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/hcontortus_L3/DGE_unfiltered/count_matrix.mtx
+#2 Loaded 5809131 elements from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/hcontortus_adult_female/DGE_unfiltered/count_matrix.mtx
+#2 Loaded 1389578 elements from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/hcontortus_adult_male/DGE_unfiltered/count_matrix.mtx
+#2 Combined 3 files, 9405764 data lines to /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/all-sample/DGE_unfiltered/count_matrix.mtx
+# Copy /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/process/all_genes.csv to /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/all-sample/DGE_unfiltered/all_genes.csv
+#2 Read Dataframe: Dims 15224 x 4, Mem 609Kb (608960) from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/hcontortus_L3/report/expressed_genes.csv
+#2 Read Dataframe: Dims 17267 x 4, Mem 691Kb (690680) from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/hcontortus_adult_female/report/expressed_genes.csv
+#2 Read Dataframe: Dims 15388 x 4, Mem 616Kb (615520) from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/hcontortus_adult_male/report/expressed_genes.csv
+# Wrote 18129 x 7 table to /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/all-sample/report/expressed_genes.csv
+#2 SFR_EXPRESS_GENE Row_1_of_18131                                 gene_name      genome cell_count cell_count__hcontortus_L3 cell_count__hcontortus_adult_female cell_count__hcontortus_adult_male
+#2 SFR_EXPRESS_GENE Row_2_of_18131  gene_id                                                                                                                                                        
+#2 SFR_EXPRESS_GENE Row_3_of_18131  HCON_00000020              HCON_00000020  hcontortus       1032                       167                                 740                               125
+#2 SFR_EXPRESS_GENE Row_4_of_18131  HCON_00000030              HCON_00000030  hcontortus        575                        11                                 494                                70
+#2 SFR_EXPRESS_GENE Row_5_of_18131  HCON_00000040              HCON_00000040  hcontortus          2                         1                                   1                                 0
+#2 SFR_EXPRESS_GENE Row_6_of_18131  HCON_00000060              HCON_00000060  hcontortus        242                        35                                 179                                28
+#2 Read Dataframe: Dims 56 x 1, Mem 896Bb (896) from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/hcontortus_L3/report/sample_all_stats.csv
+#2 Read Dataframe: Dims 56 x 1, Mem 896Bb (896) from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/hcontortus_adult_female/report/sample_all_stats.csv
+#2 Read Dataframe: Dims 56 x 1, Mem 896Bb (896) from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/hcontortus_adult_male/report/sample_all_stats.csv
+#2 Read Dataframe: Dims 9141 x 1, Mem 146Kb (146256) from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/hcontortus_L3/report/tscp_counts.csv
+#2 Read Dataframe: Dims 18370 x 1, Mem 294Kb (293920) from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/hcontortus_adult_female/report/tscp_counts.csv
+#2 Read Dataframe: Dims 18068 x 1, Mem 289Kb (289088) from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/hcontortus_adult_male/report/tscp_counts.csv
+# Wrote 45579 x 2 table to /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/all-sample/report/tscp_counts.csv
+#2 SFR_TSCP_CT Row_1_of_45581            count
+#2 SFR_TSCP_CT Row_2_of_45581  bc_wells       
+#2 SFR_TSCP_CT Row_3_of_45581  01_01_01    138
+#2 SFR_TSCP_CT Row_4_of_45581  01_01_02   1902
+#2 SFR_TSCP_CT Row_5_of_45581  01_01_03    229
+#2 SFR_TSCP_CT Row_6_of_45581  01_01_04    119
+#2 Read Dataframe: Dims 33 x 1, Mem 528Bb (528) from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/hcontortus_L3/report/tscp_cutoff_calc.csv
+#2 Read Dataframe: Dims 33 x 1, Mem 528Bb (528) from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/hcontortus_adult_female/report/tscp_cutoff_calc.csv
+#2 Read Dataframe: Dims 33 x 1, Mem 528Bb (528) from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/hcontortus_adult_male/report/tscp_cutoff_calc.csv
+# Wrote 33 x 5 table to /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/all-sample/report/tscp_cutoff_calc.csv
+#2 SFR_TSCP_CUTOFF Row_1_of_35                               value all-sample__hcontortus_L3 all-sample__hcontortus_adult_female all-sample__hcontortus_adult_male
+#2 SFR_TSCP_CUTOFF Row_2_of_35  statistic                                                                                                                         
+#2 SFR_TSCP_CUTOFF Row_3_of_35  cell_call          get_tscp_cutoff           get_tscp_cutoff                     get_tscp_cutoff                   get_tscp_cutoff
+#2 SFR_TSCP_CUTOFF Row_4_of_35  cell_tscp_cutoff           815.227                       662                                 795                              1163
+#2 SFR_TSCP_CUTOFF Row_5_of_35  cnt_scale_fac                    1                         1                                   1                                 1
+#2 SFR_TSCP_CUTOFF Row_6_of_35  cv_slope_win                  0.02                      0.02                                0.02                              0.02
+#2 Read Dataframe: Dims 6 x 1, Mem 96Bb (96) from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/hcontortus_L3/report/sample_mrtg_counts.csv
+#2 Read Dataframe: Dims 6 x 1, Mem 96Bb (96) from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/hcontortus_adult_female/report/sample_mrtg_counts.csv
+#2 Read Dataframe: Dims 6 x 1, Mem 96Bb (96) from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/hcontortus_adult_male/report/sample_mrtg_counts.csv
+# Wrote 6 x 5 table to /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/all-sample/report/sample_mrtg_counts.csv
+#2 SFR_SAMP_MRTG_CT Row_1_of_8                        count all-sample__hcontortus_L3 all-sample__hcontortus_adult_female all-sample__hcontortus_adult_male
+#2 SFR_SAMP_MRTG_CT Row_2_of_8  statistic                                                                                                                  
+#2 SFR_SAMP_MRTG_CT Row_3_of_8  cell_gene_count       47879                     15224                               17267                             15388
+#2 SFR_SAMP_MRTG_CT Row_4_of_8  cell_mread_count   20843977                   2848151                            14994184                           3001642
+#2 SFR_SAMP_MRTG_CT Row_5_of_8  cell_tscp_count    16534075                   2265012                            11875016                           2394047
+#2 SFR_SAMP_MRTG_CT Row_6_of_8  total_gene_count      50542                     16306                               17761                             16475
+#2 Read Dataframe: Dims 5076 x 8, Mem 365Kb (365472) from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/all-sample/DGE_filtered/cell_metadata.csv
+# Wrote 5 x 2 table to /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/all-sample/report/tscp_median_by_rnd1_well.csv
+#2 SFR_TSCP_R1W Row_1_of_7       count
+#2 SFR_TSCP_R1W Row_2_of_7  well      
+#2 SFR_TSCP_R1W Row_3_of_7  A1    2087
+#2 SFR_TSCP_R1W Row_4_of_7  A2    2584
+#2 SFR_TSCP_R1W Row_5_of_7  A3    4578
+#2 SFR_TSCP_R1W Row_6_of_7  A4    4158
+# Wrote 94 x 2 table to /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/all-sample/report/tscp_median_by_rnd2_well.csv
+#2 SFR_TSCP_R2W Row_1_of_96       count
+#2 SFR_TSCP_R2W Row_2_of_96  well      
+#2 SFR_TSCP_R2W Row_3_of_96  A1    2928
+#2 SFR_TSCP_R2W Row_4_of_96  A2    2409
+#2 SFR_TSCP_R2W Row_5_of_96  A3    1778
+#2 SFR_TSCP_R2W Row_6_of_96  A4    2415
+# Wrote 92 x 2 table to /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/all-sample/report/tscp_median_by_rnd3_well.csv
+#2 SFR_TSCP_R3W Row_1_of_94       count
+#2 SFR_TSCP_R3W Row_2_of_94  well      
+#2 SFR_TSCP_R3W Row_3_of_94  A1    2177
+#2 SFR_TSCP_R3W Row_4_of_94  A2    1847
+#2 SFR_TSCP_R3W Row_5_of_94  A3    1964
+#2 SFR_TSCP_R3W Row_6_of_94  A4    1907
+# Wrote 5 x 2 table to /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/all-sample/report/cell_counts_by_rnd1_well.csv
+#2 SFR_CELL_R1W Row_1_of_7       count
+#2 SFR_CELL_R1W Row_2_of_7  well      
+#2 SFR_CELL_R1W Row_3_of_7  A1    1667
+#2 SFR_CELL_R1W Row_4_of_7  A2    1830
+#2 SFR_CELL_R1W Row_5_of_7  A3     209
+#2 SFR_CELL_R1W Row_6_of_7  A4     225
+# Wrote 94 x 2 table to /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/all-sample/report/cell_counts_by_rnd2_well.csv
+#2 SFR_CELL_R2W Row_1_of_96       count
+#2 SFR_CELL_R2W Row_2_of_96  well      
+#2 SFR_CELL_R2W Row_3_of_96  A1      72
+#2 SFR_CELL_R2W Row_4_of_96  A2      46
+#2 SFR_CELL_R2W Row_5_of_96  A3      46
+#2 SFR_CELL_R2W Row_6_of_96  A4      59
+# Wrote 92 x 2 table to /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/all-sample/report/cell_counts_by_rnd3_well.csv
+#2 SFR_CELL_R3W Row_1_of_94       count
+#2 SFR_CELL_R3W Row_2_of_94  well      
+#2 SFR_CELL_R3W Row_3_of_94  A1      51
+#2 SFR_CELL_R3W Row_4_of_94  A2      44
+#2 SFR_CELL_R3W Row_5_of_94  A3      59
+#2 SFR_CELL_R3W Row_6_of_94  A4      62
+#2 Recalculating some merged stats
+#2 Read Dataframe: Dims 6 x 4, Mem 240Bb (240) from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/all-sample/report/sample_mrtg_counts.csv
+#2 Read Dataframe: Dims 5076 x 8, Mem 365Kb (365472) from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/all-sample/DGE_filtered/cell_metadata.csv
+#2 Read Dataframe: Dims 6 x 4, Mem 240Bb (240) from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/all-sample/report/sample_mrtg_counts.csv
+# Wrote 56 x 5 table to /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/all-sample/report/sample_all_stats.csv
+#2 SFR_ALLSTATS Row_1_of_58                                           combined all-sample__hcontortus_L3 all-sample__hcontortus_adult_female all-sample__hcontortus_adult_male
+#2 SFR_ALLSTATS Row_2_of_58  statistic                                                                                                                                        
+#2 SFR_ALLSTATS Row_3_of_58  bc1_Q30                                     0.792                     0.792                               0.792                             0.792
+#2 SFR_ALLSTATS Row_4_of_58  bc2_Q30                                     0.819                     0.819                               0.819                             0.819
+#2 SFR_ALLSTATS Row_5_of_58  bc3_Q30                                     0.827                     0.827                               0.827                             0.827
+#2 SFR_ALLSTATS Row_6_of_58  bc1_perfrac                                 0.572                     0.572                               0.572                             0.572
+# Wrote 23 x 5 table to /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/all-sample/report/analysis_summary.csv
+#2 SFR_ASUM_CSV Row_1_of_25                                           combined all-sample__hcontortus_L3 all-sample__hcontortus_adult_female all-sample__hcontortus_adult_male
+#2 SFR_ASUM_CSV Row_2_of_25  statistic                                                                                                                                        
+#2 SFR_ASUM_CSV Row_3_of_25  sample_well_count                               5                         1                                   2                                 2
+#2 SFR_ASUM_CSV Row_4_of_25  number_of_cells                              5076                      1145                                3497                               434
+#2 SFR_ASUM_CSV Row_5_of_25  hcontortus_median_tscp_per_cell              2100                      1218                                2323                              4397
+#2 SFR_ASUM_CSV Row_6_of_25  hcontortus_median_tscp_at50              5164.893                  3017.297                             5678.65                         11036.894
+#2 SFR_ASUM_CSV Row_7_of_25  hcontortus_median_genes_per_cell              934                       812                                 929                              1452
+#2 SFR_ASUM_CSV Row_8_of_25  mean_reads_per_cell                      25797.21                 20923.923                           26060.268                         36534.539
+#2 SFR_ASUM_CSV Row_9_of_25  number_of_reads                     130946639.084              23957891.673                        91132757.569                      15855989.841
+#2 SFR_ASUM_CSV Row_10_of_25  number_of_tscp                           21261686                   3478621                            14577886                           3205179
+#2 SFR_ASUM_CSV Row_11_of_25  sequencing_saturation                       0.203                     0.202                               0.205                             0.199
+#2 SFR_ASUM_CSV Row_12_of_25  valid_barcode_fraction                      0.657                     0.657                               0.657                             0.657
+#2 SFR_ASUM_CSV Row_13_of_25  bc1_Q30                                     0.792                     0.792                               0.792                             0.792
+#2 SFR_ASUM_CSV Row_14_of_25  bc2_Q30                                     0.819                     0.819                               0.819                             0.819
+#2 SFR_ASUM_CSV Row_15_of_25  bc3_Q30                                     0.827                     0.827                               0.827                             0.827
+#2 SFR_ASUM_CSV Row_16_of_25  cDNA_Q30                                    0.805                     0.805                               0.805                             0.805
+#2 SFR_ASUM_CSV Row_17_of_25  polyN_Q30                                   0.822                     0.822                               0.822                             0.822
+#2 SFR_ASUM_CSV Row_18_of_25  sample_tmap_fraction                         0.31                     0.277                               0.306                             0.384
+#2 SFR_ASUM_CSV Row_19_of_25  transcriptome_map_fraction                  0.289                     0.289                               0.289                             0.289
+#2 SFR_ASUM_CSV Row_20_of_25  tso_fraction_in_read1                       0.519                     0.519                               0.519                             0.519
+#2 SFR_ASUM_CSV Row_21_of_25  hcontortus_fraction_reads_in_cells          0.781                     0.654                               0.818                              0.75
+#2 SFR_ASUM_CSV Row_22_of_25  hcontortus_fraction_tscp_in_cells           0.778                     0.651                               0.815                             0.747
+#2 SFR_ASUM_CSV Row_23_of_25  hcontortus_fraction_exonic                  0.498                      0.65                               0.474                             0.403
+#2 SFR_ASUM_CSV Row_24_of_25  cell_tscp_cutoff                          815.227                       662                                 795                              1163
+#2 SFR_ASUM_CSV Row_25_of_25  cell_tscp_f01_slope                         2.083                     1.148                                   2                             3.974
+# Aggregating sample analysis_summary csv files
+#2 Read Dataframe: Dims 23 x 1, Mem 368Bb (368) from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/hcontortus_adult_female/report/analysis_summary.csv
+#2 Read Dataframe: Dims 23 x 1, Mem 368Bb (368) from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/hcontortus_adult_male/report/analysis_summary.csv
+#2 Read Dataframe: Dims 23 x 1, Mem 368Bb (368) from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/hcontortus_L3/report/analysis_summary.csv
+#2 Read Dataframe: Dims 23 x 4, Mem 920Bb (920) from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/all-sample/report/analysis_summary.csv
+# Wrote 4 x 24 table to /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/agg_sample_summary.csv
+#2 SF_AGG_ASUM_CSV Row_1_of_6  statistic               sample_well_count number_of_cells hcontortus_median_tscp_per_cell hcontortus_median_tscp_at50 hcontortus_median_genes_per_cell mean_reads_per_cell number_of_reads number_of_tscp sequencing_saturation valid_barcode_fraction bc1_Q30 bc2_Q30 bc3_Q30 cDNA_Q30 polyN_Q30 sample_tmap_fraction transcriptome_map_fraction tso_fraction_in_read1 hcontortus_fraction_reads_in_cells hcontortus_fraction_tscp_in_cells hcontortus_fraction_exonic cell_tscp_cutoff cell_tscp_f01_slope
+#2 SF_AGG_ASUM_CSV Row_2_of_6  sample                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      
+#2 SF_AGG_ASUM_CSV Row_3_of_6  hcontortus_adult_female                 2            3497                            2323                     5678.65                              929           26060.268    91132757.569       14577886                 0.205                  0.657   0.792   0.819   0.827    0.805     0.822                0.306                      0.289                 0.519                              0.818                             0.815                      0.474              795                   2
+#2 SF_AGG_ASUM_CSV Row_4_of_6  hcontortus_adult_male                   2             434                            4397                   11036.894                             1452           36534.539    15855989.841        3205179                 0.199                  0.657   0.792   0.819   0.827    0.805     0.822                0.384                      0.289                 0.519                               0.75                             0.747                      0.403             1163               3.974
+#2 SF_AGG_ASUM_CSV Row_5_of_6  hcontortus_L3                           1            1145                            1218                    3017.297                              812           20923.923    23957891.673        3478621                 0.202                  0.657   0.792   0.819   0.827    0.805     0.822                0.277                      0.289                 0.519                              0.654                             0.651                       0.65              662               1.148
+#2 SF_AGG_ASUM_CSV Row_6_of_6  all-sample                              5            5076                            2100                    5164.893                              934            25797.21   130946639.084       21261686                 0.203                  0.657   0.792   0.819   0.827    0.805     0.822                 0.31                      0.289                 0.519                              0.781                             0.778                      0.498          815.227               2.083
+#2 Not compressing DGE output files
+#R MemStatus: DGE  21.1Gb proc, 750Mb rss, 20.4Gb vms, 3.8% usd, 4.15Tb avail
+#R DskStatus: DGE  '/nfs/' 5.29Pb total, 2.71Pb (51.22%) used, 2.31Pb (43.73%) free
+#P << Running DGE; Status True; Duration 0:00:25.68
+#P 
+#P >> Running SubSampling
+#R MemStatus: SubSampling  21.1Gb proc, 750Mb rss, 20.4Gb vms, 3.8% usd, 4.15Tb avail
+#R DskStatus: SubSampling  '/nfs/' 5.29Pb total, 2.71Pb (51.22%) used, 2.31Pb (43.73%) free
+# Loading cell data for 4 samples; drop_multiplet=True
+#2 Read Dataframe: Dims 3497 x 1, Mem 56Kb (55952) from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/hcontortus_adult_female/DGE_filtered/cell_metadata.csv
+#2 Read Dataframe: Dims 434 x 1, Mem 6.94Kb (6944) from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/hcontortus_adult_male/DGE_filtered/cell_metadata.csv
+#2 Read Dataframe: Dims 1145 x 1, Mem 18.3Kb (18320) from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/hcontortus_L3/DGE_filtered/cell_metadata.csv
+#2 Read Dataframe: Dims 5076 x 1, Mem 81.2Kb (81216) from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/all-sample/DGE_filtered/cell_metadata.csv
+# Total cell barcodes = 5076  {'hcontortus': 5076}
+# Collecting 5076 cell tscp and gene counts for ['hcontortus']
+# Subsample depths: [0.0, 0.03, 0.07, 0.11, 0.17, 0.23, 0.31, 0.4, 0.51, 0.65, 0.81, 1.0]
+#2 Total processed cells:   24   0.47%  {'hcontortus': 24}
+#2 Total processed cells:   59   1.16%  {'hcontortus': 59}
+#2 Total processed cells:   77   1.52%  {'hcontortus': 77}
+#2 Total processed cells:  110   2.17%  {'hcontortus': 110}
+#2 Total processed cells:  142   2.80%  {'hcontortus': 142}
+#2 Total processed cells:  168   3.31%  {'hcontortus': 168}
+#2 Total processed cells:  203   4.00%  {'hcontortus': 203}
+#2 Total processed cells:  233   4.59%  {'hcontortus': 233}
+#2 Total processed cells:  258   5.08%  {'hcontortus': 258}
+#2 Total processed cells:  288   5.67%  {'hcontortus': 288}
+#2 Total processed cells:  315   6.21%  {'hcontortus': 315}
+#2 Total processed cells:  337   6.64%  {'hcontortus': 337}
+#2 Total processed cells:  362   7.13%  {'hcontortus': 362}
+#2 Total processed cells:  384   7.57%  {'hcontortus': 384}
+#2 Total processed cells:  411   8.10%  {'hcontortus': 411}
+#2 Total processed cells:  436   8.59%  {'hcontortus': 436}
+#2 Total processed cells:  472   9.30%  {'hcontortus': 472}
+#2 Total processed cells:  499   9.83%  {'hcontortus': 499}
+#2 Total processed cells:  527  10.38%  {'hcontortus': 527}
+#2 Total processed cells:  554  10.91%  {'hcontortus': 554}
+#2 Total processed cells:  576  11.35%  {'hcontortus': 576}
+#2 Total processed cells:  598  11.78%  {'hcontortus': 598}
+#2 Total processed cells:  622  12.25%  {'hcontortus': 622}
+#2 Total processed cells:  656  12.92%  {'hcontortus': 656}
+#2 Total processed cells:  681  13.42%  {'hcontortus': 681}
+#2 Total processed cells:  709  13.97%  {'hcontortus': 709}
+#2 Total processed cells:  729  14.36%  {'hcontortus': 729}
+#2 Total processed cells:  757  14.91%  {'hcontortus': 757}
+#2 Total processed cells:  785  15.46%  {'hcontortus': 785}
+#2 Total processed cells:  819  16.13%  {'hcontortus': 819}
+#2 Total processed cells:  851  16.77%  {'hcontortus': 851}
+#2 Total processed cells:  881  17.36%  {'hcontortus': 881}
+#2 Total processed cells:  908  17.89%  {'hcontortus': 908}
+#2 Total processed cells:  943  18.58%  {'hcontortus': 943}
+#2 Total processed cells:  972  19.15%  {'hcontortus': 972}
+#2 Total processed cells:  998  19.66%  {'hcontortus': 998}
+#2 Total processed cells: 1027  20.23%  {'hcontortus': 1027}
+#2 Total processed cells: 1056  20.80%  {'hcontortus': 1056}
+#2 Total processed cells: 1085  21.38%  {'hcontortus': 1085}
+#2 Total processed cells: 1113  21.93%  {'hcontortus': 1113}
+#2 Total processed cells: 1144  22.54%  {'hcontortus': 1144}
+#2 Total processed cells: 1160  22.85%  {'hcontortus': 1160}
+#2 Total processed cells: 1185  23.35%  {'hcontortus': 1185}
+#2 Total processed cells: 1212  23.88%  {'hcontortus': 1212}
+#2 Total processed cells: 1241  24.45%  {'hcontortus': 1241}
+#2 Total processed cells: 1258  24.78%  {'hcontortus': 1258}
+#2 Total processed cells: 1290  25.41%  {'hcontortus': 1290}
+#2 Total processed cells: 1313  25.87%  {'hcontortus': 1313}
+#2 Total processed cells: 1339  26.38%  {'hcontortus': 1339}
+#2 Total processed cells: 1371  27.01%  {'hcontortus': 1371}
+#2 Total processed cells: 1402  27.62%  {'hcontortus': 1402}
+#2 Total processed cells: 1433  28.23%  {'hcontortus': 1433}
+#2 Total processed cells: 1464  28.84%  {'hcontortus': 1464}
+#2 Total processed cells: 1494  29.43%  {'hcontortus': 1494}
+#2 Total processed cells: 1528  30.10%  {'hcontortus': 1528}
+#2 Total processed cells: 1548  30.50%  {'hcontortus': 1548}
+#2 Total processed cells: 1575  31.03%  {'hcontortus': 1575}
+#2 Total processed cells: 1595  31.42%  {'hcontortus': 1595}
+#2 Total processed cells: 1625  32.01%  {'hcontortus': 1625}
+#2 Total processed cells: 1651  32.53%  {'hcontortus': 1651}
+#2 Total processed cells: 1667  32.84%  {'hcontortus': 1667}
+#2 Total processed cells: 1680  33.10%  {'hcontortus': 1680}
+#2 Total processed cells: 1704  33.57%  {'hcontortus': 1704}
+#2 Total processed cells: 1729  34.06%  {'hcontortus': 1729}
+#2 Total processed cells: 1750  34.48%  {'hcontortus': 1750}
+#2 Total processed cells: 1773  34.93%  {'hcontortus': 1773}
+#2 Total processed cells: 1795  35.36%  {'hcontortus': 1795}
+#2 Total processed cells: 1821  35.87%  {'hcontortus': 1821}
+#2 Total processed cells: 1843  36.31%  {'hcontortus': 1843}
+#2 Total processed cells: 1870  36.84%  {'hcontortus': 1870}
+#2 Total processed cells: 1901  37.45%  {'hcontortus': 1901}
+#2 Total processed cells: 1914  37.71%  {'hcontortus': 1914}
+#2 Total processed cells: 1934  38.10%  {'hcontortus': 1934}
+#2 Total processed cells: 1948  38.38%  {'hcontortus': 1948}
+#2 Total processed cells: 1968  38.77%  {'hcontortus': 1968}
+#2 Total processed cells: 1987  39.14%  {'hcontortus': 1987}
+#2 Total processed cells: 2016  39.72%  {'hcontortus': 2016}
+#2 Total processed cells: 2037  40.13%  {'hcontortus': 2037}
+#2 Total processed cells: 2058  40.54%  {'hcontortus': 2058}
+#2 Total processed cells: 2089  41.15%  {'hcontortus': 2089}
+#2 Total processed cells: 2111  41.59%  {'hcontortus': 2111}
+#2 Total processed cells: 2134  42.04%  {'hcontortus': 2134}
+#2 Total processed cells: 2155  42.45%  {'hcontortus': 2155}
+#2 Total processed cells: 2173  42.81%  {'hcontortus': 2173}
+#2 Total processed cells: 2199  43.32%  {'hcontortus': 2199}
+#2 Total processed cells: 2219  43.72%  {'hcontortus': 2219}
+#2 Total processed cells: 2247  44.27%  {'hcontortus': 2247}
+#2 Total processed cells: 2264  44.60%  {'hcontortus': 2264}
+#2 Total processed cells: 2286  45.04%  {'hcontortus': 2286}
+#2 Total processed cells: 2307  45.45%  {'hcontortus': 2307}
+#2 Total processed cells: 2330  45.90%  {'hcontortus': 2330}
+#2 Total processed cells: 2346  46.22%  {'hcontortus': 2346}
+#2 Total processed cells: 2371  46.71%  {'hcontortus': 2371}
+#2 Total processed cells: 2391  47.10%  {'hcontortus': 2391}
+#2 Total processed cells: 2416  47.60%  {'hcontortus': 2416}
+#2 Total processed cells: 2439  48.05%  {'hcontortus': 2439}
+#2 Total processed cells: 2468  48.62%  {'hcontortus': 2468}
+#2 Total processed cells: 2489  49.03%  {'hcontortus': 2489}
+#2 Total processed cells: 2520  49.65%  {'hcontortus': 2520}
+#2 Total processed cells: 2548  50.20%  {'hcontortus': 2548}
+#2 Total processed cells: 2571  50.65%  {'hcontortus': 2571}
+#2 Total processed cells: 2594  51.10%  {'hcontortus': 2594}
+#2 Total processed cells: 2622  51.65%  {'hcontortus': 2622}
+#2 Total processed cells: 2647  52.15%  {'hcontortus': 2647}
+#2 Total processed cells: 2673  52.66%  {'hcontortus': 2673}
+#2 Total processed cells: 2695  53.09%  {'hcontortus': 2695}
+#2 Total processed cells: 2724  53.66%  {'hcontortus': 2724}
+#2 Total processed cells: 2745  54.08%  {'hcontortus': 2745}
+#2 Total processed cells: 2762  54.41%  {'hcontortus': 2762}
+#2 Total processed cells: 2783  54.83%  {'hcontortus': 2783}
+#2 Total processed cells: 2805  55.26%  {'hcontortus': 2805}
+#2 Total processed cells: 2824  55.63%  {'hcontortus': 2824}
+#2 Total processed cells: 2846  56.07%  {'hcontortus': 2846}
+#2 Total processed cells: 2873  56.60%  {'hcontortus': 2873}
+#2 Total processed cells: 2894  57.01%  {'hcontortus': 2894}
+#2 Total processed cells: 2920  57.53%  {'hcontortus': 2920}
+#2 Total processed cells: 2940  57.92%  {'hcontortus': 2940}
+#2 Total processed cells: 2962  58.35%  {'hcontortus': 2962}
+#2 Total processed cells: 2979  58.69%  {'hcontortus': 2979}
+#2 Total processed cells: 3001  59.12%  {'hcontortus': 3001}
+#2 Total processed cells: 3029  59.67%  {'hcontortus': 3029}
+#2 Total processed cells: 3052  60.13%  {'hcontortus': 3052}
+#2 Total processed cells: 3071  60.50%  {'hcontortus': 3071}
+#2 Total processed cells: 3095  60.97%  {'hcontortus': 3095}
+#2 Total processed cells: 3116  61.39%  {'hcontortus': 3116}
+#2 Total processed cells: 3132  61.70%  {'hcontortus': 3132}
+#2 Total processed cells: 3161  62.27%  {'hcontortus': 3161}
+#2 Total processed cells: 3187  62.79%  {'hcontortus': 3187}
+#2 Total processed cells: 3207  63.18%  {'hcontortus': 3207}
+#2 Total processed cells: 3224  63.51%  {'hcontortus': 3224}
+#2 Total processed cells: 3249  64.01%  {'hcontortus': 3249}
+#2 Total processed cells: 3278  64.58%  {'hcontortus': 3278}
+#2 Total processed cells: 3299  64.99%  {'hcontortus': 3299}
+#2 Total processed cells: 3320  65.41%  {'hcontortus': 3320}
+#2 Total processed cells: 3344  65.88%  {'hcontortus': 3344}
+#2 Total processed cells: 3372  66.43%  {'hcontortus': 3372}
+#2 Total processed cells: 3394  66.86%  {'hcontortus': 3394}
+#2 Total processed cells: 3411  67.20%  {'hcontortus': 3411}
+#2 Total processed cells: 3436  67.69%  {'hcontortus': 3436}
+#2 Total processed cells: 3455  68.07%  {'hcontortus': 3455}
+#2 Total processed cells: 3482  68.60%  {'hcontortus': 3482}
+#2 Total processed cells: 3498  68.91%  {'hcontortus': 3498}
+#2 Total processed cells: 3509  69.13%  {'hcontortus': 3509}
+#2 Total processed cells: 3520  69.35%  {'hcontortus': 3520}
+#2 Total processed cells: 3533  69.60%  {'hcontortus': 3533}
+#2 Total processed cells: 3546  69.86%  {'hcontortus': 3546}
+#2 Total processed cells: 3559  70.11%  {'hcontortus': 3559}
+#2 Total processed cells: 3572  70.37%  {'hcontortus': 3572}
+#2 Total processed cells: 3587  70.67%  {'hcontortus': 3587}
+#2 Total processed cells: 3600  70.92%  {'hcontortus': 3600}
+#2 Total processed cells: 3615  71.22%  {'hcontortus': 3615}
+#2 Total processed cells: 3628  71.47%  {'hcontortus': 3628}
+#2 Total processed cells: 3641  71.73%  {'hcontortus': 3641}
+#2 Total processed cells: 3658  72.06%  {'hcontortus': 3658}
+#2 Total processed cells: 3670  72.30%  {'hcontortus': 3670}
+#2 Total processed cells: 3684  72.58%  {'hcontortus': 3684}
+#2 Total processed cells: 3697  72.83%  {'hcontortus': 3697}
+#2 Total processed cells: 3710  73.09%  {'hcontortus': 3710}
+#2 Total processed cells: 3728  73.44%  {'hcontortus': 3728}
+#2 Total processed cells: 3744  73.76%  {'hcontortus': 3744}
+#2 Total processed cells: 3761  74.09%  {'hcontortus': 3761}
+#2 Total processed cells: 3773  74.33%  {'hcontortus': 3773}
+#2 Total processed cells: 3789  74.65%  {'hcontortus': 3789}
+#2 Total processed cells: 3804  74.94%  {'hcontortus': 3804}
+#2 Total processed cells: 3817  75.20%  {'hcontortus': 3817}
+#2 Total processed cells: 3838  75.61%  {'hcontortus': 3838}
+#2 Total processed cells: 3850  75.85%  {'hcontortus': 3850}
+#2 Total processed cells: 3861  76.06%  {'hcontortus': 3861}
+#2 Total processed cells: 3874  76.32%  {'hcontortus': 3874}
+#2 Total processed cells: 3890  76.64%  {'hcontortus': 3890}
+#2 Total processed cells: 3906  76.95%  {'hcontortus': 3906}
+#2 Total processed cells: 3920  77.23%  {'hcontortus': 3920}
+#2 Total processed cells: 3931  77.44%  {'hcontortus': 3931}
+#2 Total processed cells: 3931  77.44%  {'hcontortus': 3931}
+#2 Total processed cells: 3931  77.44%  {'hcontortus': 3931}
+#2 Total processed cells: 3931  77.44%  {'hcontortus': 3931}
+#2 Total processed cells: 3931  77.44%  {'hcontortus': 3931}
+#2 Total processed cells: 3931  77.44%  {'hcontortus': 3931}
+#2 Total processed cells: 3931  77.44%  {'hcontortus': 3931}
+#2 Total processed cells: 3939  77.60%  {'hcontortus': 3939}
+#2 Total processed cells: 3964  78.09%  {'hcontortus': 3964}
+#2 Total processed cells: 3995  78.70%  {'hcontortus': 3995}
+#2 Total processed cells: 4027  79.33%  {'hcontortus': 4027}
+#2 Total processed cells: 4057  79.93%  {'hcontortus': 4057}
+#2 Total processed cells: 4089  80.56%  {'hcontortus': 4089}
+#2 Total processed cells: 4126  81.28%  {'hcontortus': 4126}
+#2 Total processed cells: 4157  81.90%  {'hcontortus': 4157}
+#2 Total processed cells: 4190  82.55%  {'hcontortus': 4190}
+#2 Total processed cells: 4221  83.16%  {'hcontortus': 4221}
+#2 Total processed cells: 4263  83.98%  {'hcontortus': 4263}
+#2 Total processed cells: 4300  84.71%  {'hcontortus': 4300}
+#2 Total processed cells: 4334  85.38%  {'hcontortus': 4334}
+#2 Total processed cells: 4368  86.05%  {'hcontortus': 4368}
+#2 Total processed cells: 4408  86.84%  {'hcontortus': 4408}
+#2 Total processed cells: 4442  87.51%  {'hcontortus': 4442}
+#2 Total processed cells: 4472  88.10%  {'hcontortus': 4472}
+#2 Total processed cells: 4507  88.79%  {'hcontortus': 4507}
+#2 Total processed cells: 4543  89.50%  {'hcontortus': 4543}
+#2 Total processed cells: 4585  90.33%  {'hcontortus': 4585}
+#2 Total processed cells: 4609  90.80%  {'hcontortus': 4609}
+#2 Total processed cells: 4635  91.31%  {'hcontortus': 4635}
+#2 Total processed cells: 4676  92.12%  {'hcontortus': 4676}
+#2 Total processed cells: 4714  92.87%  {'hcontortus': 4714}
+#2 Total processed cells: 4749  93.56%  {'hcontortus': 4749}
+#2 Total processed cells: 4779  94.15%  {'hcontortus': 4779}
+#2 Total processed cells: 4808  94.72%  {'hcontortus': 4808}
+#2 Total processed cells: 4844  95.43%  {'hcontortus': 4844}
+#2 Total processed cells: 4877  96.08%  {'hcontortus': 4877}
+#2 Total processed cells: 4912  96.77%  {'hcontortus': 4912}
+#2 Total processed cells: 4946  97.44%  {'hcontortus': 4946}
+#2 Total processed cells: 4980  98.11%  {'hcontortus': 4980}
+#2 Total processed cells: 5015  98.80%  {'hcontortus': 5015}
+#2 Total processed cells: 5047  99.43%  {'hcontortus': 5047}
+#2 Total processed cells: 5076 100.00%  {'hcontortus': 5076}
+# Finalizing cell subsample count tables
+# Partitioning subsampled read counts for 4 samples
+#2 Read Dataframe: Dims 56 x 1, Mem 896Bb (896) from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/hcontortus_adult_female/report/sample_all_stats.csv
+#3 hcontortus_adult_female species='hcontortus' num_reads=91132757.569 species_num_cells=3497.0
+#3 hcontortus_adult_female species='hcontortus' species_prop=1.0 species_reads=91132757.569 reads_per_cell=26060.268106662854
+# Wrote 12 x 2 table to /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/hcontortus_adult_female/report/tscp_counts_subsampled.csv
+#2 SFR_SS_TSCP_CT Row_1_of_13        hcontortus
+#2 SFR_SS_TSCP_CT Row_2_of_13  0              0
+#2 SFR_SS_TSCP_CT Row_3_of_13  782           88
+#2 SFR_SS_TSCP_CT Row_4_of_13  1824         202
+#2 SFR_SS_TSCP_CT Row_5_of_13  2867         314
+#2 SFR_SS_TSCP_CT Row_6_of_13  4430         478
+# Wrote 12 x 2 table to /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/hcontortus_adult_female/report/gene_counts_subsampled.csv
+#2 SFR_SS_GENE_CT Row_1_of_13        hcontortus
+#2 SFR_SS_GENE_CT Row_2_of_13  0              0
+#2 SFR_SS_GENE_CT Row_3_of_13  782           70
+#2 SFR_SS_GENE_CT Row_4_of_13  1824         143
+#2 SFR_SS_GENE_CT Row_5_of_13  2867         206
+#2 SFR_SS_GENE_CT Row_6_of_13  4430         286
+#2 Read Dataframe: Dims 56 x 1, Mem 896Bb (896) from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/hcontortus_adult_male/report/sample_all_stats.csv
+#3 hcontortus_adult_male species='hcontortus' num_reads=15855989.841 species_num_cells=434.0
+#3 hcontortus_adult_male species='hcontortus' species_prop=1.0 species_reads=15855989.841 reads_per_cell=36534.538804147465
+# Wrote 12 x 2 table to /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/hcontortus_adult_male/report/tscp_counts_subsampled.csv
+#2 SFR_SS_TSCP_CT Row_1_of_13        hcontortus
+#2 SFR_SS_TSCP_CT Row_2_of_13  0              0
+#2 SFR_SS_TSCP_CT Row_3_of_13  1096         160
+#2 SFR_SS_TSCP_CT Row_4_of_13  2557         378
+#2 SFR_SS_TSCP_CT Row_5_of_13  4019         584
+#2 SFR_SS_TSCP_CT Row_6_of_13  6211         904
+# Wrote 12 x 2 table to /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/hcontortus_adult_male/report/gene_counts_subsampled.csv
+#2 SFR_SS_GENE_CT Row_1_of_13        hcontortus
+#2 SFR_SS_GENE_CT Row_2_of_13  0              0
+#2 SFR_SS_GENE_CT Row_3_of_13  1096         134
+#2 SFR_SS_GENE_CT Row_4_of_13  2557         263
+#2 SFR_SS_GENE_CT Row_5_of_13  4019         366
+#2 SFR_SS_GENE_CT Row_6_of_13  6211         504
+#2 Read Dataframe: Dims 56 x 1, Mem 896Bb (896) from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/hcontortus_L3/report/sample_all_stats.csv
+#3 hcontortus_L3 species='hcontortus' num_reads=23957891.673 species_num_cells=1145.0
+#3 hcontortus_L3 species='hcontortus' species_prop=1.0 species_reads=23957891.673 reads_per_cell=20923.922858515285
+# Wrote 12 x 2 table to /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/hcontortus_L3/report/tscp_counts_subsampled.csv
+#2 SFR_SS_TSCP_CT Row_1_of_13        hcontortus
+#2 SFR_SS_TSCP_CT Row_2_of_13  0              0
+#2 SFR_SS_TSCP_CT Row_3_of_13  628           47
+#2 SFR_SS_TSCP_CT Row_4_of_13  1465         108
+#2 SFR_SS_TSCP_CT Row_5_of_13  2302         165
+#2 SFR_SS_TSCP_CT Row_6_of_13  3557         251
+# Wrote 12 x 2 table to /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/hcontortus_L3/report/gene_counts_subsampled.csv
+#2 SFR_SS_GENE_CT Row_1_of_13        hcontortus
+#2 SFR_SS_GENE_CT Row_2_of_13  0              0
+#2 SFR_SS_GENE_CT Row_3_of_13  628           45
+#2 SFR_SS_GENE_CT Row_4_of_13  1465         100
+#2 SFR_SS_GENE_CT Row_5_of_13  2302         149
+#2 SFR_SS_GENE_CT Row_6_of_13  3557         216
+#2 Read Dataframe: Dims 56 x 4, Mem 2.24Kb (2240) from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/all-sample/report/sample_all_stats.csv
+#3 all-sample species='hcontortus' num_reads=130946639.084 species_num_cells=5076.0
+#3 all-sample species='hcontortus' species_prop=1.0 species_reads=130946639.084 reads_per_cell=25797.2102214342
+# Wrote 12 x 2 table to /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/all-sample/report/tscp_counts_subsampled.csv
+#2 SFR_SS_TSCP_CT Row_1_of_13        hcontortus
+#2 SFR_SS_TSCP_CT Row_2_of_13  0              0
+#2 SFR_SS_TSCP_CT Row_3_of_13  774           79
+#2 SFR_SS_TSCP_CT Row_4_of_13  1806         182
+#2 SFR_SS_TSCP_CT Row_5_of_13  2838         283
+#2 SFR_SS_TSCP_CT Row_6_of_13  4386         430
+# Wrote 12 x 2 table to /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/all-sample/report/gene_counts_subsampled.csv
+#2 SFR_SS_GENE_CT Row_1_of_13        hcontortus
+#2 SFR_SS_GENE_CT Row_2_of_13  0              0
+#2 SFR_SS_GENE_CT Row_3_of_13  774           66
+#2 SFR_SS_GENE_CT Row_4_of_13  1806         136
+#2 SFR_SS_GENE_CT Row_5_of_13  2838         199
+#2 SFR_SS_GENE_CT Row_6_of_13  4386         281
+#R MemStatus: SubSampling  21.1Gb proc, 713Mb rss, 20.4Gb vms, 3.8% usd, 4.15Tb avail
+#R DskStatus: SubSampling  '/nfs/' 5.29Pb total, 2.71Pb (51.23%) used, 2.31Pb (43.73%) free
+#P << Running SubSampling; Status True; Duration 0:01:29.83
+#P 
+#P >> Running Analysis
+#R MemStatus: Analysis  21.1Gb proc, 712Mb rss, 20.4Gb vms, 3.8% usd, 4.15Tb avail
+#R DskStatus: Analysis  '/nfs/' 5.29Pb total, 2.71Pb (51.23%) used, 2.31Pb (43.73%) free
+# 
+# Analysis processing sample (1 of 4) hcontortus_adult_female
+#R MemStatus: Analysis_samp_1  21.1Gb proc, 712Mb rss, 20.4Gb vms, 3.8% usd, 4.15Tb avail
+#2 Loaded anndata (3497, 19778) /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/hcontortus_adult_female/DGE_filtered/
+#2 Calling scanpy cluster (adata shape (3497, 19778))
+#R MemStatus: SCA_(3497,_19778)_function_scanpy_cluster_anndata_start,_rseed=42  21.3Gb proc, 819Mb rss, 20.5Gb vms, 3.8% usd, 4.15Tb avail
+#R MemStatus: SCA_(3497,_14820)_After_filter_and_normalize  21.3Gb proc, 842Mb rss, 20.5Gb vms, 3.8% usd, 4.15Tb avail
+#R MemStatus: SCA_(3497,_14820)_After_log1p  21.3Gb proc, 842Mb rss, 20.5Gb vms, 3.8% usd, 4.15Tb avail
+#R MemStatus: SCA_(3497,_14820)_After_highly_variable_genes  21.3Gb proc, 843Mb rss, 20.5Gb vms, 3.8% usd, 4.15Tb avail
+#R MemStatus: SCA_(3497,_14820)_After_scale_(max=10.0,_zero_center=False)  21.3Gb proc, 843Mb rss, 20.5Gb vms, 3.8% usd, 4.15Tb avail
+#2 PCA using 1873 highly variable genes
+#2 PCA irlbpy, n_comps 50
+#2 PCA via irlbpy, input shape (3497, 1873), n_comps=50, use_hv=True, zero_center=True
+#R MemStatus: SCA_(3497,_14820)_After_irlbpy;_Next_neighbors  21.4Gb proc, 845Mb rss, 20.6Gb vms, 3.8% usd, 4.15Tb avail
+#R MemStatus: SCA_(3497,_14820)_After_neighbors,_n_neighbors=50;_Next_umap  22.1Gb proc, 864Mb rss, 21.2Gb vms, 3.8% usd, 4.15Tb avail
+#R MemStatus: SCA_(3497,_14820)_After_umap,_min_dist=0.5  22.1Gb proc, 865Mb rss, 21.2Gb vms, 3.8% usd, 4.15Tb avail
+#2 Clustering (leiden)
+#R MemStatus: SCA_(3497,_14820)_After_clustering_leiden,_done  22.1Gb proc, 880Mb rss, 21.2Gb vms, 3.8% usd, 4.15Tb avail
+# Wrote 3497 x 4 table to /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/hcontortus_adult_female/report/cluster_assignment.csv
+#2 SFR_CLUST_ASSIGN Row_1_of_3499           cluster   umap_X  umap_Y
+#2 SFR_CLUST_ASSIGN Row_2_of_3499  bc_wells                         
+#2 SFR_CLUST_ASSIGN Row_3_of_3499  01_01_02       1    2.652  10.172
+#2 SFR_CLUST_ASSIGN Row_4_of_3499  01_01_08       2   -4.241   3.736
+#2 SFR_CLUST_ASSIGN Row_5_of_3499  01_01_09       3   -0.777  11.095
+#2 SFR_CLUST_ASSIGN Row_6_of_3499  01_01_18       4   -2.047    6.04
+# Getting gene enrichment table, 9 clusters, top 20 genes each
+#2 Collecting data for 9 clusters
+#2 Calculating enrichment stats
+# Wrote 180 x 9 table to /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/hcontortus_adult_female/report/cluster_diff_exp.csv
+#2 SFR_CLUST_DIFF_EXP Row_1_of_181      cluster              gene_id            gene_name      genome    score log2_FC   pct1     pct2    pval_adj
+#2 SFR_CLUST_DIFF_EXP Row_2_of_181  0         1        HCON_00060740        HCON_00060740  hcontortus   33.928   3.303  0.358    0.035  3.507e-128
+#2 SFR_CLUST_DIFF_EXP Row_3_of_181  1         1        HCON_00145530        HCON_00145530  hcontortus   30.998   3.234  0.222    0.023   2.785e-74
+#2 SFR_CLUST_DIFF_EXP Row_4_of_181  2         1        HCON_00083470        HCON_00083470  hcontortus   30.148   3.133  0.137    0.014   9.403e-45
+#2 SFR_CLUST_DIFF_EXP Row_5_of_181  3         1        HCON_00063290        HCON_00063290  hcontortus   25.541   3.333   0.32    0.042   1.008e-97
+#2 SFR_CLUST_DIFF_EXP Row_6_of_181  4         1        HCON_00139200        HCON_00139200  hcontortus   23.637   3.668  0.064    0.006   5.578e-22
+# 
+# Analysis processing sample (2 of 4) hcontortus_adult_male
+#R MemStatus: Analysis_samp_2  22.1Gb proc, 871Mb rss, 21.2Gb vms, 3.8% usd, 4.15Tb avail
+#2 Loaded anndata (434, 19778) /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/hcontortus_adult_male/DGE_filtered/
+#2 Calling scanpy cluster (adata shape (434, 19778))
+#R MemStatus: SCA_(434,_19778)_function_scanpy_cluster_anndata_start,_rseed=42  22.1Gb proc, 872Mb rss, 21.3Gb vms, 3.8% usd, 4.15Tb avail
+#R MemStatus: SCA_(434,_12447)_After_filter_and_normalize  22.1Gb proc, 872Mb rss, 21.3Gb vms, 3.8% usd, 4.15Tb avail
+#R MemStatus: SCA_(434,_12447)_After_log1p  22.1Gb proc, 872Mb rss, 21.3Gb vms, 3.8% usd, 4.15Tb avail
+#R MemStatus: SCA_(434,_12447)_After_highly_variable_genes  22.1Gb proc, 872Mb rss, 21.3Gb vms, 3.8% usd, 4.15Tb avail
+#R MemStatus: SCA_(434,_12447)_After_scale_(max=10.0,_zero_center=False)  22.1Gb proc, 872Mb rss, 21.3Gb vms, 3.8% usd, 4.15Tb avail
+#2 PCA using 3004 highly variable genes
+#2 PCA irlbpy, n_comps 50
+#2 PCA via irlbpy, input shape (434, 3004), n_comps=50, use_hv=True, zero_center=True
+#R MemStatus: SCA_(434,_12447)_After_irlbpy;_Next_neighbors  22.1Gb proc, 872Mb rss, 21.3Gb vms, 3.8% usd, 4.15Tb avail
+#R MemStatus: SCA_(434,_12447)_After_neighbors,_n_neighbors=50;_Next_umap  22.1Gb proc, 873Mb rss, 21.2Gb vms, 3.8% usd, 4.15Tb avail
+#R MemStatus: SCA_(434,_12447)_After_umap,_min_dist=0.5  22.1Gb proc, 873Mb rss, 21.2Gb vms, 3.8% usd, 4.15Tb avail
+#2 Clustering (leiden)
+#R MemStatus: SCA_(434,_12447)_After_clustering_leiden,_done  22.1Gb proc, 873Mb rss, 21.2Gb vms, 3.8% usd, 4.15Tb avail
+# Wrote 434 x 4 table to /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/hcontortus_adult_male/report/cluster_assignment.csv
+#2 SFR_CLUST_ASSIGN Row_1_of_436           cluster  umap_X  umap_Y
+#2 SFR_CLUST_ASSIGN Row_2_of_436  bc_wells                        
+#2 SFR_CLUST_ASSIGN Row_3_of_436  03_01_15       1   5.382   1.596
+#2 SFR_CLUST_ASSIGN Row_4_of_436  03_01_49       1   4.944   3.079
+#2 SFR_CLUST_ASSIGN Row_5_of_436  03_01_74       1   4.871   2.079
+#2 SFR_CLUST_ASSIGN Row_6_of_436  03_02_11       2  10.871  -1.174
+# Getting gene enrichment table, 8 clusters, top 20 genes each
+#2 Collecting data for 8 clusters
+#2 Calculating enrichment stats
+# Wrote 160 x 9 table to /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/hcontortus_adult_male/report/cluster_diff_exp.csv
+#2 SFR_CLUST_DIFF_EXP Row_1_of_161      cluster             gene_id           gene_name      genome    score log2_FC   pct1    pct2   pval_adj
+#2 SFR_CLUST_DIFF_EXP Row_2_of_161  0         1       HCON_00010580       HCON_00010580  hcontortus  485.742   6.461  0.752  0.0067  3.182e-60
+#2 SFR_CLUST_DIFF_EXP Row_3_of_161  1         1       HCON_00014140       HCON_00014140  hcontortus  484.103   6.203  0.788    0.01  3.298e-63
+#2 SFR_CLUST_DIFF_EXP Row_4_of_161  2         1       HCON_00007390       HCON_00007390  hcontortus  483.614    8.18  0.591       0  6.765e-46
+#2 SFR_CLUST_DIFF_EXP Row_5_of_161  3         1       HCON_00120150       HCON_00120150  hcontortus  450.369   8.119  0.555       0  1.652e-42
+#2 SFR_CLUST_DIFF_EXP Row_6_of_161  4         1       HCON_00050640       HCON_00050640  hcontortus  426.701   6.087  0.708    0.01  4.860e-55
+# 
+# Analysis processing sample (3 of 4) hcontortus_L3
+#R MemStatus: Analysis_samp_3  22.1Gb proc, 873Mb rss, 21.2Gb vms, 3.8% usd, 4.15Tb avail
+#2 Loaded anndata (1145, 19778) /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/hcontortus_L3/DGE_filtered/
+#2 Calling scanpy cluster (adata shape (1145, 19778))
+#R MemStatus: SCA_(1145,_19778)_function_scanpy_cluster_anndata_start,_rseed=42  22.1Gb proc, 873Mb rss, 21.3Gb vms, 3.8% usd, 4.15Tb avail
+#R MemStatus: SCA_(1145,_12374)_After_filter_and_normalize  22.1Gb proc, 877Mb rss, 21.3Gb vms, 3.8% usd, 4.15Tb avail
+#R MemStatus: SCA_(1145,_12374)_After_log1p  22.1Gb proc, 877Mb rss, 21.3Gb vms, 3.8% usd, 4.15Tb avail
+#R MemStatus: SCA_(1145,_12374)_After_highly_variable_genes  22.1Gb proc, 877Mb rss, 21.3Gb vms, 3.8% usd, 4.15Tb avail
+#R MemStatus: SCA_(1145,_12374)_After_scale_(max=10.0,_zero_center=False)  22.1Gb proc, 877Mb rss, 21.3Gb vms, 3.8% usd, 4.15Tb avail
+#2 PCA using 2343 highly variable genes
+#2 PCA irlbpy, n_comps 50
+#2 PCA via irlbpy, input shape (1145, 2343), n_comps=50, use_hv=True, zero_center=True
+#R MemStatus: SCA_(1145,_12374)_After_irlbpy;_Next_neighbors  22.1Gb proc, 877Mb rss, 21.3Gb vms, 3.8% usd, 4.15Tb avail
+#R MemStatus: SCA_(1145,_12374)_After_neighbors,_n_neighbors=50;_Next_umap  22.1Gb proc, 877Mb rss, 21.2Gb vms, 3.8% usd, 4.15Tb avail
+#R MemStatus: SCA_(1145,_12374)_After_umap,_min_dist=0.5  22.1Gb proc, 877Mb rss, 21.2Gb vms, 3.8% usd, 4.15Tb avail
+#2 Clustering (leiden)
+#R MemStatus: SCA_(1145,_12374)_After_clustering_leiden,_done  22.1Gb proc, 878Mb rss, 21.2Gb vms, 3.8% usd, 4.15Tb avail
+# Wrote 1145 x 4 table to /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/hcontortus_L3/report/cluster_assignment.csv
+#2 SFR_CLUST_ASSIGN Row_1_of_1147           cluster  umap_X umap_Y
+#2 SFR_CLUST_ASSIGN Row_2_of_1147  bc_wells                       
+#2 SFR_CLUST_ASSIGN Row_3_of_1147  12_01_12       1  10.653  3.812
+#2 SFR_CLUST_ASSIGN Row_4_of_1147  12_01_15       2  14.312  5.236
+#2 SFR_CLUST_ASSIGN Row_5_of_1147  12_01_24       3  17.439  7.138
+#2 SFR_CLUST_ASSIGN Row_6_of_1147  12_01_27       4  16.854  1.352
+# Getting gene enrichment table, 10 clusters, top 20 genes each
+#2 Collecting data for 10 clusters
+#2 Calculating enrichment stats
+# Wrote 200 x 9 table to /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/hcontortus_L3/report/cluster_diff_exp.csv
+#2 SFR_CLUST_DIFF_EXP Row_1_of_201      cluster              gene_id            gene_name      genome    score log2_FC   pct1     pct2   pval_adj
+#2 SFR_CLUST_DIFF_EXP Row_2_of_201  0         1        HCON_00027910        HCON_00027910  hcontortus  307.883   6.891  0.447   0.0046  1.972e-86
+#2 SFR_CLUST_DIFF_EXP Row_3_of_201  1         1        HCON_00086900        HCON_00086900  hcontortus   182.27   6.119  0.298   0.0055  9.906e-49
+#2 SFR_CLUST_DIFF_EXP Row_4_of_201  2         1        HCON_00086910        HCON_00086910  hcontortus  140.785   7.352  0.191  0.00091  1.014e-40
+#2 SFR_CLUST_DIFF_EXP Row_5_of_201  3         1        HCON_00135490        HCON_00135490  hcontortus  130.033   5.556  0.234   0.0064  1.359e-32
+#2 SFR_CLUST_DIFF_EXP Row_6_of_201  4         1        HCON_00086890        HCON_00086890  hcontortus  123.756   6.463  0.191   0.0018  1.524e-36
+# 
+# Analysis processing sample (4 of 4) all-sample
+#R MemStatus: Analysis_samp_4  22.1Gb proc, 878Mb rss, 21.2Gb vms, 3.8% usd, 4.15Tb avail
+#2 Loaded anndata (5076, 19778) /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/all-sample/DGE_filtered/
+#2 Calling scanpy cluster (adata shape (5076, 19778))
+#R MemStatus: SCA_(5076,_19778)_function_scanpy_cluster_anndata_start,_rseed=42  22.3Gb proc, 980Mb rss, 21.4Gb vms, 3.8% usd, 4.15Tb avail
+#R MemStatus: SCA_(5076,_16477)_After_filter_and_normalize  22.3Gb proc, 951Mb rss, 21.3Gb vms, 3.8% usd, 4.15Tb avail
+#R MemStatus: SCA_(5076,_16477)_After_log1p  22.3Gb proc, 951Mb rss, 21.3Gb vms, 3.8% usd, 4.15Tb avail
+#R MemStatus: SCA_(5076,_16477)_After_highly_variable_genes  22.3Gb proc, 974Mb rss, 21.4Gb vms, 3.8% usd, 4.15Tb avail
+#R MemStatus: SCA_(5076,_16477)_After_scale_(max=10.0,_zero_center=False)  22.3Gb proc, 974Mb rss, 21.4Gb vms, 3.8% usd, 4.15Tb avail
+#2 PCA using 2432 highly variable genes
+#2 PCA irlbpy, n_comps 50
+#2 PCA via irlbpy, input shape (5076, 2432), n_comps=50, use_hv=True, zero_center=True
+#R MemStatus: SCA_(5076,_16477)_After_irlbpy;_Next_neighbors  22.3Gb proc, 978Mb rss, 21.4Gb vms, 3.8% usd, 4.15Tb avail
+#R MemStatus: SCA_(5076,_16477)_After_neighbors,_n_neighbors=50;_Next_umap  22.5Gb proc, 979Mb rss, 21.5Gb vms, 3.8% usd, 4.15Tb avail
+#R MemStatus: SCA_(5076,_16477)_After_umap,_min_dist=0.5  22.5Gb proc, 979Mb rss, 21.5Gb vms, 3.8% usd, 4.15Tb avail
+#2 Clustering (leiden)
+#R MemStatus: SCA_(5076,_16477)_After_clustering_leiden,_done  22.5Gb proc, 980Mb rss, 21.5Gb vms, 3.8% usd, 4.15Tb avail
+# Wrote 5076 x 4 table to /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/all-sample/report/cluster_assignment.csv
+#2 SFR_CLUST_ASSIGN Row_1_of_5078           cluster   umap_X   umap_Y
+#2 SFR_CLUST_ASSIGN Row_2_of_5078  bc_wells                          
+#2 SFR_CLUST_ASSIGN Row_3_of_5078  01_01_02       5  -10.858   -2.328
+#2 SFR_CLUST_ASSIGN Row_4_of_5078  01_01_08       7   -9.528  -10.277
+#2 SFR_CLUST_ASSIGN Row_5_of_5078  01_01_09       5  -13.075     -2.6
+#2 SFR_CLUST_ASSIGN Row_6_of_5078  01_01_18       8   -8.078   -6.126
+# Getting gene enrichment table, 16 clusters, top 20 genes each
+#2 Collecting data for 16 clusters
+#2 Calculating enrichment stats
+# Wrote 320 x 9 table to /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/all-sample/report/cluster_diff_exp.csv
+#2 SFR_CLUST_DIFF_EXP Row_1_of_321      cluster              gene_id            gene_name      genome    score log2_FC   pct1     pct2    pval_adj
+#2 SFR_CLUST_DIFF_EXP Row_2_of_321  0         1        HCON_00022310        HCON_00022310  hcontortus  139.174   5.044   0.31    0.011  1.675e-101
+#2 SFR_CLUST_DIFF_EXP Row_3_of_321  1         1        HCON_00027910        HCON_00027910  hcontortus  108.826   5.079  0.214    0.008   5.403e-68
+#2 SFR_CLUST_DIFF_EXP Row_4_of_321  2         1        HCON_00020470        HCON_00020470  hcontortus   79.144   4.309  0.202    0.011   6.451e-47
+#2 SFR_CLUST_DIFF_EXP Row_5_of_321  3         1        HCON_00086900        HCON_00086900  hcontortus   72.764   5.557  0.131   0.0026   1.952e-62
+#2 SFR_CLUST_DIFF_EXP Row_6_of_321  4         1        HCON_00086910        HCON_00086910  hcontortus    70.82    6.61  0.107   0.0008   5.009e-79
+#R MemStatus: Analysis  22.3Gb proc, 866Mb rss, 21.4Gb vms, 3.8% usd, 4.15Tb avail
+#R DskStatus: Analysis  '/nfs/' 5.29Pb total, 2.71Pb (51.23%) used, 2.31Pb (43.72%) free
+#P << Running Analysis; Status True; Duration 0:01:14.69
+#P 
+#P >> Running Reports
+#R MemStatus: Reports  22.3Gb proc, 866Mb rss, 21.4Gb vms, 3.8% usd, 4.15Tb avail
+#R DskStatus: Reports  '/nfs/' 5.29Pb total, 2.71Pb (51.23%) used, 2.31Pb (43.72%) free
+# 
+# Report processing sample (1 of 4) hcontortus_adult_female
+#R MemStatus: Report_samp_1  22.3Gb proc, 866Mb rss, 21.4Gb vms, 3.8% usd, 4.15Tb avail
+#2 Loaded anndata (3497, 19778) from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/hcontortus_adult_female/DGE_filtered/
+#2 anndata needs norm10K layer; Filter min_cells=3 and normalize
+#2 Loaded analysis info from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/hcontortus_adult_female/report/analysis_process.json
+#2 Read Dataframe: Dims 3497 x 3, Mem 112Kb (111904) from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/hcontortus_adult_female/report/cluster_assignment.csv
+#2 Loaded umap cluster data (3497, 3) from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/hcontortus_adult_female/report/cluster_assignment.csv
+# No subsampling for umap; All 3497 cells plotted
+#2 Read Dataframe: Dims 56 x 1, Mem 896Bb (896) from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/hcontortus_adult_female/report/sample_all_stats.csv
+#2 Generating barcode rank plot
+#2 Read Dataframe: Dims 18370 x 1, Mem 294Kb (293920) from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/hcontortus_adult_female/report/tscp_counts.csv
+#2 Generating subsample saturation plots
+#2 Read Dataframe: Dims 12 x 1, Mem 192Bb (192) from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/hcontortus_adult_female/report/tscp_counts_subsampled.csv
+#2 Read Dataframe: Dims 12 x 1, Mem 192Bb (192) from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/hcontortus_adult_female/report/gene_counts_subsampled.csv
+#2 Generating plate figures
+#2 Read Dataframe: Dims 2 x 1, Mem 32Bb (32) from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/hcontortus_adult_female/report/tscp_median_by_rnd1_well.csv
+#2 Read Dataframe: Dims 2 x 1, Mem 32Bb (32) from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/hcontortus_adult_female/report/cell_counts_by_rnd1_well.csv
+#2 Read Dataframe: Dims 94 x 1, Mem 1.5Kb (1504) from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/hcontortus_adult_female/report/tscp_median_by_rnd2_well.csv
+#2 Read Dataframe: Dims 94 x 1, Mem 1.5Kb (1504) from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/hcontortus_adult_female/report/cell_counts_by_rnd2_well.csv
+#2 Read Dataframe: Dims 92 x 1, Mem 1.47Kb (1472) from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/hcontortus_adult_female/report/tscp_median_by_rnd3_well.csv
+#2 Read Dataframe: Dims 92 x 1, Mem 1.47Kb (1472) from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/hcontortus_adult_female/report/cell_counts_by_rnd3_well.csv
+#2 Rendering gene enrichment table (pb)
+#2 Read Dataframe: Dims 180 x 9, Mem 13.1Kb (13092) from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/hcontortus_adult_female/report/cluster_diff_exp.csv
+#2 Generating 6 umap cluster plot figures
+#2 Generating and saving umap cluster plot 'Cluster'
+#2 Not plotting single-valued 'Sample'
+#2 Not plotting single-valued 'Species'
+#2 Generating and saving umap cluster plot 'Gene_count'
+#2 Generating and saving umap cluster plot 'Tscp_count'
+#2 Generating and saving umap cluster plot 'Read_count'
+# Packaging norm10K DGE count data from (3497, 14820) matrix
+# Packaging auxilary count data from matrix
+#2 Using norm logo /software/conda/users/sd21/spipe_1.9.0/lib/python3.12/site-packages/splitpipe/templates/Parse_logo.png
+# New report html: /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/hcontortus_adult_female_analysis_summary.html
+# 
+# Report processing sample (2 of 4) hcontortus_adult_male
+#R MemStatus: Report_samp_2  22.5Gb proc, 978Mb rss, 21.6Gb vms, 3.5% usd, 4.16Tb avail
+#2 Loaded anndata (434, 19778) from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/hcontortus_adult_male/DGE_filtered/
+#2 anndata needs norm10K layer; Filter min_cells=3 and normalize
+#2 Loaded analysis info from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/hcontortus_adult_male/report/analysis_process.json
+#2 Read Dataframe: Dims 434 x 3, Mem 13.9Kb (13888) from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/hcontortus_adult_male/report/cluster_assignment.csv
+#2 Loaded umap cluster data (434, 3) from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/hcontortus_adult_male/report/cluster_assignment.csv
+# No subsampling for umap; All 434 cells plotted
+#2 Read Dataframe: Dims 56 x 1, Mem 896Bb (896) from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/hcontortus_adult_male/report/sample_all_stats.csv
+#2 Generating barcode rank plot
+#2 Read Dataframe: Dims 18068 x 1, Mem 289Kb (289088) from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/hcontortus_adult_male/report/tscp_counts.csv
+#2 Generating subsample saturation plots
+#2 Read Dataframe: Dims 12 x 1, Mem 192Bb (192) from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/hcontortus_adult_male/report/tscp_counts_subsampled.csv
+#2 Read Dataframe: Dims 12 x 1, Mem 192Bb (192) from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/hcontortus_adult_male/report/gene_counts_subsampled.csv
+#2 Generating plate figures
+#2 Read Dataframe: Dims 2 x 1, Mem 32Bb (32) from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/hcontortus_adult_male/report/tscp_median_by_rnd1_well.csv
+#2 Read Dataframe: Dims 2 x 1, Mem 32Bb (32) from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/hcontortus_adult_male/report/cell_counts_by_rnd1_well.csv
+#2 Read Dataframe: Dims 94 x 1, Mem 1.5Kb (1504) from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/hcontortus_adult_male/report/tscp_median_by_rnd2_well.csv
+#2 Read Dataframe: Dims 94 x 1, Mem 1.5Kb (1504) from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/hcontortus_adult_male/report/cell_counts_by_rnd2_well.csv
+#2 Read Dataframe: Dims 91 x 1, Mem 1.46Kb (1456) from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/hcontortus_adult_male/report/tscp_median_by_rnd3_well.csv
+#2 Read Dataframe: Dims 91 x 1, Mem 1.46Kb (1456) from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/hcontortus_adult_male/report/cell_counts_by_rnd3_well.csv
+#2 Rendering gene enrichment table (pb)
+#2 Read Dataframe: Dims 160 x 9, Mem 11.7Kb (11652) from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/hcontortus_adult_male/report/cluster_diff_exp.csv
+#2 Generating 6 umap cluster plot figures
+#2 Generating and saving umap cluster plot 'Cluster'
+#2 Not plotting single-valued 'Sample'
+#2 Not plotting single-valued 'Species'
+#2 Generating and saving umap cluster plot 'Gene_count'
+#2 Generating and saving umap cluster plot 'Tscp_count'
+#2 Generating and saving umap cluster plot 'Read_count'
+# Packaging norm10K DGE count data from (434, 12447) matrix
+# Packaging auxilary count data from matrix
+#2 Using norm logo /software/conda/users/sd21/spipe_1.9.0/lib/python3.12/site-packages/splitpipe/templates/Parse_logo.png
+# New report html: /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/hcontortus_adult_male_analysis_summary.html
+# 
+# Report processing sample (3 of 4) hcontortus_L3
+#R MemStatus: Report_samp_3  22.5Gb proc, 980Mb rss, 21.6Gb vms, 3.5% usd, 4.16Tb avail
+#2 Loaded anndata (1145, 19778) from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/hcontortus_L3/DGE_filtered/
+#2 anndata needs norm10K layer; Filter min_cells=3 and normalize
+#2 Loaded analysis info from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/hcontortus_L3/report/analysis_process.json
+#2 Read Dataframe: Dims 1145 x 3, Mem 36.6Kb (36640) from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/hcontortus_L3/report/cluster_assignment.csv
+#2 Loaded umap cluster data (1145, 3) from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/hcontortus_L3/report/cluster_assignment.csv
+# No subsampling for umap; All 1145 cells plotted
+#2 Read Dataframe: Dims 56 x 1, Mem 896Bb (896) from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/hcontortus_L3/report/sample_all_stats.csv
+#2 Generating barcode rank plot
+#2 Read Dataframe: Dims 9141 x 1, Mem 146Kb (146256) from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/hcontortus_L3/report/tscp_counts.csv
+#2 Generating subsample saturation plots
+#2 Read Dataframe: Dims 12 x 1, Mem 192Bb (192) from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/hcontortus_L3/report/tscp_counts_subsampled.csv
+#2 Read Dataframe: Dims 12 x 1, Mem 192Bb (192) from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/hcontortus_L3/report/gene_counts_subsampled.csv
+#2 Generating plate figures
+#2 Read Dataframe: Dims 1 x 1, Mem 16Bb (16) from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/hcontortus_L3/report/tscp_median_by_rnd1_well.csv
+#2 Read Dataframe: Dims 1 x 1, Mem 16Bb (16) from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/hcontortus_L3/report/cell_counts_by_rnd1_well.csv
+#2 Read Dataframe: Dims 94 x 1, Mem 1.5Kb (1504) from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/hcontortus_L3/report/tscp_median_by_rnd2_well.csv
+#2 Read Dataframe: Dims 94 x 1, Mem 1.5Kb (1504) from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/hcontortus_L3/report/cell_counts_by_rnd2_well.csv
+#2 Read Dataframe: Dims 92 x 1, Mem 1.47Kb (1472) from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/hcontortus_L3/report/tscp_median_by_rnd3_well.csv
+#2 Read Dataframe: Dims 92 x 1, Mem 1.47Kb (1472) from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/hcontortus_L3/report/cell_counts_by_rnd3_well.csv
+#2 Rendering gene enrichment table (pb)
+#2 Read Dataframe: Dims 200 x 9, Mem 14.5Kb (14532) from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/hcontortus_L3/report/cluster_diff_exp.csv
+#2 Generating 6 umap cluster plot figures
+#2 Generating and saving umap cluster plot 'Cluster'
+#2 Not plotting single-valued 'Sample'
+#2 Not plotting single-valued 'Species'
+#2 Generating and saving umap cluster plot 'Gene_count'
+#2 Generating and saving umap cluster plot 'Tscp_count'
+#2 Generating and saving umap cluster plot 'Read_count'
+# Packaging norm10K DGE count data from (1145, 12374) matrix
+# Packaging auxilary count data from matrix
+#2 Using norm logo /software/conda/users/sd21/spipe_1.9.0/lib/python3.12/site-packages/splitpipe/templates/Parse_logo.png
+# New report html: /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/hcontortus_L3_analysis_summary.html
+# 
+# Report processing sample (4 of 4) all-sample
+#R MemStatus: Report_samp_4  22.5Gb proc, 987Mb rss, 21.6Gb vms, 3.5% usd, 4.16Tb avail
+#2 Loaded anndata (5076, 19778) from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/all-sample/DGE_filtered/
+#2 anndata needs norm10K layer; Filter min_cells=3 and normalize
+#2 Loaded analysis info from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/all-sample/report/analysis_process.json
+#2 Read Dataframe: Dims 5076 x 3, Mem 162Kb (162432) from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/all-sample/report/cluster_assignment.csv
+#2 Loaded umap cluster data (5076, 3) from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/all-sample/report/cluster_assignment.csv
+# No subsampling for umap; All 5076 cells plotted
+#2 Read Dataframe: Dims 56 x 4, Mem 2.24Kb (2240) from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/all-sample/report/sample_all_stats.csv
+#2 Generating barcode rank plot
+#2 Read Dataframe: Dims 45579 x 1, Mem 729Kb (729264) from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/all-sample/report/tscp_counts.csv
+#2 Generating subsample saturation plots
+#2 Read Dataframe: Dims 12 x 1, Mem 192Bb (192) from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/all-sample/report/tscp_counts_subsampled.csv
+#2 Read Dataframe: Dims 12 x 1, Mem 192Bb (192) from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/all-sample/report/gene_counts_subsampled.csv
+#2 Generating plate figures
+#2 Read Dataframe: Dims 5 x 1, Mem 80Bb (80) from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/all-sample/report/tscp_median_by_rnd1_well.csv
+#2 Read Dataframe: Dims 5 x 1, Mem 80Bb (80) from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/all-sample/report/cell_counts_by_rnd1_well.csv
+#2 Read Dataframe: Dims 94 x 1, Mem 1.5Kb (1504) from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/all-sample/report/tscp_median_by_rnd2_well.csv
+#2 Read Dataframe: Dims 94 x 1, Mem 1.5Kb (1504) from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/all-sample/report/cell_counts_by_rnd2_well.csv
+#2 Read Dataframe: Dims 92 x 1, Mem 1.47Kb (1472) from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/all-sample/report/tscp_median_by_rnd3_well.csv
+#2 Read Dataframe: Dims 92 x 1, Mem 1.47Kb (1472) from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/all-sample/report/cell_counts_by_rnd3_well.csv
+#2 Rendering gene enrichment table (pb)
+#2 Read Dataframe: Dims 320 x 9, Mem 23.2Kb (23172) from /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/all-sample/report/cluster_diff_exp.csv
+#2 Generating 6 umap cluster plot figures
+#2 Generating and saving umap cluster plot 'Cluster'
+#2 Generating and saving umap cluster plot 'Sample'
+#2 Not plotting single-valued 'Species'
+#2 Generating and saving umap cluster plot 'Gene_count'
+#2 Generating and saving umap cluster plot 'Tscp_count'
+#2 Generating and saving umap cluster plot 'Read_count'
+# Packaging norm10K DGE count data from (5076, 16477) matrix
+# Packaging auxilary count data from matrix
+#2 Using norm logo /software/conda/users/sd21/spipe_1.9.0/lib/python3.12/site-packages/splitpipe/templates/Parse_logo.png
+# New report html: /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/all-sample_analysis_summary.html
+#R MemStatus: Reports  22.8Gb proc, 1.1Gb rss, 21.7Gb vms, 3.5% usd, 4.16Tb avail
+#R DskStatus: Reports  '/nfs/' 5.29Pb total, 2.71Pb (51.23%) used, 2.31Pb (43.72%) free
+#P << Running Reports; Status True; Duration 0:03:29.44
+#P 
+#P >> Running Clean
+#R MemStatus: Clean  22.8Gb proc, 1.1Gb rss, 21.7Gb vms, 3.5% usd, 4.16Tb avail
+#R DskStatus: Clean  '/nfs/' 5.29Pb total, 2.71Pb (51.23%) used, 2.31Pb (43.72%) free
+# Status:successfully (0 problems)
+# Creating zip archive; 8 files
+# Created new zip archive: /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/all_summaries.zip
+# Per sample clean up...
+#2 Checking to remove 9 working/temp files
+#2   Removed 9
+#2 Checking to remove 0 working/temp dirs
+#2   Removed 0
+#2 Compressing 3 files
+#2 Removing empty subdirs
+#2 Done; 1 empty subdirs removed
+#R MemStatus: Clean  22.8Gb proc, 1.1Gb rss, 21.7Gb vms, 3.5% usd, 4.16Tb avail
+#R DskStatus: Clean  '/nfs/' 5.29Pb total, 2.71Pb (51.23%) used, 2.31Pb (43.72%) free
+#P << Running Clean; Status True; Duration 0:00:04.86
+#P 
+# Saved barcode data /nfs/users/nfs_s/sd21/lustre_link/single-nuclei-rnaseq/protocol_optimisation/04_analysis/hcontortus_48240_1_2/process/barcode_data.csv
+#R MemStatus: Run_resource_summary
+#R wall_time:_1.00_hr
+#R cpu_eff:_0.23
+#R rss_peak:_22.3Gb
+#R pct_mem:_0.52%
+#R num_peak:_31
+#R avail_min:_3.8Tb  22.8Gb proc, 1.1Gb rss, 21.7Gb vms, 3.5% usd, 4.16Tb avail
+# Finished successfully (0 problems)
+# Time	Total elapsed split-pipe v1.9.0	0:59:03.27
+# Time	All done split-pipe v1.9.0	2026-10-10 17:56:49.463716+0
